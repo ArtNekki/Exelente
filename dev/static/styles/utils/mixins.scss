@@ -1,0 +1,75 @@
+@mixin size($a,$b: $a) {
+  width: $a;
+  height: $b;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin icon($name, $width, $height) {
+  background-image: url($png-icon + $name + ".png");
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat !important;
+
+	@media (-webkit-min-device-pixel-ratio: 2),
+				 (min-resolution: 192dpi) {
+		background-image: url($png-icon + $name + "@2x.png");
+	}
+
+  @media (-webkit-min-device-pixel-ratio: 3),
+				 (min-resolution: 288dpi) {
+		background-image: url($png-icon + $name + "@3x.png");
+	}
+
+  @media (-webkit-min-device-pixel-ratio: 4),
+         (min-resolution: 384dpi) {
+    background-image: url($png-icon + $name + "@4x.png");
+  }
+}
+
+@mixin bg-image($name, $ext) {
+  background-image: url($general-images + $name + "." + $ext);
+
+	@media (-webkit-min-device-pixel-ratio: 2),
+				 (min-resolution: 192dpi) {
+		background-image: url($general-images + $name + "@2x." + $ext);
+	}
+
+  @media (-webkit-min-device-pixel-ratio: 3),
+				 (min-resolution: 288dpi) {
+		background-image: url($general-images + $name + "@3x." + $ext);
+	}
+
+  @media (-webkit-min-device-pixel-ratio: 4),
+         (min-resolution: 384dpi) {
+    background-image: url($general-images + $name + "@4x." + $ext);
+  }
+}
+
+@mixin min-media($size, $orientation: "landscape") {
+  @media screen and (min-width: $size) and (orientation: $orientation) {
+    @content;
+  }
+}

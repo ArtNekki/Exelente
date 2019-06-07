@@ -1,0 +1,6 @@
+mixin search(mod)
+  form(class="search" action="#" autocomplete="off")
+    .search__main
+      input(type="text" name="search" class="search__field" placeholder="Поиск..." id="searchTrigger")
+      label(for="searchTrigger" class="search__open")
+        +icon("loop")

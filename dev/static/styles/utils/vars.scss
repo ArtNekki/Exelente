@@ -1,0 +1,35 @@
+// Colors
+$white: #ffffff;
+$black: #000000;
+
+// Theme Colors
+$main-color: #004391;
+$secondary-color: #DF5E16;
+
+$general-images: "../images/general/";
+$png-icon: "../images/icons/";
+
+// Fonts Family
+$base-font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+$secondary-font-family: "Bebas Neue", "Helvetica Neue", "Arial", sans-serif;
+
+// Font
+$base-font-size: 16px;
+
+// Widths
+$screen-xs:                   0;
+$screen-sm:                   480px;
+$screen-md:                   768px;
+$screen-lg:                   992px;
+$screen-xl:                   1200px;
+$screen-xxl:                  1800px;
+
+$container-sm:                100%;
+$container-md:                100%;
+$container-lg:                $screen-lg - 30;
+$container-xl:                $screen-xl - 30;
+$container-xxl:               $screen-xxl - 30;
+
+// Grid
+$grid-columns:                12;
+$grid-gutter-width:           30px;

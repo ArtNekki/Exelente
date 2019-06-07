@@ -1,0 +1,79 @@
+.main-nav {
+  display: flex;
+
+  &__list {
+    display: flex;
+  }
+
+  &__list--dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    padding: 22px 34px 18px 25px;
+    border: 1px solid $main-color;
+    border-top: none;
+    display: none;
+    background-color: $white;
+
+    .main-nav__item {
+      padding-left: 0;
+      margin-bottom: 5px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+
+    .main-nav__link {
+      font-size: 14px;
+      line-height: 26px;
+      color: $black;
+      text-transform: none;
+      white-space: nowrap;
+
+      &:hover {
+        color: $secondary-color;
+
+        &::before {
+          content: "";
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    &:not(:last-child) {
+      margin-right: 45px;
+    }
+
+    &:hover {
+      .main-nav__list--dropdown {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: "Bebas Neue";
+    // font-family: $secondary-font-family;
+    font-size: 16px;
+    line-height: 26px;
+    color: $white;
+    text-transform: uppercase;
+
+    &::before {
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      @include size(100%, 1px);
+      background-color: $secondary-color;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+header.header
+  .header__content.header__content--top
+    .header__container
+      .header__row
+        .header__col
+          .header__select-place
+            | select place
+          .header__toolbar
+            | тулбар
+  .header__content.header__content--main
+    .header__container
+      .header__row
+        .header__col
+          .header__left
+            +logo()
+            +search()
+          include ../main-nav/main-nav

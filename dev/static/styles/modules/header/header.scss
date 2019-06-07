@@ -1,0 +1,36 @@
+.header {
+
+  &__content {
+    &--top {
+      background-color: $white;
+    }
+
+    &--main {
+      background-color: $main-color;
+    }
+  }
+
+  &__container {
+    @include container();
+  }
+
+  &__row {
+      @include row();
+  }
+
+  &__col {
+    @include col();
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.logo {
+  display: inline-block;
+
+  svg {
+    fill: $white;
+    @include size(122px, 31px);
+  }
+}

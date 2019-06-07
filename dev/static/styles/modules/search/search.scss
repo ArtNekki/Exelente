@@ -1,0 +1,41 @@
+.search {
+
+  &__main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 250px;
+  }
+
+  &__field {
+    width: 0;
+    padding: 0;
+    padding-bottom: 2px;
+    border: none;
+    border-bottom: 1px solid $white;
+    background-color: transparent;
+    color: $white;
+    font-size: 10px;
+    line-height: 11px;
+    transition: width 0.5s ease-in;
+
+    &:focus {
+      width: 100%;
+    }
+
+    @include placeholder {
+      color: $white;
+    }
+  }
+
+  &__open {
+    position: relative;
+    top: -3px;
+    cursor: pointer;
+
+    svg {
+      @include size(18px);
+      fill: $white;
+    }
+  }
+}

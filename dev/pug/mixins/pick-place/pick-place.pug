@@ -1,0 +1,12 @@
+mixin pick-place()
+  form(class="pick-place" action="#" autocomplete="off")
+    .pick-place__search
+      input(type="text" name="pick-place-city" class="pick-place__field")
+      button(type="button" class="pick-place__close" data-pick-place-trigger)
+        +icon("close")
+    .pick-place__dropdown
+      ul.pick-place__list
+        li.pick-place__item.pick-place__item--active Губкин
+        li.pick-place__item Гудермес
+        li.pick-place__item Гуково
+        li.pick-place__item Гусь-Хрустальный

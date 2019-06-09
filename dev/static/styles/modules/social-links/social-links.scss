@@ -1,0 +1,27 @@
+.social-links {
+  font-size: 0;
+
+  &__label {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+    color: $main-color;
+  }
+
+  &__list {
+    margin-top: 19px;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  &__link svg {
+    @include size(40px);
+    fill: $main-color;
+  }
+}

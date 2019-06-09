@@ -1,7 +1,18 @@
+$mobile-trigger-size: 14px;
+
 .header {
+  // padding-left: 20px;
+  // padding-right: 10px;
+  background-color: red;
+
+  @include min-media($screen-lg) {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+  }
 
   &--pick-place-opened {
-    .header__logo {
+    .header__logo:not(.header__logo--mobile) {
       display: none;
     }
 
@@ -14,89 +25,302 @@
     }
   }
 
+  &__mobile-header {
+    background-color: $white;
+
+    @include min-media($screen-lg) {
+      display: none;
+    }
+  }
+
+  &__menu-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include size($mobile-trigger-size);
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include min-media($screen-lg) {
+      display: none;
+    }
+
+    & > span {
+      position: relative;
+      display: inline-block;
+      @include size($mobile-trigger-size, 2px);
+      background-color: $secondary-color;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        @include size($mobile-trigger-size, 2px);
+        background-color: $secondary-color;
+      }
+
+      &::before {
+        top: -5px;
+      }
+
+      &::after {
+        top: 5px;
+      }
+
+      .page--mobile-menu-opened & {
+        background: 0 0;
+        transition: background .3s .5s;
+      }
+
+      .page--mobile-menu-opened &::before,
+      .page--mobile-menu-opened &::after {
+        top: 0;
+        transition: top .3s,transform .3s .5s;
+      }
+
+      .page--mobile-menu-opened &::before {
+        transform: rotate3d(0,0,1,45deg);
+      }
+
+      .page--mobile-menu-opened &::after {
+        transform: rotate3d(0,0,1,-45deg);
+      }
+    }
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: $white;
+    overflow-y: auto;
+    padding-bottom: 60px;
+
+    .page--mobile-menu-opened & {
+      display: block;
+    }
+  }
+
+  &__main {
+    position: relative;
+    padding-left: $mobile-gutter;
+    padding-right: $mobile-gutter;
+
+    &--mobile-header {
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   &__content {
+    background-color: $white;
+
     &--top {
-      background-color: $white;
+
     }
 
     &--main {
-      background-color: $main-color;
+      @include min-media($screen-lg) {
+        background-color: $main-color;
+      }
     }
   }
 
   &__container {
-    @include container();
+    // @include container();
+    //
   }
 
   &__row {
-      @include row();
+      // @include row($grid-gutter-width, 46px);
   }
 
   &__col {
-    @include col();
-    min-height: 50px;
+    // @include col(xs, 12, $grid-columns, 46px);
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include min-media($screen-lg) {
+      flex-direction: row;
+      min-height: 50px;
+      justify-content: space-between;
+      flex-flow: nowrap;
+    }
 
     &--top {
-      align-items: center;
-      justify-content: flex-end;
+      flex-direction: row;
+
+      @include min-media($screen-lg) {
+        align-items: center;
+        justify-content: flex-end;
+      }
     }
   }
 
   &__tools {
-    position: relative;
-    display: flex;
-    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+
+    @include min-media($screen-md) {
+      position: relative;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__logo {
     margin-right: 15px;
+    display: none;
+
+    &--mobile {
+      position: relative;
+      left: -10px;
+      display: block;
+    }
   }
 
   &__pick-place {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100px;
+    left: $mobile-gutter;
+    right: $mobile-gutter;
+    bottom: 0;
     display: none;
+
+    @include min-media($screen-md) {
+      right: auto;
+      width: auto;
+    }
   }
 
   &__label {
-    font-size: 14px;
-    line-height: 19px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
     color: $main-color;
     cursor: pointer;
 
-    &.header__label--pick-place {
-      margin-left: 26px;
-      margin-right: auto;
+    @include min-media($screen-md) {
+      margin-top: 0;
+      font-size: 10px;
+      font-weight: 400;
+    }
 
-      svg {
-        margin-left: 0;
-        margin-right: 6px;
+    @include min-media($screen-lg) {
+      font-size: 14px;
+      line-height: 19px;
+    }
+
+    &--pick-place {
+      flex-basis: 100%;
+
+      @include min-media($screen-md) {
+        display: none;
+      }
+
+      @include min-media($screen-lg) {
+        margin-left: 26px;
+        margin-right: auto;
+        flex-basis: auto;
       }
     }
 
     &--contact {
+      display: none;
       margin-right: 40px;
       font-family: $secondary-font-family;
       font-size: 18px;
       line-height: 26px;
       color: $secondary-color;
+
+      @include min-media($screen-lg) {
+        display: block;
+      }
     }
 
     &--auth {
-      margin-right: 48px;
+      flex-basis: 100%;
+
+      @include min-media($screen-md) {
+        margin-right: 48px;
+        flex-basis: auto;
+      }
     }
 
     &--stars {
-      margin-right: 22px;
+      margin-right: 62px;
+
+      @include min-media($screen-md) {
+        margin-right: 22px;
+      }
     }
 
     svg {
-      margin-left: 6px;
-      @include size(17px, 15px);
-      fill: $main-color;
+      @include size(18px, 21px);
+      fill: $secondary-color;
+
+      @include min-media($screen-md) {
+        @include size(13px, 15px);
+        fill: $main-color;
+      }
     }
+
+    span {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include size(100%, 1px);
+        background-image: url($svg-icon + "line.svg");
+      }
+
+      &:first-child {
+        margin-right: 11px;
+      }
+
+      &:last-child {
+        margin-left: 11px;
+      }
+
+      @include min-media($screen-md) {
+        &:first-child {
+          margin-right: 6px;
+        }
+
+        &:last-child {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  &__search {
+    width: 100%;
+
+    @include min-media($screen-md) {
+      width: auto;
+    }
+  }
+
+  &__contacts {
+    margin-top: 91px;
   }
 }

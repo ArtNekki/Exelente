@@ -1,0 +1,39 @@
+.header-contacts {
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+    color: $main-color;
+  }
+
+  &__contact {
+    display: inline-block;
+    font-family: $secondary-font-family;
+    font-size: 34px;
+    line-height: 26px;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+
+  &__details {
+    display: block;
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 12px;
+    color: #888888;
+  }
+
+  &__social {
+    margin-top: 66px;
+  }
+}

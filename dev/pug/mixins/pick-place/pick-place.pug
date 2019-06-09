@@ -1,7 +1,7 @@
 mixin pick-place()
   form(class="pick-place" action="#" autocomplete="off")
     .pick-place__search
-      input(type="text" name="pick-place-city" class="pick-place__field")
+      input(type="text" name="pick-place-city" class="pick-place__field" placeholder="Название города")
       button(type="button" class="pick-place__close" data-pick-place-trigger)
         +icon("close")
     .pick-place__dropdown

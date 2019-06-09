@@ -1,0 +1,8 @@
+mixin social-links(items, mod)
+  div(class="social-links" + (mod ? " social-links--" + mod : ""))
+    span(class="social-links__label") Подписаться
+    ul(class="social-links__list")
+      each item in items
+        li(class="social-links__item")
+          a(href=item.link class="social-links__link")
+            +icon(item.name)

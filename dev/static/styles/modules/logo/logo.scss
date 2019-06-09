@@ -5,4 +5,11 @@
     fill: $white;
     @include size(122px, 31px);
   }
+
+  &--mobile {
+
+    svg {
+      fill: $main-color;
+    }
+  }
 }

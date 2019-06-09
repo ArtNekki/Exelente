@@ -1,31 +1,41 @@
-header.header.header--pick-place-opened
-  .header__content.header__content--top
-    .header__container
-      .header__row
-        .header__col.header__col--top
-          span(class="header__label header__label--pick-place" data-pick-place-trigger)
-            +icon("mark")
-            | Владивосток
-          a(href="tel:+78007377705" class="header__label header__label--contact")
-            | 8 800 737-77-05
-          a(href="#" class="header__label header__label--auth" )
-            | Вход/Регистрация
-            +icon("person")
-          a(href="#" class="header__label header__label--stars" )
-            | 10
-            +icon("star")
-          a(href="#" class="header__label header__label--cart" )
-            | 2500
-            +icon("cart")
-  .header__content.header__content--main
-    .header__container
-      .header__row
-        .header__col
-          .header__tools
-            .header__logo
-              +logo()
-            .header__search
-              +search()
-            .header__pick-place
-              +pick-place()
-          include ../main-nav/main-nav
+header.header
+    .header__mobile-header
+      .header__main.header__main--mobile-header
+        .header__logo.header__logo--mobile
+          +logo("mobile")
+        button(type="button" class="header__menu-trigger" data-mobile-menu-trigger)
+          span
+    .header__mobile-menu
+      .header__main
+        .header__content.header__content--top
+          .header__container
+            .header__row
+              .header__col.header__col--top
+                a(href="#" class="header__label header__label--pick-place" data-pick-place-trigger)
+                  +icon("mark")
+                  span Владивосток
+                a(href="tel:+78007377705" class="header__label header__label--contact")
+                  span 8 800 737-77-05
+                a(href="#" class="header__label header__label--auth" )
+                  +icon("person")
+                  span Вход/Регистрация
+                a(href="#" class="header__label header__label--stars" )
+                  span 10
+                  +icon("star")
+                a(href="#" class="header__label header__label--cart" )
+                  span 2500
+                  +icon("cart")
+        .header__content.header__content--main
+          .header__container
+            .header__row
+              .header__col
+                .header__tools
+                  .header__logo
+                    +logo()
+                  .header__search
+                    +search()
+                  .header__pick-place
+                    +pick-place()
+                include ../main-nav/main-nav
+                .header__contacts
+                  include ../header-contacts/header-contacts

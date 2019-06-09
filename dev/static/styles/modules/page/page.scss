@@ -1,14 +1,15 @@
 .page {
-  background-color: #cccccc;
+
   &__inner {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+
     height: 100%;
   }
 
-  &__content {
-    flex: 1 0 auto;
+  &--mobile-menu-opened {
+    overflow: hidden;
+
+    body {
+      position: fixed;
+    }
   }
 }

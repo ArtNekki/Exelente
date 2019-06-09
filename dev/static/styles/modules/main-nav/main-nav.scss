@@ -1,33 +1,47 @@
 .main-nav {
-  display: flex;
+  // display: flex;
 
   &__list {
     display: flex;
+    flex-direction: column;
+
+    @include min-media($screen-md) {
+      flex-direction: row;
+    }
   }
 
   &__list--dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 100;
-    padding: 22px 34px 18px 25px;
-    border: 1px solid $main-color;
-    border-top: none;
-    display: none;
-    background-color: $white;
+    margin-top: 22px;
+    margin-bottom: 52px;
+
+    @include min-media($screen-lg) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 100;
+      padding: 22px 34px 18px 25px;
+      border: 1px solid $main-color;
+      border-top: none;
+      display: none;
+      background-color: $white;
+    }
 
     .main-nav__item {
-      padding-left: 0;
-      margin-bottom: 5px;
+      @include min-media($screen-lg) {
+        padding-left: 0;
+        margin-bottom: 5px;
 
-      &:not(:last-child) {
-        margin-right: 0;
+        &:not(:last-child) {
+          margin-right: 0;
+        }
       }
     }
 
     .main-nav__link {
+      font-family: $base-font-family;
       font-size: 14px;
-      line-height: 26px;
+      line-height: 28px;
+      font-weight: 400;
       color: $black;
       text-transform: none;
       white-space: nowrap;
@@ -43,29 +57,32 @@
   }
 
   &__item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
 
-    &:not(:last-child) {
-      margin-right: 45px;
-    }
+    @include min-media($screen-lg) {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
 
-    &:hover {
-      .main-nav__list--dropdown {
-        display: block;
+      &:not(:last-child) {
+        margin-right: 45px;
+      }
+
+      &:hover {
+        .main-nav__list--dropdown {
+          display: block;
+        }
       }
     }
   }
 
   &__link {
     position: relative;
-    font-family: "Bebas Neue";
-    // font-family: $secondary-font-family;
-    font-size: 16px;
-    line-height: 26px;
-    color: $white;
+    font-family: $secondary-font-family;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 700;
+    color: $main-color;
     text-transform: uppercase;
 
     &::before {
@@ -74,6 +91,14 @@
       left: 0;
       @include size(100%, 1px);
       background-color: $secondary-color;
+    }
+
+    @include min-media($screen-md) {
+      font-size: 18px;
+    }
+
+    @include min-media($screen-xl) {
+      font-size: 16px;
     }
   }
 }

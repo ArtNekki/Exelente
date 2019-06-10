@@ -1,5 +1,6 @@
-$mobile-trigger-size: 14px;
+$mobile-trigger-size: 16px;
 $tablet-header-height: 110px;
+$mobile-header-height: 50px;
 
 .header {
 
@@ -131,7 +132,7 @@ $tablet-header-height: 110px;
 
   &__mobile-menu {
     position: fixed;
-    top: 50px;
+    top: $mobile-header-height;
     right: 0;
     bottom: 0;
     left: 0;
@@ -154,11 +155,11 @@ $tablet-header-height: 110px;
 
   &__main {
     position: relative;
-    padding-left: $mobile-gutter;
-    padding-right: $mobile-gutter;
+    padding-left: 34px;
+    padding-right: 25px;
 
     &--mobile-header {
-      height: 50px;
+      height: $mobile-header-height;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -256,7 +257,7 @@ $tablet-header-height: 110px;
 
   &__tools {
     margin-top: 50px;
-    margin-bottom: 70px;
+    // margin-bottom: 70px; ???
 
     @include min-media($screen-md) {
       position: relative;
@@ -277,7 +278,8 @@ $tablet-header-height: 110px;
 
     &--mobile {
       position: relative;
-      left: -10px;
+      left: -20px;
+      top: 2px;
       display: block;
     }
 
@@ -320,7 +322,6 @@ $tablet-header-height: 110px;
   }
 
   &__label {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -342,9 +343,11 @@ $tablet-header-height: 110px;
     }
 
     &--pick-place {
+      margin-top: 35px;
       flex-basis: 100%;
 
       @include min-media($screen-md) {
+        margin-top: 0;
         display: none;
       }
 
@@ -364,15 +367,21 @@ $tablet-header-height: 110px;
       line-height: 26px;
       color: $secondary-color;
 
+      @include min-media($screen-md) {
+        margin-top: 0;
+      }
+
       @include min-media($screen-lg) {
         display: block;
       }
     }
 
     &--auth {
+      margin-top: 58px;
       flex-basis: 100%;
 
       @include min-media($screen-md) {
+        margin-top: 0;
         margin-right: 48px;
         margin-left: 45px;
         flex-basis: auto;
@@ -380,10 +389,20 @@ $tablet-header-height: 110px;
     }
 
     &--stars {
+      margin-top: 51px;
       margin-right: 62px;
 
       @include min-media($screen-md) {
+        margin-top: 0;
         margin-right: 22px;
+      }
+    }
+
+    &--cart {
+      margin-top: 51px;
+
+      @include min-media($screen-md) {
+        margin-top: 0;
       }
     }
 
@@ -429,6 +448,11 @@ $tablet-header-height: 110px;
     }
   }
 
+  &__label-currency {
+    margin-right: 24px;
+    display: inline-block;
+  }
+
   &__search {
     width: 100%;
 
@@ -459,7 +483,7 @@ $tablet-header-height: 110px;
   }
 
   &__contacts {
-    margin-top: 91px;
+    margin-top: 75px;
 
     @include min-media($screen-md) {
       margin-top: 0;

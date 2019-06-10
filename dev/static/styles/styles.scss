@@ -7,11 +7,15 @@ html {
   font-family: $base-font-family;
   font-size: $base-font-size;
   height: 100%;
+  // background: url($general-images + "mobile.jpg") 0 0 no-repeat;
+  position: relative;
+  z-index: -1;
 }
 
 body {
   height: 100%;
   width: 100%;
+  opacity: 0.7;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -14,7 +14,7 @@ header.header
                 .header__logo.header__logo--tablet
                   +logo("tablet")
                 .header__search.header__search--tablet
-                  +search()
+                  +search("Tablet")
                 a(href="#" class="header__label header__label--pick-place" data-pick-place-trigger)
                   +icon("mark")
                   span Владивосток
@@ -36,10 +36,10 @@ header.header
             .header__row
               .header__col.header__col--main
                 .header__tools
-                  .header__logo
+                  .header__logo.header__logo--desktop
                     +logo()
-                  .header__search
-                    +search()
+                  .header__search.header__search--desktop
+                    +search("Main")
                   .header__pick-place
                     +pick-place()
                 include ../main-nav/main-nav

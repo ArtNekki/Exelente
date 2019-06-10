@@ -10,16 +10,24 @@ $tablet-header-height: 110px;
   }
 
   &--pick-place-opened {
-    .header__logo:not(.header__logo--mobile) {
+    .header__logo:not(.header__logo--mobile):not(.header__logo--tablet) {
       display: none;
     }
 
-    .header__search {
+    .header__search:not(.header__search--tablet) {
       display: none;
     }
 
     .header__pick-place {
       display: block;
+
+      @include min-media($screen-md) {
+        display: none;
+      }
+
+      @include min-media($screen-lg) {
+        display: block;
+      }
     }
   }
 
@@ -114,6 +122,10 @@ $tablet-header-height: 110px;
       @include min-media($screen-md) {
         display: flex;
       }
+
+      @include min-media($screen-lg) {
+        display: none;
+      }
     }
   }
 
@@ -135,6 +147,8 @@ $tablet-header-height: 110px;
     @include min-media($screen-md) {
       position: static;
       display: block;
+      padding-bottom: 0;
+      overflow-y: visible;
     }
   }
 
@@ -182,7 +196,12 @@ $tablet-header-height: 110px;
       }
 
       @include min-media($screen-lg) {
+        position: static;
+        display: block;
+        padding-top: 0;
+        padding-bottom: 0;
         background-color: $main-color;
+        overflow-y: visible;
       }
     }
   }
@@ -224,6 +243,10 @@ $tablet-header-height: 110px;
         align-items: center;
         justify-content: flex-end;
       }
+
+      @include min-media($screen-lg) {
+        min-height: 50px;
+      }
     }
 
     &--main {
@@ -248,17 +271,29 @@ $tablet-header-height: 110px;
     margin-right: 15px;
     display: none;
 
+    @include min-media($screen-md) {
+      margin-right: auto;
+    }
+
     &--mobile {
       position: relative;
       left: -10px;
       display: block;
     }
 
-    @include min-media($screen-md) {
-      margin-right: auto;
-
-      &--tablet {
+    &--tablet {
+      @include min-media($screen-md) {
         display: block;
+      }
+
+      @include min-media($screen-lg) {
+          display: none;
+      }
+    }
+
+    &--desktop {
+      @include min-media($screen-lg) {
+          display: block;
       }
     }
   }
@@ -269,11 +304,18 @@ $tablet-header-height: 110px;
     left: $mobile-gutter;
     right: $mobile-gutter;
     bottom: 0;
+    z-index: 10;
     display: none;
 
     @include min-media($screen-md) {
       right: auto;
       width: auto;
+    }
+
+    @include min-media($screen-lg) {
+      top: 0;
+      left: 0;
+      width: 250px;
     }
   }
 
@@ -307,8 +349,9 @@ $tablet-header-height: 110px;
       }
 
       @include min-media($screen-lg) {
-        margin-left: 26px;
+        // margin-left: 26px;
         margin-right: auto;
+        display: block;
         flex-basis: auto;
       }
     }
@@ -402,6 +445,17 @@ $tablet-header-height: 110px;
         display: block;
       }
     }
+
+    @include min-media($screen-lg) {
+      &--tablet {
+        display: none;
+      }
+
+      &--desktop {
+        margin-left: 40px;
+        display: block;
+      }
+    }
   }
 
   &__contacts {
@@ -414,6 +468,10 @@ $tablet-header-height: 110px;
       flex-shrink: 0;
       flex-grow: 0;
       order: -1;
+    }
+
+    @include min-media($screen-lg) {
+      display: none;
     }
   }
 }

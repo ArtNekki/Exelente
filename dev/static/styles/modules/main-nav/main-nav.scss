@@ -9,6 +9,10 @@
       flex-direction: row;
       flex-wrap: wrap;
     }
+
+    @include min-media($screen-md) {
+      min-height: 50px;
+    }
   }
 
   &__list--dropdown {
@@ -69,7 +73,9 @@
 
   &__item {
     @include min-media($screen-md) {
-      margin-right: 45px;
+      &:not(:last-child) {
+        margin-right: 45px;
+      }
 
       .main-nav__list--dropdown & {
         margin-right: 0;
@@ -120,8 +126,12 @@
       font-size: 18px;
     }
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-lg) {
+      margin-top: 0;
+      margin-bottom: 0;
       font-size: 16px;
+      color: $white;
+      font-weight: 400;
     }
   }
 }

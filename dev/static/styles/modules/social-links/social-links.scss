@@ -10,6 +10,10 @@
 
   &__list {
     margin-top: 19px;
+
+    @include min-media($screen-md) {
+      margin-top: 10px;
+    }
   }
 
   &__item {
@@ -18,10 +22,20 @@
     &:not(:last-child) {
       margin-right: 25px;
     }
+
+    @include min-media($screen-md) {
+      &:not(:last-child) {
+        margin-right: 22px;
+      }
+    }
   }
 
   &__link svg {
     @include size(40px);
     fill: $main-color;
+
+    @include min-media($screen-md) {
+      @include size(25px);
+    }
   }
 }

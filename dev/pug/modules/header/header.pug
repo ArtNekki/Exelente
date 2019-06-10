@@ -11,6 +11,10 @@ header.header
           .header__container
             .header__row
               .header__col.header__col--top
+                .header__logo.header__logo--tablet
+                  +logo("tablet")
+                .header__search.header__search--tablet
+                  +search()
                 a(href="#" class="header__label header__label--pick-place" data-pick-place-trigger)
                   +icon("mark")
                   span Владивосток
@@ -25,10 +29,12 @@ header.header
                 a(href="#" class="header__label header__label--cart" )
                   span 2500
                   +icon("cart")
+                button(type="button" class="header__menu-trigger header__menu-trigger--tablet" data-mobile-menu-trigger)
+                  span
         .header__content.header__content--main
           .header__container
             .header__row
-              .header__col
+              .header__col.header__col--main
                 .header__tools
                   .header__logo
                     +logo()

@@ -7,12 +7,15 @@
 
     @include min-media($screen-md) {
       flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 
   &__list--dropdown {
-    margin-top: 22px;
-    margin-bottom: 52px;
+
+    @include min-media($screen-md) {
+      margin-bottom: 0;
+    }
 
     @include min-media($screen-lg) {
       position: absolute;
@@ -27,6 +30,7 @@
     }
 
     .main-nav__item {
+
       @include min-media($screen-lg) {
         padding-left: 0;
         margin-bottom: 5px;
@@ -38,6 +42,8 @@
     }
 
     .main-nav__link {
+      margin-top: 0;
+      margin-bottom: 0;
       font-family: $base-font-family;
       font-size: 14px;
       line-height: 28px;
@@ -53,10 +59,22 @@
           content: "";
         }
       }
+
+      @include min-media($screen-md) {
+        font-size: 10px;
+        line-height: 24px;
+      }
     }
   }
 
   &__item {
+    @include min-media($screen-md) {
+      margin-right: 45px;
+
+      .main-nav__list--dropdown & {
+        margin-right: 0;
+      }
+    }
 
     @include min-media($screen-lg) {
       position: relative;
@@ -78,6 +96,9 @@
 
   &__link {
     position: relative;
+    margin-top: 42px;
+    margin-bottom: 22px;
+    display: inline-block;
     font-family: $secondary-font-family;
     font-size: 24px;
     line-height: 31px;
@@ -94,6 +115,8 @@
     }
 
     @include min-media($screen-md) {
+      margin-top: 15px;
+      margin-bottom: 10px;
       font-size: 18px;
     }
 

@@ -1,5 +1,11 @@
 .header-contacts {
 
+  @include min-media($screen-md) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   &__item {
 
     &:not(:last-child) {
@@ -14,6 +20,13 @@
     line-height: 21px;
     font-weight: 700;
     color: $main-color;
+
+    @include min-media($screen-md) {
+      margin-bottom: 0;
+      font-size: 10px;
+      line-height: 12px;
+      font-weight: 400;
+    }
   }
 
   &__contact {
@@ -23,17 +36,31 @@
     line-height: 26px;
     font-weight: 700;
     color: $secondary-color;
+
+    @include min-media($screen-md) {
+      font-size: 24px;
+      line-height: 26px;
+    }
   }
 
   &__details {
-    display: block;
     margin-top: 10px;
+    display: none;
     font-size: 10px;
     line-height: 12px;
     color: #888888;
+
+    @include min-media($screen-md) {
+      display: block;
+    }
   }
 
   &__social {
     margin-top: 66px;
+
+    @include min-media($screen-md) {
+      margin-top: auto;
+      padding-bottom: 8px;
+    }
   }
 }

@@ -1,9 +1,7 @@
 $mobile-trigger-size: 14px;
+$tablet-header-height: 110px;
 
 .header {
-  // padding-left: 20px;
-  // padding-right: 10px;
-  background-color: red;
 
   @include min-media($screen-lg) {
     padding-left: 0;
@@ -28,21 +26,32 @@ $mobile-trigger-size: 14px;
   &__mobile-header {
     background-color: $white;
 
+    @include min-media($screen-md) {
+      display: none;
+    }
+
     @include min-media($screen-lg) {
       display: none;
     }
   }
 
   &__menu-trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     @include size($mobile-trigger-size);
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    @include min-media($screen-md) {
+      @include size(50px);
+      background-color: $main-color;
+      margin-left: 45px;
+    }
 
     @include min-media($screen-lg) {
       display: none;
@@ -54,6 +63,10 @@ $mobile-trigger-size: 14px;
       @include size($mobile-trigger-size, 2px);
       background-color: $secondary-color;
 
+      @include min-media($screen-md) {
+        background-color: $white;
+      }
+
       &::before,
       &::after {
         content: "";
@@ -61,6 +74,10 @@ $mobile-trigger-size: 14px;
         left: 0;
         @include size($mobile-trigger-size, 2px);
         background-color: $secondary-color;
+
+        @include min-media($screen-md) {
+          background-color: $white;
+        }
       }
 
       &::before {
@@ -90,6 +107,14 @@ $mobile-trigger-size: 14px;
         transform: rotate3d(0,0,1,-45deg);
       }
     }
+
+    &--tablet {
+      display: none;
+
+      @include min-media($screen-md) {
+        display: flex;
+      }
+    }
   }
 
   &__mobile-menu {
@@ -106,6 +131,11 @@ $mobile-trigger-size: 14px;
     .page--mobile-menu-opened & {
       display: block;
     }
+
+    @include min-media($screen-md) {
+      position: static;
+      display: block;
+    }
   }
 
   &__main {
@@ -119,6 +149,11 @@ $mobile-trigger-size: 14px;
       justify-content: space-between;
       align-items: center;
     }
+
+    @include min-media($screen-md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &__content {
@@ -129,6 +164,23 @@ $mobile-trigger-size: 14px;
     }
 
     &--main {
+
+      @include min-media($screen-md) {
+        position: fixed;
+        top: $tablet-header-height;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        padding-top: 32px;
+        padding-bottom: 30px;
+        overflow-y: auto;
+
+        .page--mobile-menu-opened & {
+          display: block;
+        }
+      }
+
       @include min-media($screen-lg) {
         background-color: $main-color;
       }
@@ -136,22 +188,28 @@ $mobile-trigger-size: 14px;
   }
 
   &__container {
-    // @include container();
-    //
+    @include min-media($screen-md) {
+      @include container();
+    }
   }
 
   &__row {
-      // @include row($grid-gutter-width, 46px);
+      @include min-media($screen-md) {
+        @include row($grid-gutter-width, 46px);
+      }
   }
 
   &__col {
-    // @include col(xs, 12, $grid-columns, 46px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 
-    @include min-media($screen-lg) {
+    @include min-media($screen-md) {
+      @include col(xs, 12, $grid-columns, 100px);
       flex-direction: row;
+    }
+
+    @include min-media($screen-lg) {
       min-height: 50px;
       justify-content: space-between;
       flex-flow: nowrap;
@@ -160,10 +218,16 @@ $mobile-trigger-size: 14px;
     &--top {
       flex-direction: row;
 
-      @include min-media($screen-lg) {
+      @include min-media($screen-md) {
+        min-height: $tablet-header-height;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: flex-end;
       }
+    }
+
+    &--main {
+      flex-wrap: nowrap;
     }
   }
 
@@ -189,6 +253,14 @@ $mobile-trigger-size: 14px;
       left: -10px;
       display: block;
     }
+
+    @include min-media($screen-md) {
+      margin-right: auto;
+
+      &--tablet {
+        display: block;
+      }
+    }
   }
 
   &__pick-place {
@@ -209,6 +281,7 @@ $mobile-trigger-size: 14px;
     margin-top: 50px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     font-size: 18px;
     line-height: 26px;
     font-weight: 700;
@@ -258,6 +331,7 @@ $mobile-trigger-size: 14px;
 
       @include min-media($screen-md) {
         margin-right: 48px;
+        margin-left: 45px;
         flex-basis: auto;
       }
     }
@@ -315,12 +389,31 @@ $mobile-trigger-size: 14px;
   &__search {
     width: 100%;
 
+    &--tablet {
+      display: none;
+    }
+
     @include min-media($screen-md) {
-      width: auto;
+      display: none;
+
+      &--tablet {
+        max-width: 300px;
+        margin-left: 25px;
+        display: block;
+      }
     }
   }
 
   &__contacts {
     margin-top: 91px;
+
+    @include min-media($screen-md) {
+      margin-top: 0;
+      margin-right: 50px;
+      width: 175px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      order: -1;
+    }
   }
 }

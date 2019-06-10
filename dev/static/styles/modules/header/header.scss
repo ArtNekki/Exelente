@@ -302,7 +302,7 @@ $mobile-header-height: 50px;
 
   &__pick-place {
     position: absolute;
-    top: 100px;
+    top: 81px;
     left: $mobile-gutter;
     right: $mobile-gutter;
     bottom: 0;
@@ -415,42 +415,43 @@ $mobile-header-height: 50px;
         fill: $main-color;
       }
     }
+  }
 
-    span {
-      position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @include size(100%, 1px);
-        background-image: url($svg-icon + "line.svg");
-      }
+  &__label-text {
+    position: relative;
 
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      @include size(100%, 1px);
+      background-image: url($svg-icon + "line.svg");
+    }
+
+    &:first-child {
+      margin-right: 11px;
+    }
+
+    &:last-child {
+      margin-left: 13px;
+    }
+
+    @include min-media($screen-md) {
       &:first-child {
-        margin-right: 11px;
+        margin-right: 6px;
       }
 
       &:last-child {
-        margin-left: 11px;
-      }
-
-      @include min-media($screen-md) {
-        &:first-child {
-          margin-right: 6px;
-        }
-
-        &:last-child {
-          margin-left: 6px;
-        }
+        margin-left: 6px;
       }
     }
-  }
 
-  &__label-currency {
-    margin-right: 24px;
-    display: inline-block;
+    &--currency {
+      margin-right: 24px;
+      display: inline-block;
+    }
   }
 
   &__search {

@@ -21,7 +21,7 @@
       margin-bottom: 0;
     }
 
-    @include min-media($screen-lg) {
+    @include min-media($screen-xxl) {
       position: absolute;
       top: 100%;
       left: 0;
@@ -34,14 +34,13 @@
     }
 
     .main-nav__item {
+      @include min-media($screen-md) {
+        margin-bottom: 0;
+      }
 
-      @include min-media($screen-lg) {
+      @include min-media($screen-xxl) {
         padding-left: 0;
         margin-bottom: 5px;
-
-        &:not(:last-child) {
-          margin-right: 0;
-        }
       }
     }
 
@@ -72,9 +71,22 @@
   }
 
   &__item {
+    order: 1;
+
     @include min-media($screen-md) {
-      &:not(:last-child) {
-        margin-right: 45px;
+      margin-bottom: 10px;
+      min-width: 198px;
+
+      &--countries {
+        order: 2;
+      }
+
+      &--schools {
+        order: 3;
+      }
+
+      &--contacts {
+        order: 4;
       }
 
       .main-nav__list--dropdown & {
@@ -82,7 +94,7 @@
       }
     }
 
-    @include min-media($screen-lg) {
+    @include min-media($screen-xxl) {
       position: relative;
       display: flex;
       align-items: center;
@@ -112,6 +124,10 @@
     color: $main-color;
     text-transform: uppercase;
 
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+
     &::before {
       position: absolute;
       bottom: 3px;
@@ -121,12 +137,12 @@
     }
 
     @include min-media($screen-md) {
-      margin-top: 15px;
-      margin-bottom: 10px;
+      margin-top: 11px;
+      margin-bottom: 14px;
       font-size: 18px;
     }
 
-    @include min-media($screen-lg) {
+    @include min-media($screen-xxl) {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px;

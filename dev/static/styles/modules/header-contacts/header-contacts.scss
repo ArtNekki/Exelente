@@ -29,6 +29,10 @@
     }
   }
 
+  &__links {
+    margin-bottom: 15px;
+  }
+
   &__contact {
     display: inline-block;
     font-family: $secondary-font-family;
@@ -60,7 +64,7 @@
 
     @include min-media($screen-md) {
       margin-top: auto;
-      padding-bottom: 8px;
+      padding-bottom: 20px;
     }
   }
 }

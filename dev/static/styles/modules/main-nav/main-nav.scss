@@ -1,17 +1,21 @@
 .main-nav {
-  // display: flex;
+  @include min-media($screen-xl) {
+    flex-grow: 1;
+    max-width: 693px;
+  }
 
   &__list {
     display: flex;
     flex-direction: column;
 
     @include min-media($screen-md) {
+      min-height: 50px;
       flex-direction: row;
       flex-wrap: wrap;
     }
 
     @include min-media($screen-md) {
-      min-height: 50px;
+      justify-content: space-between;
     }
   }
 
@@ -21,12 +25,12 @@
       margin-bottom: 0;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       position: absolute;
       top: 100%;
-      left: 0;
+      left: -11px;
       z-index: 100;
-      padding: 22px 34px 18px 25px;
+      padding: 22px 42px 23px 17px;
       border: 1px solid $main-color;
       border-top: none;
       display: none;
@@ -38,9 +42,8 @@
         margin-bottom: 0;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         padding-left: 0;
-        margin-bottom: 5px;
       }
     }
 
@@ -55,17 +58,26 @@
       text-transform: none;
       white-space: nowrap;
 
-      &:hover {
-        color: $secondary-color;
-
-        &::before {
-          content: "";
-        }
+      @include hover-before() {
+        content: "";
       }
+
+      @include active-before() {
+        content: "";
+      }
+
+      // .main-nav__item--active > &::before {
+      //   content: "";
+      // }
 
       @include min-media($screen-md) {
         font-size: 10px;
         line-height: 24px;
+      }
+
+      @include min-media($screen-xl) {
+        font-size: 14px;
+        line-height: 26px;
       }
     }
   }
@@ -94,14 +106,24 @@
       }
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       position: relative;
+      margin-bottom: 0;
+      min-width: auto;
       display: flex;
       align-items: center;
-      padding-left: 10px;
+      // padding-left: 10px;
+
+      &--schools {
+        order: 1;
+      }
+
+      &--blog {
+        order: 3;
+      }
 
       &:not(:last-child) {
-        margin-right: 45px;
+        margin-right: 0;
       }
 
       &:hover {
@@ -136,13 +158,25 @@
       background-color: $secondary-color;
     }
 
+    @include hover() {
+      color: $secondary-color;
+    }
+
+    @include active() {
+      color: $secondary-color;
+    }
+
+    .main-nav__item--active > & {
+      color: $secondary-color;
+    }
+
     @include min-media($screen-md) {
       margin-top: 11px;
       margin-bottom: 14px;
       font-size: 18px;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px;

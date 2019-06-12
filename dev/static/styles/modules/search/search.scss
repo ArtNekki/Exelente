@@ -34,7 +34,7 @@
       }
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       width: 0;
       font-size: 10px;
       line-height: 11px;
@@ -68,7 +68,7 @@
         @include size(14px);
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         fill: $white;
       }
     }

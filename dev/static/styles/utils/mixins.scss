@@ -73,3 +73,46 @@
     @content;
   }
 }
+
+@mixin hover {
+  html:not(.touch) & {
+
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover-before {
+  html:not(.touch) & {
+
+    &:hover::before {
+      @content;
+    }
+  }
+}
+
+@mixin hover-after {
+  html:not(.touch) & {
+
+    &:hover::after {
+      @content;
+    }
+  }
+}
+
+@mixin active {
+  &:active,
+  &:focus,
+  &--active {
+    @content;
+  }
+}
+
+@mixin active-before {
+  &:active::before,
+  &:focus::before,
+  &--active::before {
+    @content;
+  }
+}

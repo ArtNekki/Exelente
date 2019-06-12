@@ -13,8 +13,11 @@
 
     }
 
-    @include min-media($screen-xxl) {
-
+    @include min-media($screen-xl) {
+      height: 50px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 27px;
     }
   }
 
@@ -51,9 +54,14 @@
     position: absolute;
     top: 100%;
     left: 0;
-    @include size(100%, 150px);
+    @include size(100%, 151px);
     padding: 17px 21px 17px 19px;
-    background-color: $white;
+    background-color: red;
+
+    @include min-media($screen-xl) {
+      padding-top: 6px;
+      padding-left: 27px;
+    }
   }
 
   &__list {
@@ -69,6 +77,11 @@
     &--active {
       color: $main-color;
       font-weight: 700;
+    }
+
+    @include min-media($screen-xl) {
+      font-size: 16px;
+      line-height: 32px;
     }
   }
 }

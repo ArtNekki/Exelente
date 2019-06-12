@@ -4,7 +4,7 @@ $mobile-header-height: 50px;
 
 .header {
 
-  @include min-media($screen-xxl) {
+  @include min-media($screen-xl) {
     padding-left: 0;
     padding-right: 0;
     background-color: transparent;
@@ -26,7 +26,7 @@ $mobile-header-height: 50px;
         display: none;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         display: block;
       }
     }
@@ -39,7 +39,7 @@ $mobile-header-height: 50px;
       display: none;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       display: none;
     }
   }
@@ -64,7 +64,7 @@ $mobile-header-height: 50px;
       background-color: $main-color;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       display: none;
     }
 
@@ -126,7 +126,7 @@ $mobile-header-height: 50px;
         display: flex;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         display: none;
       }
     }
@@ -176,10 +176,6 @@ $mobile-header-height: 50px;
   &__content {
     background-color: $white;
 
-    &--top {
-
-    }
-
     &--main {
 
       @include min-media($screen-md) {
@@ -198,7 +194,7 @@ $mobile-header-height: 50px;
         }
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         position: static;
         display: block;
         padding-top: 0;
@@ -226,15 +222,16 @@ $mobile-header-height: 50px;
     flex-wrap: wrap;
     flex-direction: column;
     @include col(md, 12, $grid-columns, 60px);
+    @include col(xl, 12, $grid-columns, 40px);
 
     @include min-media($screen-md) {
       flex-direction: row;
     }
 
-    @include min-media($screen-xxl) {
-      min-height: 50px;
+    @include min-media($screen-xl) {
       justify-content: space-between;
       flex-flow: nowrap;
+      // padding-right: 25px; //WTF
     }
 
     &--top {
@@ -247,7 +244,7 @@ $mobile-header-height: 50px;
         justify-content: flex-end;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
         min-height: 50px;
       }
     }
@@ -292,13 +289,13 @@ $mobile-header-height: 50px;
         top: 9px;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
           display: none;
       }
     }
 
     &--desktop {
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
           display: block;
       }
     }
@@ -318,10 +315,10 @@ $mobile-header-height: 50px;
       width: auto;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       top: 0;
       left: 0;
-      width: 250px;
+      width: 251px;
     }
   }
 
@@ -335,13 +332,21 @@ $mobile-header-height: 50px;
     color: $main-color;
     cursor: pointer;
 
+    @include hover() {
+      opacity: 0.8;
+    }
+
+    @include active() {
+      opacity: 0.8;
+    }
+
     @include min-media($screen-md) {
       margin-top: 0;
       font-size: 10px;
       font-weight: 400;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       font-size: 14px;
       line-height: 19px;
     }
@@ -350,13 +355,21 @@ $mobile-header-height: 50px;
       margin-top: 35px;
       flex-basis: 100%;
 
+      .header--pick-place-opened & {
+        color: $secondary-color;
+
+        svg {
+          fill: $secondary-color;
+        }
+      }
+
       @include min-media($screen-md) {
         margin-top: 0;
         display: none;
       }
 
-      @include min-media($screen-xxl) {
-        // margin-left: 26px;
+      @include min-media($screen-xl) {
+        margin-left: 24px;
         margin-right: auto;
         display: block;
         flex-basis: auto;
@@ -365,7 +378,6 @@ $mobile-header-height: 50px;
 
     &--contact {
       display: none;
-      margin-right: 40px;
       font-family: $secondary-font-family;
       font-size: 18px;
       line-height: 26px;
@@ -375,7 +387,8 @@ $mobile-header-height: 50px;
         margin-top: 0;
       }
 
-      @include min-media($screen-xxl) {
+      @include min-media($screen-xl) {
+        margin-right: 32px;
         display: block;
       }
     }
@@ -395,6 +408,11 @@ $mobile-header-height: 50px;
           margin-right: 10px;
         }
       }
+
+      @include min-media($screen-xl) {
+        margin-right: 47px;
+        margin-left: 0;
+      }
     }
 
     &--stars {
@@ -404,6 +422,18 @@ $mobile-header-height: 50px;
       @include min-media($screen-md) {
         margin-top: 0;
         margin-right: 8px;
+      }
+
+      @include min-media($screen-xl) {
+        margin-right: 21px;
+      }
+    }
+
+    &.header__label--stars {
+      @include min-media($screen-xl) {
+        svg {
+          @include size(18px, 18px);
+        }
       }
     }
 
@@ -421,6 +451,11 @@ $mobile-header-height: 50px;
 
       @include min-media($screen-md) {
         @include size(13px, 15px);
+        fill: $main-color;
+      }
+
+      @include min-media($screen-xl) {
+        @include size(15px, 15px);
         fill: $main-color;
       }
     }
@@ -454,6 +489,16 @@ $mobile-header-height: 50px;
 
       &:last-child {
         margin-left: 6px;
+      }
+    }
+
+    @include min-media($screen-xl) {
+      &:first-child {
+        margin-right: 9px;
+      }
+
+      &:last-child {
+        margin-left: 9px;
       }
     }
 
@@ -491,7 +536,7 @@ $mobile-header-height: 50px;
       }
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       &--tablet {
         display: none;
       }
@@ -515,7 +560,7 @@ $mobile-header-height: 50px;
       order: -1;
     }
 
-    @include min-media($screen-xxl) {
+    @include min-media($screen-xl) {
       display: none;
     }
   }

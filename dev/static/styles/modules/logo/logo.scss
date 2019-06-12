@@ -7,14 +7,12 @@
   }
 
   &--mobile {
-
     svg {
       fill: $main-color;
     }
   }
 
   &--tablet {
-
     svg {
       @include size(200px, 50px);
       fill: $main-color;

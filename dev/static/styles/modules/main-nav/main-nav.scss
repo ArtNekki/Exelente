@@ -17,67 +17,23 @@
     @include min-media($screen-md) {
       justify-content: space-between;
     }
-  }
 
-  &__list--dropdown {
+    &--dropdown {
 
-    @include min-media($screen-md) {
-      margin-bottom: 0;
-    }
-
-    @include min-media($screen-xl) {
-      position: absolute;
-      top: 100%;
-      left: -11px;
-      z-index: 100;
-      padding: 22px 42px 23px 17px;
-      border: 1px solid $main-color;
-      border-top: none;
-      display: none;
-      background-color: $white;
-    }
-
-    .main-nav__item {
       @include min-media($screen-md) {
         margin-bottom: 0;
       }
 
       @include min-media($screen-xl) {
-        padding-left: 0;
-      }
-    }
-
-    .main-nav__link {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-family: $base-font-family;
-      font-size: 14px;
-      line-height: 28px;
-      font-weight: 400;
-      color: $black;
-      text-transform: none;
-      white-space: nowrap;
-
-      @include hover-before() {
-        content: "";
-      }
-
-      @include active-before() {
-        content: "";
-      }
-
-      // .main-nav__item--active > &::before {
-      //   content: "";
-      // }
-
-      @include min-media($screen-md) {
-        font-size: 10px;
-        line-height: 24px;
-      }
-
-      @include min-media($screen-xl) {
-        font-size: 14px;
-        line-height: 26px;
+        position: absolute;
+        top: 100%;
+        left: -11px;
+        z-index: 100;
+        padding: 22px 42px 23px 17px;
+        border: 1px solid $main-color;
+        border-top: none;
+        display: none;
+        background-color: $white;
       }
     }
   }
@@ -112,7 +68,6 @@
       min-width: auto;
       display: flex;
       align-items: center;
-      // padding-left: 10px;
 
       &--schools {
         order: 1;
@@ -130,6 +85,16 @@
         .main-nav__list--dropdown {
           display: block;
         }
+      }
+    }
+
+    .main-nav__list--dropdown & {
+      @include min-media($screen-md) {
+        margin-bottom: 0;
+      }
+
+      @include min-media($screen-xl) {
+        padding-left: 0;
       }
     }
   }
@@ -182,6 +147,40 @@
       font-size: 16px;
       color: $white;
       font-weight: 400;
+    }
+
+    .main-nav__list--dropdown & {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: $base-font-family;
+      font-size: 14px;
+      line-height: 28px;
+      font-weight: 400;
+      color: $black;
+      text-transform: none;
+      white-space: nowrap;
+
+      @include hover-before() {
+        content: "";
+      }
+
+      @include active-before() {
+        content: "";
+      }
+
+      // .main-nav__item--active > &::before {
+      //   content: "";
+      // }
+
+      @include min-media($screen-md) {
+        font-size: 10px;
+        line-height: 24px;
+      }
+
+      @include min-media($screen-xl) {
+        font-size: 14px;
+        line-height: 26px;
+      }
     }
   }
 }

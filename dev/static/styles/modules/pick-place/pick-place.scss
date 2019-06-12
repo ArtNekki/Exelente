@@ -9,10 +9,6 @@
     padding: 9px 21px 11px 19px;
     background-color: $gray;
 
-    @include min-media($screen-md) {
-
-    }
-
     @include min-media($screen-xl) {
       height: 50px;
       padding-top: 15px;

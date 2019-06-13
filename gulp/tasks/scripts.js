@@ -5,6 +5,7 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const sourcemaps = require('gulp-sourcemaps');
 const rollup = require('gulp-better-rollup');
+const replace = require('rollup-plugin-replace');
 const terser =  require('rollup-plugin-terser').terser;
 const scriptsPATH = {
     "input": "./dev/static/js/main.js",
@@ -22,7 +23,10 @@ $.gulp.task('scripts', function () {
         resolve({browser: true}),
         commonjs(),
         babel(),
-        terser()
+        terser(),
+        replace({
+          'process.env.NODE_ENV': JSON.stringify( 'production' )
+        })
       ]
     }, 'iife'))
     .pipe(sourcemaps.write(''))

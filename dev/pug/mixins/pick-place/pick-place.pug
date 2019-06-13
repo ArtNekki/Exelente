@@ -5,11 +5,12 @@ mixin pick-place()
       button(type="button" class="pick-place__close" data-pick-place-trigger)
         +icon("close")
     .pick-place__dropdown
-      ul.pick-place__list
-        li.pick-place__item.pick-place__item--active Губкин
-        li.pick-place__item Гудермес
-        li.pick-place__item Гуково
-        li.pick-place__item Гусь-Хрустальный
-        li.pick-place__item Гудермес
-        li.pick-place__item Гуково
-        li.pick-place__item Гусь-Хрустальный
+      +baron("baron-demo", 'scrolling, dragging, scrollbar')
+        ul.pick-place__list
+          li.pick-place__item.pick-place__item--active Губкин
+          li.pick-place__item Гудермес
+          li.pick-place__item Гуково
+          li.pick-place__item Гусь-Хрустальный
+          li.pick-place__item Гудермес
+          li.pick-place__item Гуково
+          li.pick-place__item Гусь-Хрустальный

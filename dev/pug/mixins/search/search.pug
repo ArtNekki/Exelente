@@ -1,5 +1,5 @@
 mixin search(id, mod)
-  form(class="search" action="#" autocomplete="off")
+  form(class="search" + (mod ? " search--" + mod : "") action="#" autocomplete="off")
     .search__main
       input(type="text" name="search" class="search__field" placeholder="Поиск..." id="searchTrigger" + id)
       label(for="searchTrigger" + id class="search__open")

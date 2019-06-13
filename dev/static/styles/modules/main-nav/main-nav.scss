@@ -1,4 +1,12 @@
 .main-nav {
+  .header--pick-place-opened & {
+    display: none;
+
+    @include min-media($screen-md) {
+      display: block;
+    }
+  }
+
   @include min-media($screen-xl) {
     flex-grow: 1;
     max-width: 693px;
@@ -110,8 +118,26 @@
     .main-nav__list--dropdown & {
 
       @include min-media($screen-sm) {
+        display: inline-block;
         width: auto;
         margin-bottom: 0;
+
+        &::after {
+          content: ",";
+          color: $secondary-color;
+        }
+
+        &:last-child::after {
+          content: "";
+        }
+      }
+
+      @include min-media($screen-md) {
+        display: block;
+
+        &::after {
+          display: none;
+        }
       }
 
       @include min-media($screen-xl) {

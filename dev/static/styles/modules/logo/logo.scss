@@ -7,15 +7,22 @@
   }
 
   &--mobile {
-    svg {
-      fill: $main-color;
+    .page--mobile-menu-opened & {
+      svg {
+        fill: $main-color;
+      }
     }
   }
 
   &--tablet {
     svg {
       @include size(200px, 50px);
-      fill: $main-color;
+    }
+
+    .page--mobile-menu-opened & {
+      svg {
+        fill: $main-color;
+      }
     }
   }
 }

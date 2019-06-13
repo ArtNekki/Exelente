@@ -50,27 +50,32 @@
     position: absolute;
     top: 100%;
     left: 0;
-    @include size(100%, 151px);
+    @include size(100%, calc(100vh - 250px));
     padding: 17px 21px 17px 19px;
     background-color: red;
 
+    @include min-media($screen-sm) {
+      height: calc(100vh - 182px)
+    }
+
     @include min-media($screen-xl) {
+      height: 151px;
       padding-top: 6px;
       padding-left: 27px;
     }
   }
 
-  &__list {
-    height: 100%;
-    overflow-y: auto;
-  }
-
   &__item {
+    display: block;
     font-size: 18px;
     line-height: 30px;
     cursor: pointer;
 
-    &--active {
+    @include hover {
+      color: $main-color;
+    }
+
+    @include active {
       color: $main-color;
       font-weight: 700;
     }

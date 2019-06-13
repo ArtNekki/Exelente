@@ -7,7 +7,7 @@
     font-weight: 700;
     color: $main-color;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
       font-family: $secondary-font-family;
       font-size: 18px;
       line-height: 26px;
@@ -17,7 +17,7 @@
   &__list {
     margin-top: 21px;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
       margin-top: 7px;
     }
   }
@@ -29,7 +29,7 @@
       margin-right: 25px;
     }
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
       &:not(:last-child) {
         margin-right: 24px;
       }
@@ -40,7 +40,7 @@
     @include size(40px);
     fill: $main-color;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
       @include size(25px);
     }
   }

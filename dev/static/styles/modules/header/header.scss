@@ -201,7 +201,7 @@ $mobile-header-height: 50px;
     @include col(md, 12, $grid-columns, 60px);
     @include col(xl, 12, $grid-columns, 40px);
 
-    @include min-media($screen-md) {
+    @include min-media($screen-lg) {
       flex-direction: row;
     }
 
@@ -550,9 +550,18 @@ $mobile-header-height: 50px;
   &__contacts {
     margin-top: 75px;
 
+    @include min-media($screen-sm) {
+      margin-top: 35px;
+    }
+
     @include min-media($screen-md) {
+      padding-left: $tablet-menu-left-offset;
+    }
+
+    @include min-media($screen-lg) {
       margin-top: 0;
       margin-right: 124px;
+      padding-left: 0;
       width: 177px;
       flex-shrink: 0;
       flex-grow: 0;

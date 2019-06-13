@@ -1,14 +1,34 @@
 .header-contacts {
 
-  @include min-media($screen-md) {
+  @include min-media($screen-lg) {
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
   &__item {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+
+      @include min-media($screen-sm) {
+        margin-bottom: 20px;
+      }
+
+      @include min-media($screen-lg) {
+        margin-bottom: 0;
+      }
+    }
+
     &:not(:last-child) {
-      margin-bottom: 20px;
+      @include min-media($screen-sm) {
+        margin-right: 25px;
+      }
+
+      @include min-media($screen-lg) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -20,8 +40,12 @@
     font-weight: 700;
     color: $main-color;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
       margin-bottom: 0;
+      font-size: 12px;
+    }
+
+    @include min-media($screen-lg) {
       font-size: 10px;
       line-height: 12px;
       font-weight: 400;
@@ -30,6 +54,15 @@
 
   &__links {
     margin-bottom: 15px;
+
+    @include min-media($screen-sm) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include min-media($screen-lg) {
+      display: block;
+    }
   }
 
   &__contact {
@@ -40,9 +73,12 @@
     font-weight: 700;
     color: $secondary-color;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
+      font-size: 28px;
+    }
+
+    @include min-media($screen-lg) {
       font-size: 24px;
-      line-height: 26px;
     }
   }
 
@@ -53,7 +89,7 @@
     line-height: 12px;
     color: #888888;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-lg) {
       display: block;
     }
   }
@@ -61,7 +97,11 @@
   &__social {
     margin-top: 66px;
 
-    @include min-media($screen-md) {
+    @include min-media($screen-sm) {
+      margin-top: 20px;
+    }
+
+    @include min-media($screen-lg) {
       margin-top: auto;
       padding-bottom: 20px;
     }

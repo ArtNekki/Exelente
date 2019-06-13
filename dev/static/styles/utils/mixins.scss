@@ -69,7 +69,7 @@
 }
 
 @mixin min-media($size, $orientation: "landscape") {
-  @media screen and (min-width: $size) and (orientation: $orientation) {
+  @media screen and (min-width: $size) {
     @content;
   }
 }

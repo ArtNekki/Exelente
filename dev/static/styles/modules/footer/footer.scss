@@ -2,7 +2,7 @@ $footer-bottom-height: 45px;
 $footer-nav-offset: -10px;
 
 .footer {
-  margin-top: auto;
+  // margin-top: auto;
   font-size: 12px;
   line-height: 16px;
   overflow: hidden;
@@ -10,8 +10,22 @@ $footer-nav-offset: -10px;
   &__main {
     min-height: 220px;
     padding-top: 48px;
-    padding-bottom: 20px;
+    padding-bottom: 33px;
     background-color: $main-color;
+
+    @include min-media($screen-xl) {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $secondary-color;
+
+    @include min-media($screen-xl) {
+      background-color: $white;
+    }
   }
 
   &__container {
@@ -23,42 +37,70 @@ $footer-nav-offset: -10px;
   }
 
   &__col {
+    @include col();
     @include col(xl, 3, $grid-columns, 70px);
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // align-items: flex-start;
 
     &:nth-child(2) {
       @include col(xl, 6, $grid-columns, 70px);
-      // flex-direction: row;
-      // justify-content: flex-start;
+      display: flex;
+      justify-content: center;
+    }
+
+    &--menu {
+      margin-top: 70px;
+
+      @include min-media($screen-xl) {
+        margin-top: 0;
+      }
     }
 
     &--contacts {
+      margin-top: 80px;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
+
+      @include min-media($screen-xl) {
+        margin-top: 0;
+        align-items: flex-end;
+      }
     }
   }
 
   &__logo {
     position: relative;
-    top: -6px;
+    text-align: center;
+
+    @include min-media($screen-xl) {
+      top: -6px;
+      text-align: left;
+    }
   }
 
   &__menu {
     display: inline-block;
 
     &:first-child {
-      margin-right: 95px;
-      margin-left: $footer-nav-offset;
+      margin-right: 65px;
+    }
+
+    @include min-media($screen-xl) {
+      &:first-child {
+        margin-right: 95px;
+        margin-left: $footer-nav-offset;
+      }
     }
   }
 
   &__menu-item {
     &:not(:last-child) {
-      margin-bottom: 31px;
+      margin-bottom: 38px;
+    }
+
+    @include min-media($screen-xl) {
+      &:not(:last-child) {
+        margin-bottom: 31px;
+      }
     }
   }
 
@@ -69,13 +111,15 @@ $footer-nav-offset: -10px;
     line-height: 21px;
     color: $white;
 
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      @include size(100%, 2px);
-      background-color: $white;
+    @include min-media($screen-xl) {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        @include size(100%, 2px);
+        background-color: $white;
+      }
     }
   }
 
@@ -86,32 +130,52 @@ $footer-nav-offset: -10px;
     color: $white;
 
     &--free {
-      margin-bottom: 18px;
-      padding: 5px 15px;
+      margin-bottom: 30px;
+      padding: 5px 12px;
+
+      @include min-media($screen-xl) {
+        padding-left: 15px;
+        padding-bottom: 15px;
+      }
     }
 
     &--franchise {
-      margin-top: 51px;
-      padding: 7px 18px;
+      display: none;
+
+      @include min-media($screen-xl) {
+        margin-top: 51px;
+        padding: 7px 18px;
+        display: inline-block;
+      }
     }
 
   }
 
   &__contact {
-    margin-bottom: 5px;
+    margin-bottom: 17px;
     font-family: $secondary-font-family;
-    font-size: 28px;
+    font-size: 35px;
     line-height: 26px;
     color: $white;
+
+    @include min-media($screen-xl) {
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
   }
 
   &__dev {
     position: relative;
-    padding-right: 16px;
-    padding-left: 75px;
-    line-height: $footer-bottom-height;
+    text-align: center;
     color: $white;
-    background-color: $secondary-color;
+
+    @include min-media($screen-xl) {
+      padding-right: 16px;
+      padding-left: 75px;
+      line-height: $footer-bottom-height;
+      text-align: left;
+      background-color: $secondary-color;
+    }
 
     // &::before {
     //   content: "";
@@ -143,32 +207,50 @@ $footer-nav-offset: -10px;
   }
 
   &__copyright {
-    margin-left: 11px;
-    line-height: $footer-bottom-height;
+    display: block;
+    text-align: center;
+    color: $white;
+
+    @include min-media($screen-xl) {
+      margin-left: 11px;
+      text-align: left;
+      line-height: $footer-bottom-height;
+      color: $black;
+    }
   }
 
   &__license {
-    margin-left: $footer-nav-offset;
-    font-size: 10px;
-    line-height: 14px;
-    color: #888888;
-    line-height: $footer-bottom-height;
+    display: none;
+
+    @include min-media($screen-xl) {
+      margin-left: $footer-nav-offset;
+      display: block;
+      font-size: 10px;
+      line-height: 14px;
+      color: #888888;
+      line-height: $footer-bottom-height;
+    }
   }
 
   &__subscribe {
-    position: relative;
-    margin-top: 22px;
-    font-size: 14px;
-    line-height: 19px;
-    color: $white;
+    display: none;
 
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      @include size(100%, 2px);
-      background-color: $secondary-color;
+    @include min-media($screen-xl) {
+      position: relative;
+      margin-top: 22px;
+      display: block;
+      font-size: 14px;
+      line-height: 19px;
+      color: $white;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        @include size(100%, 2px);
+        background-color: $secondary-color;
+      }
     }
   }
 }

@@ -222,7 +222,7 @@ $mobile-header-height: 50px;
     flex-wrap: wrap;
     flex-direction: column;
     @include col(md, 12, $grid-columns, 60px);
-    @include col(xl, 12, $grid-columns, 40px);
+    @include col(xl, 12, $grid-columns, 70px);
 
     @include min-media($screen-lg) {
       flex-direction: row;
@@ -231,7 +231,6 @@ $mobile-header-height: 50px;
     @include min-media($screen-xl) {
       justify-content: space-between;
       flex-flow: nowrap;
-      // padding-right: 25px; //WTF
     }
 
     &--top {
@@ -342,7 +341,7 @@ $mobile-header-height: 50px;
 
     @include min-media($screen-xl) {
       top: 0;
-      left: 0;
+      left: -23px;
       width: 251px;
     }
 
@@ -422,7 +421,6 @@ $mobile-header-height: 50px;
       }
 
       @include min-media($screen-xl) {
-        margin-left: 24px;
         margin-right: auto;
         display: block;
         flex-basis: auto;

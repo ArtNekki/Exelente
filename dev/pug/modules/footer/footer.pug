@@ -1,1 +1,44 @@
 footer.footer
+  .footer__main
+    .footer__container
+      .footer__row
+        .footer__col
+          .footer__logo
+            +logo('tablet')
+          a(href='#' class='footer__link footer__link--franchise') приобрести франшизу
+            
+        .footer__col
+          ul.footer__menu
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') О компании
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') Программы
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') Услуги
+          ul.footer__menu
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') Страны
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') Школы
+            li.footer__menu-item
+              a(href='#' class='footer__menu-link') Контакты
+        .footer__col.footer__col--contacts
+          a(href='tel: 88007377705' class='footer__contact') 8 800 737-77-05
+          a(href='#' class='footer__link footer__link--free') бесплатная линия
+          +social-links([
+            {name: "inst", link: "#"}, 
+            {name: "fb", link: "#"}, 
+            {name: "youtube", link: "#"}, 
+            {name: "vk", link: "#"}
+          ], 'footer')
+          a(href='#' class='footer__subscribe') подписаться на рассылку
+  .footer__bottom
+    .footer__container
+      .footer__row
+        .footer__col
+          b.footer__copyright OOO «Экселенте», 2018 г.
+        .footer__col
+          small.footer__license Лицензия ФМС МВД РФ № 20110251124 от 13.08.2010 г. бессрочно
+        .footer__col.footer__col--contacts
+          .footer__dev Разработка сайта
+            a.footer__dev-link(href='#') DVIGA

@@ -1,4 +1,5 @@
 .social-links {
+  display: inline-block;
   font-size: 0;
 
   &__label {
@@ -6,6 +7,10 @@
     line-height: 21px;
     font-weight: 700;
     color: $main-color;
+
+    .social-links--footer & {
+      display: none;
+    }
 
     @include min-media($screen-sm) {
       font-family: $secondary-font-family;
@@ -29,6 +34,10 @@
       margin-right: 25px;
     }
 
+    .social-links--footer &:not(:last-child) {
+      margin-right: 14px;
+    }
+
     @include min-media($screen-sm) {
       &:not(:last-child) {
         margin-right: 24px;
@@ -36,12 +45,18 @@
     }
   }
 
-  &__link svg {
+  svg {
     @include size(40px);
     fill: $main-color;
 
     @include min-media($screen-sm) {
       @include size(25px);
+    }
+  }
+
+  &--footer {
+    svg {
+      fill: $white;
     }
   }
 }

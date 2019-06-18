@@ -45,11 +45,14 @@ $mobile-header-height: 50px;
 
     @include min-media($screen-md) {
       top: -3px;
-      margin-right: 49px;
       margin-left: 42px;
       @include size(50px);
       background-color: $main-color;
       outline: 1px solid $white;
+    }
+
+    @include min-media($screen-lg) {
+      margin-right: 49px;
     }
 
     @include min-media($screen-xl) {
@@ -185,6 +188,7 @@ $mobile-header-height: 50px;
         left: 0;
         right: 0;
         bottom: 0;
+        z-index: 100;
         display: none;
         padding-top: 49px;
         padding-bottom: 30px;
@@ -222,8 +226,9 @@ $mobile-header-height: 50px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    @include col(md, 12, $grid-columns, 60px);
-    @include col(xl, 12, $grid-columns, 70px);
+    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
 
     @include min-media($screen-lg) {
       flex-direction: row;
@@ -268,7 +273,6 @@ $mobile-header-height: 50px;
 
   &__tools {
     margin-top: 50px;
-    // margin-bottom: 70px; ???
 
     @include min-media($screen-sm) {
       margin-top: 30px;

@@ -63,6 +63,14 @@
       @include size(30px);
       fill: $white;
 
+      @include hover {
+        fill: $secondary-color;
+      }
+
+      @include active {
+        fill: $secondary-color;
+      }
+
       @include min-media($screen-xl) {
         @include size(25px);
       }

@@ -116,3 +116,14 @@
     @content;
   }
 }
+
+@mixin underline($pos: 0, $color: $white, $height: 2px) {
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: $pos;
+    left: 0;
+    @include size(100%, $height);
+    background-color: $color;
+  }
+}

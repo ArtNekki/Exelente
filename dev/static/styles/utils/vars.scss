@@ -35,6 +35,10 @@ $container-xxl:               $screen-xxl - 30;
 // Grid
 $grid-columns:                12;
 $grid-gutter-width:           30px;
+$grid-gutter-width-sm:        $grid-gutter-width;
+$grid-gutter-width-md:        50px;
+$grid-gutter-width-lg:        60px;
+$grid-gutter-width-xl:        70px;
 
 //Mobile
 $mobile-gutter: 23px;

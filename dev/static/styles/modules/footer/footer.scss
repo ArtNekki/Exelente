@@ -2,10 +2,9 @@ $footer-bottom-height: 45px;
 $footer-nav-offset: -10px;
 
 .footer {
-  // margin-top: auto;
+  margin-top: 40px;
   font-size: 12px;
   line-height: 16px;
-  overflow: hidden;
 
   &__main {
     min-height: 220px;
@@ -13,7 +12,7 @@ $footer-nav-offset: -10px;
     padding-bottom: 33px;
     background-color: $main-color;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
       padding-bottom: 20px;
     }
   }
@@ -22,8 +21,11 @@ $footer-nav-offset: -10px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: $secondary-color;
+    overflow: hidden;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
+      padding-top: 0;
+      padding-bottom: 0;
       background-color: $white;
     }
   }
@@ -38,31 +40,53 @@ $footer-nav-offset: -10px;
 
   &__col {
     @include col();
-    @include col(xl, 3, $grid-columns, 70px);
+    @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+    @include col(xl, 3, $grid-columns, $grid-gutter-width-xl);
 
     &:nth-child(2) {
-      @include col(xl, 6, $grid-columns, 70px);
+      @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
       display: flex;
       justify-content: center;
+
+      @include min-media($screen-md) {
+        display: block;
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+      @include col(xl, 3, $grid-columns, $grid-gutter-width-xl);
+
+      @include min-media($screen-md) {
+        align-items: flex-end;
+      }
     }
 
     &--menu {
       margin-top: 70px;
 
-      @include min-media($screen-xl) {
+      @include col(sm, 6, $grid-columns, $grid-gutter-width-sm);
+      @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+
+      @include min-media($screen-md) {
         margin-top: 0;
       }
     }
 
     &--contacts {
       margin-top: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include col(sm, 6, $grid-columns, $grid-gutter-width-sm);
 
-      @include min-media($screen-xl) {
+      @include min-media($screen-sm) {
+        margin-top: 70px;
+      }
+
+      @include min-media($screen-md) {
         margin-top: 0;
-        align-items: flex-end;
       }
     }
   }
@@ -71,7 +95,7 @@ $footer-nav-offset: -10px;
     position: relative;
     text-align: center;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
       top: -6px;
       text-align: left;
     }
@@ -84,7 +108,7 @@ $footer-nav-offset: -10px;
       margin-right: 65px;
     }
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-lg) {
       &:first-child {
         margin-right: 95px;
         margin-left: $footer-nav-offset;
@@ -97,7 +121,7 @@ $footer-nav-offset: -10px;
       margin-bottom: 38px;
     }
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
       &:not(:last-child) {
         margin-bottom: 31px;
       }
@@ -111,14 +135,31 @@ $footer-nav-offset: -10px;
     line-height: 21px;
     color: $white;
 
-    @include min-media($screen-xl) {
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        @include size(100%, 2px);
-        background-color: $white;
+    @include hover {
+      color: $secondary-color;
+    }
+
+    @include active {
+      color: $secondary-color;
+    }
+
+    @include min-media($screen-md) {
+      @include underline(-4px);
+
+      @include hover {
+        color: $white;
+      }
+
+      @include active {
+        color: $white;
+      }
+
+      @include hover-before {
+        background-color: $secondary-color;
+      }
+
+      @include active-before {
+        background-color: $secondary-color;
       }
     }
   }
@@ -129,20 +170,29 @@ $footer-nav-offset: -10px;
     background-color: $secondary-color;
     color: $white;
 
+    @include hover {
+      background-color: lighten($secondary-color, 15%);
+    }
+
+    @include active {
+      background-color: lighten($secondary-color, 15%);
+    }
+
     &--free {
       margin-bottom: 30px;
       padding: 5px 12px;
 
-      @include min-media($screen-xl) {
+      @include min-media($screen-md) {
+        margin-bottom: 18px;
         padding-left: 15px;
-        padding-bottom: 15px;
+        padding-right: 15px;
       }
     }
 
     &--franchise {
       display: none;
 
-      @include min-media($screen-xl) {
+      @include min-media($screen-md) {
         margin-top: 51px;
         padding: 7px 18px;
         display: inline-block;
@@ -158,7 +208,15 @@ $footer-nav-offset: -10px;
     line-height: 26px;
     color: $white;
 
-    @include min-media($screen-xl) {
+    @include hover {
+      color: $secondary-color;
+    }
+
+    @include active {
+      color: $secondary-color;
+    }
+
+    @include min-media($screen-md) {
       margin-bottom: 5px;
       font-size: 28px;
     }
@@ -169,23 +227,26 @@ $footer-nav-offset: -10px;
     text-align: center;
     color: $white;
 
-    @include min-media($screen-xl) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -10000px;
+      @include size(10000px, 100%);
+      background-color: $secondary-color;
+    }
+
+    @include min-media($screen-md) {
       padding-right: 16px;
-      padding-left: 75px;
+      padding-left: 40px;
       line-height: $footer-bottom-height;
       text-align: left;
       background-color: $secondary-color;
     }
 
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    //   height: 100%;
-    //   background-color: red;
-    //   width: 1000px;
-    // }
+    @include min-media($screen-xl) {
+      padding-left: 75px;
+    }
   }
 
   &__dev-link {
@@ -196,13 +257,14 @@ $footer-nav-offset: -10px;
     line-height: 16px;
     color: $white;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 0;
-      @include size(100%, 2px);
-      background-color: $white;
+    @include underline();
+
+    @include hover-before {
+      background-color: $main-color;
+    }
+
+    @include active-before {
+      background-color: $main-color;
     }
   }
 
@@ -211,10 +273,12 @@ $footer-nav-offset: -10px;
     text-align: center;
     color: $white;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
       margin-left: 11px;
+      height: $footer-bottom-height;
+      display: flex;
+      align-items: center;
       text-align: left;
-      line-height: $footer-bottom-height;
       color: $black;
     }
   }
@@ -222,20 +286,24 @@ $footer-nav-offset: -10px;
   &__license {
     display: none;
 
-    @include min-media($screen-xl) {
-      margin-left: $footer-nav-offset;
-      display: block;
+    @include min-media($screen-md) {
+      height: $footer-bottom-height;
+      display: flex;
+      align-items: center;
       font-size: 10px;
       line-height: 14px;
       color: #888888;
-      line-height: $footer-bottom-height;
+    }
+
+    @include min-media($screen-lg) {
+      margin-left: $footer-nav-offset;
     }
   }
 
   &__subscribe {
     display: none;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-md) {
       position: relative;
       margin-top: 22px;
       display: block;
@@ -243,13 +311,14 @@ $footer-nav-offset: -10px;
       line-height: 19px;
       color: $white;
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        @include size(100%, 2px);
-        background-color: $secondary-color;
+      @include underline(-5px, $secondary-color);
+
+      @include hover-before {
+        background-color: $white;
+      }
+
+      @include active-before {
+        background-color: $white;
       }
     }
   }

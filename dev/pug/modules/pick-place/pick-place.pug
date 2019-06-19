@@ -1,0 +1,15 @@
+form(class="pick-place" action="#" autocomplete="off")
+  .pick-place__search
+    input(type="text" name="pick-place-city" class="pick-place__field" placeholder="Название города")
+    button(type="button" class="pick-place__close" data-pick-place-trigger)
+      +icon({ name: 'close' })
+  .pick-place__dropdown
+    +baron({ id: 'baron-pick-place', mods: 'scrolling, dragging, scrollbar' })
+      ul.pick-place__list
+        li.pick-place__item.pick-place__item--active Губкин
+        li.pick-place__item Гудермес
+        li.pick-place__item Гуково
+        li.pick-place__item Гусь-Хрустальный
+        li.pick-place__item Гудермес
+        li.pick-place__item Гуково
+        li.pick-place__item Гусь-Хрустальный

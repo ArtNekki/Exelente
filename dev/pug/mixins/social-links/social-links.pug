@@ -1,8 +1,31 @@
-mixin social-links(items, mod)
-  div(class="social-links" + (mod ? " social-links--" + mod : ""))
+mixin social-links(options = {})
+  //- Принимает:
+  //-   options.items  {array} - массив обьектов иконок
+  //-   options.items.item {object} - обьект с данными иконок
+        options.items.item.name {string} - имя иконки
+        options.items.item.link {string} - ссылка
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+    +social-links({ items: [
+      {name: "inst", link: "#"}, 
+      {name: "fb", link: "#"}, 
+      {name: "youtube", link: "#"}, 
+      {name: "vk", link: "#"}
+    ]})
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' social-links--' + modsList[i].trim();
+      }
+    }
+    
+  .social-links(class=allMods)
     span(class="social-links__label") Подписаться
     ul(class="social-links__list")
-      each item in items
+      each item in options.items
         li(class="social-links__item")
           a(href=item.link class="social-links__link")
-            +icon(item.name)
+            +icon({ name: item.name })

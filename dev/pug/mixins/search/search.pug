@@ -1,6 +1,21 @@
-mixin search(id, mod)
-  form(class="search" + (mod ? " search--" + mod : "") action="#" autocomplete="off")
+mixin search(options)
+  //- Принимает:
+  //-   options.id   {string} - id компонента
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+      +search({ id: 'id', mods: 'mods...' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' search--' + modsList[i].trim();
+      }
+    }
+    
+  form.search(class=allMods action="#" autocomplete="off")
     .search__main
-      input(type="text" name="search" class="search__field" placeholder="Поиск..." id="searchTrigger" + id)
-      label(for="searchTrigger" + id class="search__open")
-        +icon("loop")
+      input(type="text" name="search" class="search__field" placeholder="Поиск..." id="searchTrigger" + options.id)
+      label(for="searchTrigger" + options.id class="search__open")
+        +icon({ name: 'loop' })

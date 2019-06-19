@@ -52,7 +52,7 @@
     left: 0;
     @include size(100%, calc(100vh - 250px));
     padding: 17px 23px 17px 19px;
-    background-color: red;
+    background-color: $white;
 
     @include min-media($screen-sm) {
       height: calc(100vh - 182px)

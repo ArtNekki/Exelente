@@ -163,12 +163,10 @@
     }
 
     &::before {
-      position: absolute;
-      bottom: 3px;
-      left: 0;
-      @include size(100%, 1px);
-      background-color: $secondary-color;
+      display: none;
     }
+
+    @include underline(3px, $secondary-color, 1px);
 
     @include hover() {
       color: $secondary-color;
@@ -208,11 +206,11 @@
       white-space: nowrap;
 
       @include hover-before() {
-        content: "";
+        display: block;
       }
 
       @include active-before() {
-        content: "";
+        display: block;
       }
 
       // .main-nav__item--active > &::before {

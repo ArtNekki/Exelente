@@ -4,7 +4,7 @@ footer.footer
       .footer__row
         .footer__col
           .footer__logo
-            +logo('tablet')
+            +logo({ mods: 'tablet' })
           a(href='#' class='footer__link footer__link--franchise') приобрести франшизу
             
         .footer__col.footer__col--menu
@@ -25,12 +25,15 @@ footer.footer
         .footer__col.footer__col--contacts
           a(href='tel: 88007377705' class='footer__contact') 8 800 737-77-05
           a(href='#' class='footer__link footer__link--free') бесплатная линия
-          +social-links([
-            {name: "inst", link: "#"}, 
-            {name: "fb", link: "#"}, 
-            {name: "youtube", link: "#"}, 
-            {name: "vk", link: "#"}
-          ], 'footer')
+          +social-links({
+            items: [
+              {name: "inst", link: "#"}, 
+              {name: "fb", link: "#"}, 
+              {name: "youtube", link: "#"}, 
+              {name: "vk", link: "#"}
+            ],
+            mods: 'footer'
+          })
           a(href='#' class='footer__subscribe') подписаться на рассылку
   .footer__bottom
     .footer__container

@@ -2,7 +2,7 @@ header.header
     .header__mobile-header
       .header__main.header__main--mobile-header
         .header__logo.header__logo--mobile
-          +logo("mobile")
+          +logo({ mods: 'mobile' })
         button(type="button" class="header__menu-trigger" data-mobile-menu-trigger)
           span
     .header__mobile-menu
@@ -12,23 +12,23 @@ header.header
             .header__row
               .header__col.header__col--top
                 .header__logo.header__logo--tablet
-                  +logo("tablet")
+                  +logo({ mods: 'tablet' })
                 .header__search.header__search--tablet
-                  +search("Tablet", "tablet")
+                  +search({ id: 'Tablet', mods: 'tablet' })
                 a(href="#" class="header__label header__label--pick-place" data-pick-place-trigger)
-                  +icon("mark")
+                  +icon({ name: 'mark' })
                   span.header__label-text Владивосток
                 a(href="tel:+78007377705" class="header__label header__label--contact")
                   span 8 800 737-77-05
                 a(href="#" class="header__label header__label--auth" )
-                  +icon("person")
+                  +icon({ name: 'person' })
                   span.header__label-text Вход/Регистрация
                 a(href="#" class="header__label header__label--stars" )
                   span.header__label-text 10
-                  +icon("star")
+                  +icon({ name: 'star' })
                 a(href="#" class="header__label header__label--cart" )
                   span.header__label-text 2500
-                  +icon("cart")
+                  +icon({ name: 'cart' })
                 button(type="button" class="header__menu-trigger header__menu-trigger--tablet" data-mobile-menu-trigger)
                   span
         .header__content.header__content--main
@@ -39,9 +39,9 @@ header.header
                   .header__logo.header__logo--desktop
                     +logo()
                   .header__search.header__search--desktop
-                    +search("Main")
+                    +search({ id: 'Main' })
                   .header__pick-place
-                    +pick-place()
+                    include ../pick-place/pick-place
                 include ../main-nav/main-nav
                 .header__contacts
                   include ../header-contacts/header-contacts

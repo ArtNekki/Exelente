@@ -12,7 +12,7 @@ module.exports = function () {
             .pipe(plumber())
             .pipe(changed('dist', {extension: '.html'}))
             .pipe(gulpif(global.isWatching, cached('pug')))
-            .pipe(pugInheritance({basedir: './dev/pug/', skip: 'node_modules'}))
+            // .pipe(pugInheritance({basedir: './dev/pug/', skip: 'node_modules'}))
             .pipe(filter(function (file) {
                 console.log('nekki', file.relative);
                 return !/\/_/.test(file.path) && !/^_/.test(file.relative);

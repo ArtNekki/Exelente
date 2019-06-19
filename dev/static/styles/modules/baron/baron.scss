@@ -74,14 +74,14 @@
     background-color: $white;
     color: darken($gray, 15%);
     cursor: pointer;
-  }
 
-  &__up {
-    top: 0;
-  }
+    &--up {
+      top: 0;
+    }
 
-  &__down {
-    bottom: 0;
-    padding-top: 2px;
+    &--down {
+      bottom: 0;
+      padding-top: 2px;
+    }
   }
 }

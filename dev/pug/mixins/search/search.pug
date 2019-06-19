@@ -14,8 +14,8 @@ mixin search(options)
       }
     }
     
-  form.search(class=allMods action="#" autocomplete="off")
+  form.search(class=allMods action='#' autocomplete='off')
     .search__main
-      input(type="text" name="search" class="search__field" placeholder="Поиск..." id="searchTrigger" + options.id)
-      label(for="searchTrigger" + options.id class="search__open")
+      input.search__field(type='text' name='search' placeholder='Поиск...' id='searchTrigger' + options.id)
+      label.search__open(for='searchTrigger' + options.id)
         +icon({ name: 'loop' })

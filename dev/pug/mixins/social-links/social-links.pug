@@ -7,10 +7,10 @@ mixin social-links(options = {})
   //-   options.mods    {string} - список модификаторов
   //- Вызов:
     +social-links({ items: [
-      {name: "inst", link: "#"}, 
-      {name: "fb", link: "#"}, 
-      {name: "youtube", link: "#"}, 
-      {name: "vk", link: "#"}
+      {name: 'inst', link: '#'}, 
+      {name: 'fb', link: '#'}, 
+      {name: 'youtube', link: '#'}, 
+      {name: 'vk', link: '#'}
     ]})
   -
     // список модификаторов
@@ -23,9 +23,9 @@ mixin social-links(options = {})
     }
     
   .social-links(class=allMods)
-    span(class="social-links__label") Подписаться
-    ul(class="social-links__list")
+    span.social-links__label Подписаться
+    ul.social-links__list
       each item in options.items
-        li(class="social-links__item")
-          a(href=item.link class="social-links__link")
+        li.social-links__item
+          a.social-links__link(href=item.link)
             +icon({ name: item.name })

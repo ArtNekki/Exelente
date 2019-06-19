@@ -1,7 +1,7 @@
-form(class="pick-place" action="#" autocomplete="off")
+form.pick-place(action='#' autocomplete='off')
   .pick-place__search
-    input(type="text" name="pick-place-city" class="pick-place__field" placeholder="Название города")
-    button(type="button" class="pick-place__close" data-pick-place-trigger)
+    input.pick-place__field(type='text' name='pick-place-city' placeholder='Название города')
+    button.pick-place__close(type='button' data-pick-place-trigger)
       +icon({ name: 'close' })
   .pick-place__dropdown
     +baron({ id: 'baron-pick-place', mods: 'scrolling, dragging, scrollbar' })

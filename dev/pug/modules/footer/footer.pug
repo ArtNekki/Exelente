@@ -5,36 +5,36 @@ footer.footer
         .footer__col
           .footer__logo
             +logo({ mods: 'tablet' })
-          a(href='#' class='footer__link footer__link--franchise') приобрести франшизу
+          a.footer__link.footer__link--franchise(href='#') приобрести франшизу
             
         .footer__col.footer__col--menu
           ul.footer__menu
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') О компании
+              a.footer__menu-link(href='#') О компании
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') Программы
+              a.footer__menu-link(href='#') Программы
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') Услуги
+              a.footer__menu-link(href='#') Услуги
           ul.footer__menu
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') Страны
+              a.footer__menu-link(href='#') Страны
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') Школы
+              a.footer__menu-link(href='#') Школы
             li.footer__menu-item
-              a(href='#' class='footer__menu-link') Контакты
+              a.footer__menu-link(href='#') Контакты
         .footer__col.footer__col--contacts
-          a(href='tel: 88007377705' class='footer__contact') 8 800 737-77-05
-          a(href='#' class='footer__link footer__link--free') бесплатная линия
+          a.footer__contact(href='tel: 88007377705') 8 800 737-77-05
+          a.footer__link.footer__link--free(href='#') бесплатная линия
           +social-links({
             items: [
-              {name: "inst", link: "#"}, 
-              {name: "fb", link: "#"}, 
-              {name: "youtube", link: "#"}, 
-              {name: "vk", link: "#"}
+              {name: 'inst', link: '#'}, 
+              {name: 'fb', link: '#'}, 
+              {name: 'youtube', link: '#'}, 
+              {name: 'vk', link: '#'}
             ],
             mods: 'footer'
           })
-          a(href='#' class='footer__subscribe') подписаться на рассылку
+          a.footer__subscribe(href='#') подписаться на рассылку
   .footer__bottom
     .footer__container
       .footer__row

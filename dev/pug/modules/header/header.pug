@@ -3,7 +3,7 @@ header.header
       .header__main.header__main--mobile-header
         .header__logo.header__logo--mobile
           +logo({ mods: 'mobile' })
-        button(type="button" class="header__menu-trigger" data-mobile-menu-trigger)
+        button.header__menu-trigger(type='button' data-mobile-menu-trigger)
           span
     .header__mobile-menu
       .header__main
@@ -15,21 +15,21 @@ header.header
                   +logo({ mods: 'tablet' })
                 .header__search.header__search--tablet
                   +search({ id: 'Tablet', mods: 'tablet' })
-                a(href="#" class="header__label header__label--pick-place" data-pick-place-trigger)
+                a.header__label.header__label--pick-place(href='#' data-pick-place-trigger)
                   +icon({ name: 'mark' })
                   span.header__label-text Владивосток
-                a(href="tel:+78007377705" class="header__label header__label--contact")
+                a.header__label.header__label--contact(href='tel:+78007377705')
                   span 8 800 737-77-05
-                a(href="#" class="header__label header__label--auth" )
+                a.header__label.header__label--auth(href='#')
                   +icon({ name: 'person' })
                   span.header__label-text Вход/Регистрация
-                a(href="#" class="header__label header__label--stars" )
+                a.header__label.header__label--stars(href='#')
                   span.header__label-text 10
                   +icon({ name: 'star' })
-                a(href="#" class="header__label header__label--cart" )
+                a.header__label.header__label--cart(href='#')
                   span.header__label-text 2500
                   +icon({ name: 'cart' })
-                button(type="button" class="header__menu-trigger header__menu-trigger--tablet" data-mobile-menu-trigger)
+                button.header__menu-trigger.header__menu-trigger--tablet(type='button' data-mobile-menu-trigger)
                   span
         .header__content.header__content--main
           .header__container

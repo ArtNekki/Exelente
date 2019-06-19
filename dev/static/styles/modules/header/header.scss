@@ -286,6 +286,11 @@ $mobile-header-height: 50px;
       display: flex;
       align-items: center;
     }
+
+    @include min-media($screen-xl) {
+      margin-right: 25px;
+      flex-grow: 1;
+    }
   }
 
   &__logo {

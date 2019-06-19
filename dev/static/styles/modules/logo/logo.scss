@@ -6,6 +6,12 @@
     @include size(122px, 31px);
   }
 
+  &--large {
+    svg {
+      @include size(200px, 50px);
+    }
+  }
+
   &--mobile {
     .page--mobile-menu-opened & {
       svg {
@@ -15,10 +21,6 @@
   }
 
   &--tablet {
-    svg {
-      @include size(200px, 50px);
-    }
-
     .page--mobile-menu-opened & {
       svg {
         fill: $main-color;

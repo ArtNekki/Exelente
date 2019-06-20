@@ -1,4 +1,18 @@
 .main-nav {
+  @include min-media($screen-md) {
+    margin-left: $tablet-menu-left-offset;
+  }
+
+  @include min-media($screen-lg) {
+    position: relative;
+    left: -19px;
+    margin-left: 0;
+  }
+
+  @include min-media($screen-xl) {
+    position: static;
+  }
+
   .header--pick-place-opened & {
     display: none;
 
@@ -9,7 +23,7 @@
 
   @include min-media($screen-xl) {
     flex-grow: 2;
-    max-width: 693px;
+    // max-width: 693px;
   }
 
   &__list {
@@ -23,7 +37,7 @@
     }
 
     @include min-media($screen-md) {
-      padding-left: $tablet-menu-left-offset;
+      // padding-left: $tablet-menu-left-offset;
     }
 
     @include min-media($screen-lg) {
@@ -93,6 +107,7 @@
       position: relative;
       margin-bottom: 0;
       min-width: auto;
+      min-height: 50px;
       display: flex;
       align-items: center;
 
@@ -141,6 +156,7 @@
       }
 
       @include min-media($screen-xl) {
+        min-height: auto;
         padding-left: 0;
       }
     }

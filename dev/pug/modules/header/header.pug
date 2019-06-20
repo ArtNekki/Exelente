@@ -9,15 +9,16 @@ header.header
       .header__main
         .header__content.header__content--top
           .header__container
-            .header__row
-              .header__col.header__col--top
-                .header__logo.header__logo--tablet
-                  +logo({ mods: 'tablet, large' })
-                .header__search.header__search--tablet
-                  +search({ id: 'Tablet', mods: 'tablet' })
+            .header__row.header__row--top
+              .header__top-left
                 a.header__label.header__label--pick-place(href='#' data-pick-place-trigger)
                   +icon({ name: 'mark' })
                   span.header__label-text Владивосток
+                .header__logo.header__logo--tablet
+                  +logo({ mods: 'tablet, large' })
+              .header__top-right
+                .header__search.header__search--tablet
+                  +search({ id: 'Tablet', mods: 'tablet' })
                 a.header__label.header__label--contact(href='tel:+78007377705')
                   span 8 800 737-77-05
                 a.header__label.header__label--auth(href='#')
@@ -34,14 +35,14 @@ header.header
         .header__content.header__content--main
           .header__container
             .header__row
-              .header__col.header__col--main
-                .header__tools
-                  .header__logo.header__logo--desktop
-                    +logo()
-                  .header__search.header__search--desktop
-                    +search({ id: 'Main' })
-                  .header__pick-place
-                    include ../pick-place/pick-place
+              .header__tools
+                .header__logo.header__logo--desktop
+                  +logo()
+                .header__search.header__search--desktop
+                  +search({ id: 'Main' })
+                .header__pick-place
+                  include ../pick-place/pick-place
+              .header__main-nav
                 include ../main-nav/main-nav
-                .header__contacts
-                  include ../header-contacts/header-contacts
+              .header__contacts
+                include ../header-contacts/header-contacts

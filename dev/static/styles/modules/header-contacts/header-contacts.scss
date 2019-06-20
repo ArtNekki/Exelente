@@ -1,9 +1,13 @@
 .header-contacts {
+  @include min-media($screen-md) {
+    margin-left: $tablet-menu-left-offset;
+  }
 
   @include min-media($screen-lg) {
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin-left: 0;
   }
 
   &__item {

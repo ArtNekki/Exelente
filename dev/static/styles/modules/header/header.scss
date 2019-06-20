@@ -45,14 +45,15 @@ $mobile-header-height: 50px;
 
     @include min-media($screen-md) {
       top: -3px;
-      margin-left: 42px;
+      margin-left: 54px;
       @include size(50px);
       background-color: $main-color;
       outline: 1px solid $white;
     }
 
     @include min-media($screen-lg) {
-      margin-right: 49px;
+      margin-left: 43px;
+      margin-right: 44px;
     }
 
     @include min-media($screen-xl) {
@@ -217,61 +218,78 @@ $mobile-header-height: 50px;
   }
 
   &__row {
-      @include min-media($screen-md) {
-        @include row($grid-gutter-width, 46px);
-      }
-  }
-
-  &__col {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
-    @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
-    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
-
-    @include min-media($screen-lg) {
-      flex-direction: row;
-    }
-
-    @include min-media($screen-xl) {
-      justify-content: space-between;
-      flex-flow: nowrap;
+    @include min-media($screen-md) {
+      @include row($grid-gutter-width, 46px);
     }
 
     &--top {
-      flex-direction: row;
+      background-color: $main-color;
+
+      .page--mobile-menu-opened & {
+        background-color: $white;
+      }
 
       @include min-media($screen-sm) {
-        margin-top: 30px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
       }
 
       @include min-media($screen-md) {
         margin-top: 0;
-        min-height: $tablet-header-height;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: flex-end;
-        background-color: $main-color;
       }
 
       @include min-media($screen-xl) {
-        min-height: 50px;
-        background-color: $white;
-      }
-
-      .page--mobile-menu-opened & {
         background-color: $white;
       }
     }
+  }
 
-    &--main {
+  &__top-left {
+    @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 4, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 4, $grid-columns, $grid-gutter-width-xl);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-height: 50px;
+
+    @include min-media($screen-md) {
+      min-height: $tablet-header-height;
+      justify-content: flex-start;
+    }
+
+    @include min-media($screen-xl) {
+      min-height: 50px;
+    }
+  }
+
+  &__top-right {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include col(md, 8, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 8, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 8, $grid-columns, $grid-gutter-width-xl);
+
+    @include min-media($screen-md) {
+      min-height: $tablet-header-height;
       flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    @include min-media($screen-xl) {
+      min-height: 50px;
     }
   }
 
   &__tools {
+    @include col(xl, 5, $grid-columns, $grid-gutter-width-xl);
+
     margin-top: 50px;
 
     @include min-media($screen-sm) {
@@ -280,17 +298,59 @@ $mobile-header-height: 50px;
     }
 
     @include min-media($screen-md) {
-      position: relative;
       margin-top: 0;
       margin-bottom: 0;
-      display: flex;
-      align-items: center;
+      display: none;
     }
 
     @include min-media($screen-xl) {
-      margin-right: 25px;
-      width: 200px;
-      flex-grow: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__main-nav {
+    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 9, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 7, $grid-columns, $grid-gutter-width-xl);
+
+    @include min-media($screen-xl) {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 0;
+    }
+  }
+
+  &__contacts {
+    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 3, $grid-columns, $grid-gutter-width-lg);
+
+    margin-top: 75px;
+
+    .header--pick-place-opened & {
+      display: none;
+
+      @include min-media($screen-md) {
+        display: block;
+      }
+
+      @include min-media($screen-xl) {
+        display: none;
+      }
+    }
+
+    @include min-media($screen-sm) {
+      margin-top: 35px;
+    }
+
+    @include min-media($screen-lg) {
+      margin-top: 0;
+      order: -1;
+    }
+
+    @include min-media($screen-xl) {
+      display: none;
     }
   }
 
@@ -342,7 +402,7 @@ $mobile-header-height: 50px;
     display: none;
 
     @include min-media($screen-sm) {
-      top: 40px;
+      top: 60px;
     }
 
     @include min-media($screen-md) {
@@ -352,7 +412,7 @@ $mobile-header-height: 50px;
 
     @include min-media($screen-xl) {
       top: 0;
-      left: -23px;
+      left: 11px;
       width: 251px;
     }
 
@@ -461,11 +521,11 @@ $mobile-header-height: 50px;
 
       @include min-media($screen-sm) {
         margin-top: 0;
+        margin-right: 15px;
         flex-basis: auto;
       }
 
       @include min-media($screen-md) {
-        margin-right: 15px;
         margin-left: 36px;
         flex-basis: auto;
       }
@@ -482,7 +542,7 @@ $mobile-header-height: 50px;
 
       @include min-media($screen-sm) {
         margin-top: 0;
-        margin-right: 0px;
+        margin-right: 10px;
       }
 
       @include min-media($screen-md) {
@@ -605,6 +665,7 @@ $mobile-header-height: 50px;
         position: absolute;
         top: -17px;
         right: -15px;
+        order: -1;
       }
 
       @include min-media($screen-lg) {
@@ -631,6 +692,7 @@ $mobile-header-height: 50px;
         position: absolute;
         top: -17px;
         right: -28px;
+        order: -1;
 
         &::after {
           position: absolute;
@@ -701,44 +763,6 @@ $mobile-header-height: 50px;
         margin-left: 40px;
         display: block;
       }
-    }
-  }
-
-  &__contacts {
-    margin-top: 75px;
-
-    .header--pick-place-opened & {
-      display: none;
-
-      @include min-media($screen-md) {
-        display: block;
-      }
-
-      @include min-media($screen-xl) {
-        display: none;
-      }
-    }
-
-    @include min-media($screen-sm) {
-      margin-top: 35px;
-    }
-
-    @include min-media($screen-md) {
-      padding-left: $tablet-menu-left-offset;
-    }
-
-    @include min-media($screen-lg) {
-      margin-top: 0;
-      margin-right: 124px;
-      padding-left: 0;
-      width: 177px;
-      flex-shrink: 0;
-      flex-grow: 0;
-      order: -1;
-    }
-
-    @include min-media($screen-xl) {
-      display: none;
     }
   }
 }

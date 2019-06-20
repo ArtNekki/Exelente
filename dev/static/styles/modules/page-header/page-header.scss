@@ -1,4 +1,4 @@
-.header {
+.page-header {
 
   @include min-media($screen-xl) {
     padding-left: 0;
@@ -19,117 +19,6 @@
 
     @include min-media($screen-xl) {
       display: none;
-    }
-  }
-
-  &__menu-trigger {
-    position: relative;
-    @include size($mobile-trigger-size);
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    @include hover {
-      opacity: 0.6;
-    }
-
-    @include min-media($screen-md) {
-      top: -3px;
-      margin-left: 54px;
-      @include size(50px);
-      background-color: $main-color;
-      outline: 1px solid $white;
-    }
-
-    @include min-media($screen-lg) {
-      margin-left: 43px;
-      margin-right: 44px;
-    }
-
-    @include min-media($screen-xl) {
-      display: none;
-      margin-left: 44px;
-    }
-
-    & > span {
-      position: relative;
-      display: inline-block;
-      @include size($mobile-trigger-size, 2px);
-      background-color: $white;
-
-      .page--mobile-menu-opened & {
-        background-color: $secondary-color;
-      }
-
-      @include min-media($screen-md) {
-        background-color: $white;
-      }
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        @include size($mobile-trigger-size, 2px);
-        background-color: $white;
-
-        .page--mobile-menu-opened & {
-          background-color: $secondary-color;
-
-          @include min-media($screen-md) {
-            background-color: $white;
-          }
-        }
-
-        @include min-media($screen-md) {
-          background-color: $white;
-        }
-      }
-
-      &::before {
-        top: -5px;
-      }
-
-      &::after {
-        top: 5px;
-      }
-
-      .page--mobile-menu-opened & {
-        background: 0 0;
-        transition: background .3s .5s;
-      }
-
-      .page--mobile-menu-opened &::before,
-      .page--mobile-menu-opened &::after {
-        top: 0;
-        transition: top .3s,transform .3s .5s;
-      }
-
-      .page--mobile-menu-opened &::before {
-        transform: rotate3d(0,0,1,45deg);
-      }
-
-      .page--mobile-menu-opened &::after {
-        transform: rotate3d(0,0,1,-45deg);
-      }
-    }
-
-    &--tablet {
-      display: none;
-
-      @include min-media($screen-md) {
-        display: flex;
-      }
-
-      @include min-media($screen-xl) {
-        display: none;
-      }
     }
   }
 
@@ -242,111 +131,224 @@
     }
   }
 
-  &__top-left {
-    @include col(md, 4, $grid-columns, $grid-gutter-width-md);
-    @include col(lg, 4, $grid-columns, $grid-gutter-width-lg);
-    @include col(xl, 4, $grid-columns, $grid-gutter-width-xl);
+  &__col {
+    &--top-left {
+      @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+      @include col(lg, 4, $grid-columns, $grid-gutter-width-lg);
+      @include col(xl, 4, $grid-columns, $grid-gutter-width-xl);
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    min-height: $mobile-header-height;
-
-    @include min-media($screen-md) {
-      min-height: $tablet-header-height;
-      justify-content: flex-start;
-    }
-
-    @include min-media($screen-xl) {
-      min-height: $desktop-header-height;
-    }
-  }
-
-  &__top-right {
-    display: flex;
-    flex-wrap: wrap;
-
-    @include col(md, 8, $grid-columns, $grid-gutter-width-md);
-    @include col(lg, 8, $grid-columns, $grid-gutter-width-lg);
-    @include col(xl, 8, $grid-columns, $grid-gutter-width-xl);
-
-    @include min-media($screen-md) {
-      min-height: $tablet-header-height;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    @include min-media($screen-xl) {
-      min-height: $desktop-header-height;
-    }
-  }
-
-  &__tools {
-    @include col(xl, 5, $grid-columns, $grid-gutter-width-xl);
-
-    margin-top: 50px;
-
-    @include min-media($screen-sm) {
-      margin-top: 30px;
-      margin-bottom: 40px;
-    }
-
-    @include min-media($screen-md) {
-      margin-top: 0;
-      margin-bottom: 0;
-      display: none;
-    }
-
-    @include min-media($screen-xl) {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &__main-nav {
-    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
-    @include col(lg, 9, $grid-columns, $grid-gutter-width-lg);
-    @include col(xl, 7, $grid-columns, $grid-gutter-width-xl);
-
-    @include min-media($screen-xl) {
       display: flex;
       justify-content: flex-end;
-      padding-left: 0;
-    }
-  }
+      align-items: center;
 
-  &__contacts {
-    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
-    @include col(lg, 3, $grid-columns, $grid-gutter-width-lg);
-
-    margin-top: 75px;
-
-    .header--pick-place-opened & {
-      display: none;
+      min-height: $mobile-header-height;
 
       @include min-media($screen-md) {
-        display: block;
+        min-height: $tablet-header-height;
+        justify-content: flex-start;
+      }
+
+      @include min-media($screen-xl) {
+        min-height: $desktop-header-height;
+      }
+    }
+
+    &--top-right {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include col(md, 8, $grid-columns, $grid-gutter-width-md);
+      @include col(lg, 8, $grid-columns, $grid-gutter-width-lg);
+      @include col(xl, 8, $grid-columns, $grid-gutter-width-xl);
+
+      @include min-media($screen-md) {
+        min-height: $tablet-header-height;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      @include min-media($screen-xl) {
+        min-height: $desktop-header-height;
+      }
+    }
+
+    &--tools {
+      @include col(xl, 5, $grid-columns, $grid-gutter-width-xl);
+
+      margin-top: 50px;
+
+      @include min-media($screen-sm) {
+        margin-top: 30px;
+        margin-bottom: 40px;
+      }
+
+      @include min-media($screen-md) {
+        margin-top: 0;
+        margin-bottom: 0;
+        display: none;
+      }
+
+      @include min-media($screen-xl) {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &--main-nav {
+      @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+      @include col(lg, 9, $grid-columns, $grid-gutter-width-lg);
+      @include col(xl, 7, $grid-columns, $grid-gutter-width-xl);
+
+      @include min-media($screen-xl) {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 0;
+      }
+    }
+
+    &--contacts {
+      @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+      @include col(lg, 3, $grid-columns, $grid-gutter-width-lg);
+
+      margin-top: 75px;
+
+      .page-header--pick-place-opened & {
+        display: none;
+
+        @include min-media($screen-md) {
+          display: block;
+        }
+
+        @include min-media($screen-xl) {
+          display: none;
+        }
+      }
+
+      @include min-media($screen-sm) {
+        margin-top: 35px;
+      }
+
+      @include min-media($screen-lg) {
+        margin-top: 0;
+        order: -1;
       }
 
       @include min-media($screen-xl) {
         display: none;
       }
     }
+  }
 
-    @include min-media($screen-sm) {
-      margin-top: 35px;
+  &__menu-trigger {
+    position: relative;
+    @include size($mobile-trigger-size);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include hover {
+      opacity: 0.6;
+    }
+
+    @include min-media($screen-md) {
+      top: -3px;
+      margin-left: 54px;
+      @include size(50px);
+      background-color: $main-color;
+      outline: 1px solid $white;
     }
 
     @include min-media($screen-lg) {
-      margin-top: 0;
-      order: -1;
+      margin-left: 43px;
+      margin-right: 48px;
     }
 
     @include min-media($screen-xl) {
       display: none;
+      margin-left: 44px;
+    }
+
+    & > span {
+      position: relative;
+      display: inline-block;
+      @include size($mobile-trigger-size, 2px);
+      background-color: $white;
+
+      .page--mobile-menu-opened & {
+        background-color: $secondary-color;
+      }
+
+      @include min-media($screen-md) {
+        background-color: $white;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        @include size($mobile-trigger-size, 2px);
+        background-color: $white;
+
+        .page--mobile-menu-opened & {
+          background-color: $secondary-color;
+
+          @include min-media($screen-md) {
+            background-color: $white;
+          }
+        }
+
+        @include min-media($screen-md) {
+          background-color: $white;
+        }
+      }
+
+      &::before {
+        top: -5px;
+      }
+
+      &::after {
+        top: 5px;
+      }
+
+      .page--mobile-menu-opened & {
+        background: 0 0;
+        transition: background .3s .5s;
+      }
+
+      .page--mobile-menu-opened &::before,
+      .page--mobile-menu-opened &::after {
+        top: 0;
+        transition: top .3s,transform .3s .5s;
+      }
+
+      .page--mobile-menu-opened &::before {
+        transform: rotate3d(0,0,1,45deg);
+      }
+
+      .page--mobile-menu-opened &::after {
+        transform: rotate3d(0,0,1,-45deg);
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include min-media($screen-md) {
+        display: flex;
+      }
+
+      @include min-media($screen-xl) {
+        display: none;
+      }
     }
   }
 
@@ -383,7 +385,7 @@
       }
     }
 
-    .header--pick-place-opened  &:not(&--mobile):not(&--tablet) {
+    .page-header--pick-place-opened  &:not(&--mobile):not(&--tablet) {
       display: none;
     }
   }
@@ -412,7 +414,7 @@
       width: 251px;
     }
 
-    .header--pick-place-opened & {
+    .page-header--pick-place-opened & {
       display: block;
 
       @include min-media($screen-md) {
@@ -470,7 +472,7 @@
       margin-top: 35px;
       flex-basis: 100%;
 
-      .header--pick-place-opened & {
+      .page-header--pick-place-opened & {
         color: $secondary-color;
 
         svg {
@@ -556,7 +558,7 @@
       }
     }
 
-    &.header__label--stars {
+    &.page-header__label--stars {
 
       @include min-media($screen-xl) {
         svg {
@@ -656,7 +658,7 @@
       }
     }
 
-    .header__label--stars & {
+    .page-header__label--stars & {
       @include min-media($screen-md) {
         position: absolute;
         top: -17px;
@@ -669,7 +671,7 @@
       }
     }
 
-    .header__label--cart & {
+    .page-header__label--cart & {
       display: inline-block;
 
       &::after {
@@ -704,7 +706,7 @@
       }
     }
 
-    .header__label--auth & {
+    .page-header__label--auth & {
       @include min-media($screen-md) {
         display: none;
       }
@@ -716,7 +718,7 @@
       }
     }
 
-    .header__label--pick-place & {
+    .page-header__label--pick-place & {
       margin-left: 13px;
 
       &::before {
@@ -736,7 +738,7 @@
       display: none;
     }
 
-    .header--pick-place-opened &:not(&--tablet) {
+    .page-header--pick-place-opened &:not(&--tablet) {
       display: none;
     }
 

@@ -1,0 +1,48 @@
+header.page-header
+    .page-header__mobile-header
+      .page-header__main.page-header__main--mobile-header
+        .page-header__logo.page-header__logo--mobile
+          +logo({ mods: 'mobile' })
+        button.page-header__menu-trigger(type='button' data-mobile-menu-trigger)
+          span
+    .page-header__mobile-menu
+      .page-header__main
+        .page-header__content.page-header__content--top
+          .page-header__container
+            .page-header__row.page-header__row--top
+              .page-header__col--top-left
+                a.page-header__label.page-header__label--pick-place(href='#' data-pick-place-trigger)
+                  +icon({ name: 'mark' })
+                  span.page-header__label-text Владивосток
+                .page-header__logo.page-header__logo--tablet
+                  +logo({ mods: 'tablet, large' })
+              .page-header__col--top-right
+                .page-header__search.page-header__search--tablet
+                  +search({ id: 'Tablet', mods: 'tablet' })
+                a.page-header__label.page-header__label--contact(href='tel:+78007377705')
+                  span 8 800 737-77-05
+                a.page-header__label.page-header__label--auth(href='#')
+                  +icon({ name: 'person' })
+                  span.page-header__label-text Вход/Регистрация
+                a.page-header__label.page-header__label--stars(href='#')
+                  span.page-header__label-text 10
+                  +icon({ name: 'star' })
+                a.page-header__label.page-header__label--cart(href='#')
+                  span.page-header__label-text 2500
+                  +icon({ name: 'cart' })
+                button.page-header__menu-trigger.page-header__menu-trigger--tablet(type='button' data-mobile-menu-trigger)
+                  span
+        .page-header__content.page-header__content--main
+          .page-header__container
+            .page-header__row
+              .page-header__col--tools
+                .page-header__logo.page-header__logo--desktop
+                  +logo()
+                .page-header__search.page-header__search--desktop
+                  +search({ id: 'Main' })
+                .page-header__pick-place
+                  include ../pick-place/pick-place
+              .page-header__col--main-nav
+                include ../main-nav/main-nav
+              .page-header__col--contacts
+                include ../header-contacts/header-contacts

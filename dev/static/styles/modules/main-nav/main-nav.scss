@@ -23,7 +23,6 @@
 
   @include min-media($screen-xl) {
     flex-grow: 2;
-    // max-width: 693px;
   }
 
   &__list {
@@ -31,13 +30,9 @@
     flex-direction: column;
 
     @include min-media($screen-sm) {
-      min-height: 50px;
+      min-height: $desktop-header-height;
       flex-direction: row;
       flex-wrap: wrap;
-    }
-
-    @include min-media($screen-md) {
-      // padding-left: $tablet-menu-left-offset;
     }
 
     @include min-media($screen-lg) {
@@ -228,10 +223,6 @@
       @include active-before() {
         display: block;
       }
-
-      // .main-nav__item--active > &::before {
-      //   content: "";
-      // }
 
       @include min-media($screen-sm) {
         font-size: 10px;

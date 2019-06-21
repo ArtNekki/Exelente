@@ -19,16 +19,13 @@ $main-slider-height: 540px;
 
   &__content {
     @include col();
+
+    padding-left: 45px;
+
     @include col(sm, 12, $grid-columns, $grid-gutter-width-sm);
     @include col(md, 12, $grid-columns, $grid-gutter-width-md);
     @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
     @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
-
-    padding-left: 45px;
-
-    @include min-media($screen-sm) {
-      padding-left: $grid-gutter-width-sm / 2;
-    }
 
     &--slide {
       height: $main-slider-height-xs;
@@ -81,8 +78,11 @@ $main-slider-height: 540px;
     align-items: center;
 
     @include min-media($screen-sm) {
-      display: inline-block;
+      margin-bottom: 0;
       padding-right: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
       @include size(66px, 114px);
       background-color: $main-color;
     }
@@ -94,8 +94,11 @@ $main-slider-height: 540px;
     margin-left: auto;
 
     @include min-media($screen-sm) {
-      top: 12px;
-      bottom: unset;
+      margin-top: 11px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      width: 100%;
+      order: -1;
     }
   }
 
@@ -106,6 +109,10 @@ $main-slider-height: 540px;
     line-height: 20px;
     color: $white;
 
+    @include min-media($screen-sm) {
+      display: block;
+    }
+
     &::after {
       position: absolute;
       left: unset;
@@ -115,7 +122,7 @@ $main-slider-height: 540px;
       background-color: $white;
 
       @include min-media($screen-sm) {
-        position: absolute;
+        top: unset;
         bottom: 0;
         left: 8px;
         @include size(50px, 2px);
@@ -145,14 +152,14 @@ $main-slider-height: 540px;
     top: unset;
     bottom: 15px;
     @include size(32px);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background-image: none;
     outline: 1px solid $white;
 
     &:first-child {
-      margin-right: 20px;
+      margin-right: 16px;
 
       @include min-media($screen-sm) {
         margin-right: 0;
@@ -173,19 +180,8 @@ $main-slider-height: 540px;
       }
     }
 
-    &--prev {
-      left: 15px;
-    }
-
     &--next {
       transform: rotateZ(180deg);
-      left: 37px;
-      bottom: 8px;
-
-      @include min-media($screen-sm) {
-        left: unset;
-        right: 18px;
-      }
     }
   }
 }

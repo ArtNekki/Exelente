@@ -1,22 +1,107 @@
-.swiper-container {
-      width: 100%;
-      height: 100%;
-    }
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
+$main-slider-height: 540px;
+
+.main-slider {
+  @include size(100%, $main-slider-height);
+
+  &__container {
+    position: relative;
+    @include container();
+  }
+
+  &__container-inner {
+    @include row();
+  }
+
+  &__content {
+    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
+
+    &--slide {
+      height: $main-slider-height;
+      padding-bottom: 66px;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
     }
+
+    &--actions {
+      text-align: right;
+    }
+  }
+
+  &__title {
+    margin-bottom: 51px;
+    font-family: $secondary-font-family;
+    font-size: 64px;
+    line-height: 80px;
+    color: $white;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+  }
+
+  &__actions {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    @include size(66px, 114px);
+    background-color: $main-color;
+  }
+
+  &__pagination {
+    top: 12px;
+    bottom: unset;
+  }
+
+  &__pagination-num {
+    position: relative;
+    display: block;
+    font-family: $secondary-font-family;
+    font-size: 24px;
+    line-height: 20px;
+    color: $white;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      @include size(50px, 2px);
+      background-color: $white;
+    }
+
+    &:first-child {
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+
+      &::after {
+        content: "";
+      }
+    }
+  }
+
+  &__button {
+    top: unset;
+    bottom: 15px;
+    @include size(15px);
+    background-image: none;
+
+    svg {
+      @include size(inherit);
+      fill: $white;
+    }
+
+    &--prev {
+      left: 15px;
+    }
+
+    &--next {
+      transform: rotateZ(180deg);
+      bottom: 8px;
+      right: 18px;
+    }
+  }
+}

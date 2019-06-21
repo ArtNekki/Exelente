@@ -104,7 +104,8 @@
 
   &__row {
     @include min-media($screen-md) {
-      @include row($grid-gutter-width, 46px);
+      // @include row($grid-gutter-width, 46px);
+      @include row();
     }
 
     &--top {

@@ -1,11 +1,41 @@
-.swiper-container
-  .swiper-wrapper
-    .swiper-slide 1
-    .swiper-slide 2
-    .swiper-slide 3
-    .swiper-slide 4
-    .swiper-slide 5
-    .swiper-slide 6
-    .swiper-slide 7
-  .swiper-button-next
-  .swiper-button-prev
+.main-slider.swiper-container
+  .main-slider__wrapper.swiper-wrapper
+    .swiper-slide(style="background-image:url(static/images/content/main-slider/slide-1.jpg)")
+      .main-slider__container
+        .main-slider__container-inner
+          .main-slider__content.main-slider__content--slide
+            h2.main-slider__title
+              | Поступи
+              <br />
+              | в зарубежный ВУЗ
+            +btn({ text: 'Подробнее' })(href='#') 
+    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/2)")
+      .main-slider__container
+        .main-slider__container-inner
+          .main-slider__content.main-slider__content--slide
+            | slider content 2
+    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/3)")
+      .main-slider__container
+        .main-slider__container-inner
+          .main-slider__content.main-slider__content--slide
+            | slider content 3
+    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/4)")
+      .main-slider__container
+        .main-slider__container-inner
+          .main-slider__content.main-slider__content--slide
+            | slider content 4
+    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/5)")
+      .main-slider__container
+        .main-slider__container-inner
+          .main-slider__content.main-slider__content--slide
+            | slider content 5
+  .main-slider__bottom
+    .main-slider__container
+      .main-slider__container-inner
+        .main-slider__content.main-slider__content--actions
+          .main-slider__actions
+            .main-slider__pagination.swiper-pagination
+            .main-slider__button.main-slider__button--next.swiper-button-next
+              +icon({ name: 'arrow' })
+            .main-slider__button.main-slider__button--prev.swiper-button-prev
+              +icon({ name: 'arrow' })

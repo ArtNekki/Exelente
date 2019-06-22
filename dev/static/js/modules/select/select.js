@@ -16,40 +16,47 @@ export default class Select {
         customSelect = wrap.children[0];
         customSelect.addEventListener('change', this._onChange.bind(this));
 
-        select.hidden = true;
-        select.parentNode.append(customSelect);
+        select.classList.add('select--hidden')
+        select.parentNode.appendChild(customSelect);
 
+        this._selectTrigger = customSelect.querySelector('[data-select-trigger]');
         this._customSelect = customSelect;
     }
 
     _renderSelect(select) {
-        let options = Array.from(select.options);
-        let name = select.dataset.selectField;
-        let placeholder = select.dataset.selectFieldPlaceholder;
-        let icon = select.dataset.selectFieldIcon;
+        let options = Array.from(select.querySelector('.select__content--native').options);
+        let name = select.dataset.customSelect;
+        let placeholder = select.dataset.customSelectPlaceholder;
+        let icon = select.dataset.customSelectIcon;
+        let label = select.dataset.customSelectLabel;
 
         return `
                 <div class='select select--custom' data-select-id='${select.id}'>
-				    <input type='radio' data-select-trigger name='${name}'>
-				    <span class='select__content select__content--title'>
-                        ${icon ? this._renderIcon(icon) : ''}
-						<span class='select__placeholder'>${placeholder}</span>
-                    </span>
-				    <div class='select__list'>
-					    ${options.map((option) => this._renderOption(name, option)).join(``)}
-				    </div>
+                  ${label ? this._renderLabel(label) : ''}
+      				    <input type='radio' class='select__trigger--main' data-select-trigger name='${name}'>
+      				    <span class='select__content select__content--title'>
+                              ${icon ? this._renderIcon(icon) : ''}
+      						<span class='select__placeholder'>${placeholder}</span>
+                          </span>
+      				    <div class='select__list'>
+      					    ${options.map((option) => this._renderOption(name, option)).join(``)}
+      				    </div>
 		         </div>`;
     }
 
     _renderOption(name, option) {
         return `
                     <label class='select__option js-select-option' data-value='${option.value}'>
-					    <input type='radio' name='${name}' ${option.selected ? 'checked=true' : ''}>
-					    <span class='select__content'>
+					    <input type='radio' class='select__trigger--option' name='${name}' ${option.selected ? 'checked=true' : ''}>
+					    <span class='select__content select__content--option'>
                             ${option.dataset.icon ? this._renderIcon(option.dataset.icon) : ''}
 						    <span class='select__placeholder' data-type='${option.dataset.type ? option.dataset.type : ''}'>${option.text}</span>
 					    </span>
 				    </label>`;
+    }
+
+    _renderLabel(name) {
+        return `<span class='select__label'>${name}</span>`;
     }
 
     _renderIcon(name) {
@@ -58,7 +65,7 @@ export default class Select {
 
     _onChange(e) {
         let option = e.target.closest('.js-select-option');
-        let select = this._select;
+        let select = this._select.querySelector('select');
         let newEvent = new Event('change');
 
         if (!option) {
@@ -73,7 +80,6 @@ export default class Select {
         this._selectedOption = option;
 
         this._customSelect.classList.remove('select--rotate');
-
         select.value = option.dataset.value;
         select.dispatchEvent(newEvent);
 
@@ -82,6 +88,16 @@ export default class Select {
 
     getOriginalSelect() {
         return this._select;
+    }
+
+    close(target) {
+      const activeOption = this._customSelect.querySelector('.select__option--active .select__trigger--option')
+            || this._customSelect.querySelector('.select__option:first-of-type .select__trigger--option');
+
+      if (!this._customSelect.contains(target)) {
+        console.log('contains', this._customSelect.contains(target))
+        activeOption.checked = true;
+      }
     }
 
     onChange() { }

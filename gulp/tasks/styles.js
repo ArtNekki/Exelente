@@ -7,6 +7,7 @@ let plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     postcss = require('gulp-postcss'),
     sprites  = require('postcss-sprites'),
+    postcssSVG = require('postcss-svg'),
     stylesPATH = {
         "input": "./dev/static/styles/",
         "ouput": "./build/static/css/"
@@ -34,7 +35,12 @@ module.exports = function () {
             .pipe(autoprefixer({
                 browsers: ['last 3 version']
             }))
-            .pipe(postcss([sprites(spritesOpts)]))
+            // .pipe(postcss([sprites(spritesOpts)]))
+            .pipe(postcss([
+              postcssSVG({
+                dirs: './dev/static/images/svg/'
+              })
+            ]))
             .pipe(sourcemaps.write())
             .pipe(rename('styles.min.css'))
             .pipe($.gulp.dest(stylesPATH.ouput))

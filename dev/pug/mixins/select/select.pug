@@ -1,0 +1,6 @@
+mixin select(options)
+  .select
+    .select__label= options.label
+    select.select__field(id=options.id name=options.name data-select-field=options.name data-select-field-placeholder=options.placeholder)
+        each item in options.list
+          option(value=item.value)= item.name

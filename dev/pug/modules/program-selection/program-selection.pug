@@ -1,0 +1,51 @@
+section.program-selection
+  .program-selection__container
+    .program-selection__inner
+      .program-selection__content
+        h2.program-selection__title
+          | Подобрать программу
+        p.program-selection__text
+          | В нашем каталоге  собраны программы, зарекомендовавшие себя исключительно 
+          | с положительной стороны. Excelente ведет каждого клиента индивидуально,
+          | оказывая поддержку круглосуточно
+          | семь дней в неделю.
+        .program-selection__select
+          +select({ 
+            id: 'country', 
+            name: 'country',
+            label: 'Страна',
+            placeholder: 'Не выбрано',
+            list: [
+              { value: 'англия', name: 'Англия' },
+              { value: 'франция', name: 'Франция' },
+              { value: 'испания', name: 'Испания' },
+              { value: 'китай', name: 'Китай' },
+            ]
+          })
+        .program-selection__select
+          +select({ 
+            id: 'lang', 
+            name: 'lang',
+            label: 'Язык',
+            placeholder: 'Не выбрано',
+            list: [
+              { value: 'английский', name: 'Английский' },
+              { value: 'французский', name: 'Французский' },
+              { value: 'испанский', name: 'Испанский' },
+              { value: 'китайский', name: 'Китайский' },
+            ]
+          })
+        .program-selection__select
+          +select({ 
+            id: 'type', 
+            name: 'type',
+            label: 'Тип программы',
+            placeholder: 'Тип программы',
+            list: [
+              { value: 'работа', name: 'Работа' },
+              { value: 'учеба', name: 'Учеба' },
+              { value: 'отдых', name: 'Отдых' },
+            ]
+          })
+        .program-selection__pick
+          +btn({ text: 'Подобрать', mods: 'full-width' })(href='#')

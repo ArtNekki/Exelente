@@ -1,0 +1,178 @@
+.select__field {
+  @include size(285px, 48px);
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 48px;
+  border: 2px solid $secondary-color;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: $black;
+  background-color: $white;
+  // background-image: inline($svg-icon + 'arrow.svg');
+  background-position: 100% -1px;
+  appearance: none;
+
+  &:focus {
+    color: $white;
+    border-color: $white;
+    background-color: transparent;
+    // background-image: inline('arrow.svg');
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.select {
+    position: relative;
+    /*overflow: hidden;*/
+    min-width: 160px;
+    font-size: 14px;
+}
+
+.select__label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: $white;
+}
+
+.select--custom {
+  z-index: 10;
+}
+
+.select > input {
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.select > input:hover ~ .select__list .select__option .select__placeholder {
+    color: #cccccc;
+}
+
+.select > input:not(:checked) {
+    z-index: 10;
+}
+
+.select > input:not(:checked) ~ .select__list .select__content {
+    display: none;
+}
+
+.select > input:checked ~ .select__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.select__content.select__content--title {
+    background-color: transparent;
+    border-color: $white;
+    color: $white;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      @include size(48px, 44px);
+      background-color: $secondary-color;
+      background-image: url($svg-icon + 'arrow.svg');
+    }
+}
+
+.select > input:checked ~ .select__content--title {
+  &::after {
+    background-color: $white;
+  }
+}
+
+.select__content {
+    position: relative;
+    display: block;
+    @include size(100%, 48px);
+    padding-left: 10px;
+    padding-right: 48px;
+    border: 2px solid $secondary-color;
+    font-size: 18px;
+    line-height: 44px;
+    background-color: $white;
+    cursor: pointer;
+
+}
+
+.select__option .select__content:hover,
+.select__option--active .select__content {
+    background-color: $secondary-color;
+    color: $white;
+}
+
+.select__option input {
+    display: none;
+}
+
+.select__placeholder::before {
+    content: attr(data-type);
+    margin-right: 5px;
+}
+
+.select__content .select__icon {
+    display: none;
+    margin-right: 5px;
+    font-size: 19px;
+}
+
+.select__list .select__option input:checked ~ .select__content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    // border-color: transparent;
+    color: $black;
+    pointer-events: none;
+}
+
+.select__option input:not(:checked) ~ .select__content {
+    // border-left: 1px solid #979797;
+    border-color: transparent;
+    // border-right: 2px solid #DEDEDE;
+}
+
+// .select__option:first-of-type input:not(:checked) ~ .select__content {
+//     border-top: 1px solid #979797;
+// }
+//
+// .select__option:last-of-type input:not(:checked) ~ .select__content {
+//     border-bottom: 1px solid #979797;
+// }
+
+.select__list .select__option input:checked ~ .select__content {
+    display: flex;
+}
+
+.select__option input:checked ~ .select__content .select__placeholder::before {
+    content: "";
+    margin-right: 0;
+}
+
+.select__option input:checked ~ .select__content .select__icon {
+    display: inline-block;
+}
+
+.select--rotate .select__option input:checked ~ .select__content .select__placeholder {
+    direction: rtl;
+}

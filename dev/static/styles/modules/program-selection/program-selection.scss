@@ -1,0 +1,35 @@
+.program-selection {
+  background-color: $main-color;
+
+  &__container {
+    @include container();
+  }
+
+  &__inner {
+    @include row();
+  }
+
+  &__content {
+    @include col();
+
+    padding-top: 40px;
+  }
+
+  &__title {
+    font-family: $secondary-font-family;
+    font-size: 48px;
+    line-height: 62px;
+    color: $white;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $white;
+  }
+
+  &__select {
+    margin-bottom: 20px;
+  }
+}

@@ -12,24 +12,33 @@
   &__content {
     @include col();
 
-    padding-top: 40px;
+    padding-top: 43px;
   }
 
   &__title {
     font-family: $secondary-font-family;
     font-size: 48px;
-    line-height: 62px;
+    line-height: 53px;
     color: $white;
   }
 
   &__text {
-    margin-bottom: 30px;
+    margin-top: 31px;
+    margin-bottom: 38px;
     font-size: 14px;
     line-height: 21px;
     color: $white;
+
+    html.no-touch & {
+      margin-bottom: 64px;
+    }
   }
 
   &__select {
-    margin-bottom: 30px;
+    margin-bottom: 59px;
+
+    html.no-touch &--type {
+      margin-bottom: 33px;
+    }
   }
 }

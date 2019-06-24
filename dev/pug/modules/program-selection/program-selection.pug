@@ -17,6 +17,7 @@ section.program-selection
             placeholder: 'Выбирете',
             list: [
               { value: '', name: 'Не выбрано' },
+              { value: 'сша', name: 'США' },
               { value: 'англия', name: 'Англия' },
               { value: 'франция', name: 'Франция' },
               { value: 'испания', name: 'Испания' },
@@ -37,7 +38,7 @@ section.program-selection
               { value: 'китайский', name: 'Китайский' },
             ]
           })
-        .program-selection__select
+        .program-selection__select.program-selection__select--type
           +select({ 
             id: 'type', 
             name: 'type',
@@ -45,6 +46,7 @@ section.program-selection
             placeholder: 'Выбирете',
             list: [
               { value: '', name: 'Не выбрано' },
+              { value: 'английский', name: 'Английский' },
               { value: 'работа', name: 'Работа' },
               { value: 'учеба', name: 'Учеба' },
               { value: 'отдых', name: 'Отдых' },

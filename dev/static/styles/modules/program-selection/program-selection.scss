@@ -1,6 +1,12 @@
 .program-selection {
   background-color: $main-color;
 
+  @include min-media($screen-md) {
+    background-color: $gray;
+    box-shadow: 8px 8px 10px rgba($black, 0.1);
+    margin-bottom: 30px;
+  }
+
   &__container {
     @include container();
   }
@@ -11,7 +17,18 @@
 
   &__content {
     @include col();
+    @include col(sm, 12, $grid-columns, $grid-gutter-width-sm);
+    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
+
     padding-top: 43px;
+
+    @include min-media($screen-md) {
+      padding-top: 39px;
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__title {
@@ -19,6 +36,12 @@
     font-size: 48px;
     line-height: 53px;
     color: $white;
+
+    @include min-media($screen-md) {
+      margin-bottom: 64px;
+      flex-basis: 100%;
+      color: $main-color;
+    }
   }
 
   &__text {
@@ -27,9 +50,49 @@
     font-size: 14px;
     line-height: 21px;
     color: $white;
+
+    @include min-media($screen-md) {
+      margin-top: 55px;
+      padding-left: 80px;
+      flex-basis: 100%;
+      order: 1;
+      font-weight: 700;
+      color: $main-color;
+    }
   }
 
   &__select {
     margin-bottom: 34px;
+
+    @include min-media($screen-md) {
+      width: 248px;
+      margin-right: 58px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__selects {
+    width: 100%;
+    padding-left: 80px;
+    display: flex;
+    align-items: flex-end;
+
+    & > *:not(.program-selection__btn) {
+      margin-right: 53px;
+      flex-basis: 246px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    @include min-media($screen-md) {
+      padding-left: 43px;
+      padding-right: 43px;
+      flex-grow: 0;
+      color: $white;
+      background-color: $main-color;
+    }
   }
 }

@@ -35,6 +35,11 @@
         width: 100%;
         box-sizing: border-box;
         z-index: 100;
+
+        @include min-media($screen-md) {
+          top: calc(100% - 2px);
+          border: 2px solid $main-color;
+        }
     }
   }
 
@@ -70,6 +75,13 @@
         border-color: $white;
         background-color: transparent;
         background-image: url('select-native-arrow-up.svg');
+
+        @include min-media($screen-md) {
+          color: $main-color;
+          border-color: $main-color;
+          background-color: $white;
+          background-image: url('select-native-arrow-up.svg' param(--color-arrow $white) param(--color-bg $main-color));
+        }
       }
 
       &::-ms-expand {
@@ -81,6 +93,13 @@
         background-color: transparent;
         border-color: $white;
         color: $white;
+
+        @include min-media($screen-md) {
+          background-color: $white;
+          border-color: $main-color;
+          border-bottom-color: transparent;
+          color: $main-color;
+        }
 
         &::after {
           content: url('select-arrow-down.svg' param(--color $white));
@@ -95,6 +114,11 @@
           .select > input:checked ~ & {
             content: url('select-arrow-up.svg' param(--color $main-color));
             background-color: $white;
+
+            @include min-media($screen-md) {
+              content: url('select-arrow-up.svg' param(--color $white));
+              background-color: $main-color;
+            }
           }
 
           html:not(.touch) .select > input:not(:checked):hover ~  & {
@@ -122,11 +146,19 @@
       &:focus {
         background-color: $secondary-color;
         color: $white;
+
+        @include min-media($screen-md) {
+          background-color: $main-color;
+        }
       }
 
       @include hover {
         background-color: $secondary-color;
         color: $white;
+
+        @include min-media($screen-md) {
+          background-color: $main-color;
+        }
       }
 
       html:not(.touch) .select > input:not(:checked):hover ~ .select__list & {

@@ -9,7 +9,7 @@ section.program-selection
           | с положительной стороны. Excelente ведет каждого клиента индивидуально,
           | оказывая поддержку круглосуточно
           | семь дней в неделю.
-        .program-selection__select
+        .program-selection__selects
           +field-select({ 
             id: 'country', 
             name: 'country',
@@ -24,7 +24,6 @@ section.program-selection
               { value: 'китай', name: 'Китай' },
             ]
           })
-        .program-selection__select
           +field-select({ 
             id: 'lang', 
             name: 'lang',
@@ -38,7 +37,6 @@ section.program-selection
               { value: 'китайский', name: 'Китайский' },
             ]
           })
-        .program-selection__select.program-selection__select--type
           +field-select({ 
             id: 'type', 
             name: 'type',
@@ -52,5 +50,4 @@ section.program-selection
               { value: 'отдых', name: 'Отдых' },
             ]
           })
-        .program-selection__pick
-          +btn({ text: 'Подобрать', mods: 'full-width' })(type='submit')
+          +btn({ text: 'Подобрать' })(type='submit' class='program-selection__btn')

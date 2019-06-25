@@ -27,25 +27,25 @@
   }
 }
 
-@mixin icon($name, $width, $height) {
-  background-image: url($png-icon + $name + ".png");
+@mixin png($name, $width, $height) {
+  background-image: url($png + $name + ".png");
   width: $width;
   height: $height;
   background-repeat: no-repeat !important;
 
 	@media (-webkit-min-device-pixel-ratio: 2),
 				 (min-resolution: 192dpi) {
-		background-image: url($png-icon + $name + "@2x.png");
+		background-image: url($png + $name + "@2x.png");
 	}
 
   @media (-webkit-min-device-pixel-ratio: 3),
 				 (min-resolution: 288dpi) {
-		background-image: url($png-icon + $name + "@3x.png");
+		background-image: url($png + $name + "@3x.png");
 	}
 
   @media (-webkit-min-device-pixel-ratio: 4),
          (min-resolution: 384dpi) {
-    background-image: url($png-icon + $name + "@4x.png");
+    background-image: url($png + $name + "@4x.png");
   }
 }
 

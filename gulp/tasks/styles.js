@@ -19,10 +19,10 @@ let spritesOpts = {
     retina: true,
     verbose:true,
     filterBy: function(image) {
-      if (!/icons\//.test(image.url)) {
+      if (!/png\//.test(image.url)) {
           return Promise.reject();
       }
-      return Promise.resolve('icons');
+      return Promise.resolve('png');
    }
 };
 
@@ -35,12 +35,9 @@ module.exports = function () {
             .pipe(autoprefixer({
                 browsers: ['last 3 version']
             }))
-            // .pipe(postcss([sprites(spritesOpts)]))
-            .pipe(postcss([
-              postcssSVG({
-                dirs: './dev/static/images/svg/'
-              })
-            ]))
+            .pipe(postcss([sprites(spritesOpts), postcssSVG({
+              dirs: './dev/static/images/svg/'
+             })]))
             .pipe(sourcemaps.write())
             .pipe(rename('styles.min.css'))
             .pipe($.gulp.dest(stylesPATH.ouput))

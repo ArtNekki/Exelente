@@ -28,15 +28,15 @@
 
   &__image {
     position: relative;
-    margin-right: 65px;
+    margin-right: 70px;
     @include size(253px, 135px);
 
     &::before {
-      content: url("bus.svg");
+      content: "";
       position: absolute;
       top: 0;
-      left: 9px;
-      @include size(inherit);
+      left: 14px;
+      @include png("bus", 253px, 135px);
     }
   }
 

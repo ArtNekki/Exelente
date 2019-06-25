@@ -32,7 +32,6 @@ export default class Select {
 
         return `
                 <div class='select select--custom' data-select-id='${select.id}'>
-                  ${label ? this._renderLabel(label) : ''}
       				    <input type='radio' class='select__trigger--main' data-select-trigger name='${name}'>
       				    <span class='select__content select__content--title'>
                               ${icon ? this._renderIcon(icon) : ''}
@@ -53,10 +52,6 @@ export default class Select {
 						    <span class='select__placeholder' data-type='${option.dataset.type ? option.dataset.type : ''}'>${option.text}</span>
 					    </span>
 				    </label>`;
-    }
-
-    _renderLabel(name) {
-        return `<span class='select__label'>${name}</span>`;
     }
 
     _renderIcon(name) {

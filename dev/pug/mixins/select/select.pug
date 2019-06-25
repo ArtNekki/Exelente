@@ -1,6 +1,5 @@
 mixin select(options)
   .select(id=options.id name=options.name data-custom-select=options.name data-custom-select-label=options.label data-custom-select-placeholder=options.placeholder)
-    .select__label= options.label
     select.select__content.select__content--native
         each item in options.list
           option(value=item.value)= item.name

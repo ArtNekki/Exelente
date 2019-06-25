@@ -135,20 +135,6 @@
     }
   }
 
-  &__label {
-    margin-bottom: 5px;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 700;
-    color: $white;
-
-    .select--custom & {
-      position: absolute;
-      top: -26px;
-      left: 0;
-    }
-  }
-
   &__option {
     input {
         display: none;

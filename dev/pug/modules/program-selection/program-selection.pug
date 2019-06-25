@@ -10,7 +10,7 @@ section.program-selection
           | оказывая поддержку круглосуточно
           | семь дней в неделю.
         .program-selection__select
-          +select({ 
+          +field-select({ 
             id: 'country', 
             name: 'country',
             label: 'Страна',
@@ -25,7 +25,7 @@ section.program-selection
             ]
           })
         .program-selection__select
-          +select({ 
+          +field-select({ 
             id: 'lang', 
             name: 'lang',
             label: 'Язык',
@@ -39,7 +39,7 @@ section.program-selection
             ]
           })
         .program-selection__select.program-selection__select--type
-          +select({ 
+          +field-select({ 
             id: 'type', 
             name: 'type',
             label: 'Тип программы',

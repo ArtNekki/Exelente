@@ -1,0 +1,7 @@
+mixin field-select(options)
+  .field-select
+    if(typeof(options.label) !== 'undefined' && options.label)
+      .field-select__label= options.label
+    .field-select__main
+      +select(options)
+      

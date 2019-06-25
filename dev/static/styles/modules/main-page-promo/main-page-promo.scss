@@ -1,0 +1,84 @@
+.main-page-promo {
+  display: none;
+
+  @include min-media($screen-md) {
+    display: block;
+  }
+
+  &__container {
+    @include container();
+  }
+
+  &__inner {
+    @include row();
+  }
+
+  &__content {
+    @include col();
+    @include col(sm, 12, $grid-columns, $grid-gutter-width-sm);
+    @include col(md, 12, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
+
+    padding-top: 57px;
+    padding-bottom: 46px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    position: relative;
+    margin-right: 65px;
+    @include size(253px, 135px);
+
+    &::before {
+      content: url("bus.svg");
+      position: absolute;
+      top: 0;
+      left: 9px;
+      @include size(inherit);
+    }
+  }
+
+  &__title {
+    margin-top: 7px;
+    font-family: $secondary-font-family;
+    font-size: 44px;
+    line-height: 57px;
+    color: $secondary-color;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+    color: $black;
+  }
+
+  &__link {
+    position: relative;
+    margin-top: 22px;
+    display: inline-block;
+    font-family: $secondary-font-family;
+    font-size: 18px;
+    line-height: 20px;
+    color: $main-color;
+    letter-spacing: 4px;
+    @include underline(-4px, $main-color);
+
+    @include hover {
+      color: $secondary-color;
+    }
+
+    @include hover-before {
+      background-color: $secondary-color;
+    }
+
+    @include active {
+      color: $secondary-color;
+    }
+
+    @include active-before {
+      background-color: $secondary-color;
+    }
+  }
+}

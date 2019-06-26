@@ -1,0 +1,147 @@
+.roadmap-step {
+  position: relative;
+
+  &--consultancy {
+    svg {
+      fill: $main-color;
+      @include size(70px);
+    }
+  }
+
+  &--payment {
+    svg {
+      @include size(59px);
+    }
+  }
+
+  &--selection {
+    svg {
+      @include size(42px, 50px);
+    }
+  }
+
+  &--docs {
+    svg {
+      @include size(50px, 53px);
+    }
+  }
+
+  &--supervision {
+    svg {
+      @include size(60px, 55px);
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -$grid-gutter-width/2;
+    right: -$grid-gutter-width/2;
+    bottom: 0;
+    z-index: -1;
+    background-color: $gray;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 35px;
+    color: $main-color;
+
+    .roadmap-step > input:checked ~ & {
+      margin-top: 15px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -$grid-gutter-width/2;
+      right: -$grid-gutter-width/2;
+      bottom: 0;
+      z-index: -1;
+      background-color: $white;
+
+      .roadmap-step > input:checked ~ & {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin-left: 30px;
+    font-family: $secondary-font-family;
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  &__body {
+    padding-top: 45px;
+    padding-bottom: 32px;
+    display: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $main-color;
+
+    .roadmap-step > input:checked ~ & {
+      display: block;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    text-align: center;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    @include size(17px);
+    border-radius: 50%;
+    border: 1px solid $main-color;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      background-color: $main-color;
+    }
+
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 7px;
+      bottom: 3px;
+      width: 1px;
+
+      .roadmap-step > input:checked ~ .roadmap-step__header & {
+        display: none;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      top: 7px;
+      left: 3px;
+      right: 3px;
+      height: 1px;
+    }
+  }
+
+  svg {
+    display: inline-block;
+
+    &:not(.icon-roadmap-consultancy) {
+      stroke: $main-color;
+      stroke-width: 2;
+      fill: none;
+    }
+  }
+
+  & > input {
+    display: none;
+  }
+}

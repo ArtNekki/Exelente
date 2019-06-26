@@ -1,0 +1,28 @@
+.roadmap {
+  @include container();
+
+  &__content {
+    @include row();
+  }
+
+  &__main {
+    @include col()
+    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
+    outline: 1px solid red;
+  }
+
+  &__title {
+    margin-top: 58px;
+    margin-bottom: 48px;
+    font-family: $secondary-font-family;
+    font-size: 48px;
+    line-height: 62px;
+    color: $main-color;
+  }
+
+  &__image {
+    display: none;
+    // @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
+    outline: 1px solid green;
+  }
+}

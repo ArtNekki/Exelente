@@ -28,6 +28,7 @@
 
     position: relative;
     padding-top: 43px;
+    padding-bottom: 47px;
 
     @include min-media($screen-md) {
       padding-top: 39px;

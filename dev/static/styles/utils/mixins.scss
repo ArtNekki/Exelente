@@ -127,3 +127,33 @@
     background-color: $color;
   }
 }
+
+@mixin absolute-background-color($color: $white, $index: -1) {
+  position: absolute;
+  top: 0;
+  left: -$grid-gutter-width/2;
+  right: -$grid-gutter-width/2;
+  bottom: 0;
+  z-index: $index;
+  background-color: $color;
+
+  @include min-media($screen-sm) {
+    left: -$grid-gutter-width-sm/2;
+    right: -$grid-gutter-width-sm/2;
+  }
+
+  // @include min-media($screen-md) {
+  //   left: -$grid-gutter-width-md/2;
+  //   right: -$grid-gutter-width-md/2;
+  // }
+  //
+  // @include min-media($screen-lg) {
+  //   left: -$grid-gutter-width-lg/2;
+  //   right: -$grid-gutter-width-lg/2;
+  // }
+  //
+  // @include min-media($screen-xl) {
+  //   left: -$grid-gutter-width-xl/2;
+  //   right: -$grid-gutter-width-xl/2;
+  // }
+}

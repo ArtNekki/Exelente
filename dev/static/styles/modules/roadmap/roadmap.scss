@@ -7,8 +7,14 @@
 
   &__main {
     @include col()
-    @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
-    outline: 1px solid red;
+    @include col(sm, 12, $grid-columns, $grid-gutter-width-sm);
+    @include col(md, 6, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 6, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
+
+    @include min-media($screen-xl) {
+      padding-right: 0;
+    }
   }
 
   &__title {
@@ -18,11 +24,30 @@
     font-size: 48px;
     line-height: 62px;
     color: $main-color;
+
+    @include min-media($screen-md) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__images {
+    position: relative;
+    @include col(md, 6, $grid-columns, $grid-gutter-width-md);
+    @include col(lg, 6, $grid-columns, $grid-gutter-width-lg);
+    @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
+
+    display: none;
+
+    @include min-media($screen-md) {
+      display: block;
+    }
+
+    @include min-media($screen-xl) {
+      padding-left: 18px;
+    }
   }
 
   &__image {
-    display: none;
-    // @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
-    outline: 1px solid green;
+    @include size(568px, 907px);
   }
 }

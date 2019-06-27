@@ -1,46 +1,49 @@
 .roadmap-step {
   position: relative;
+  z-index: 1;
 
-  &--consultancy {
-    svg {
-      fill: $main-color;
-      @include size(70px);
-    }
+  & > input {
+    display: none;
   }
 
-  &--payment {
-    svg {
-      @include size(59px);
-    }
-  }
-
-  &--selection {
-    svg {
-      @include size(42px, 50px);
-    }
-  }
-
-  &--docs {
-    svg {
-      @include size(50px, 53px);
-    }
-  }
-
-  &--supervision {
-    svg {
-      @include size(60px, 55px);
-    }
+  @include min-media($screen-xl) {
+    margin-bottom: 14px;
   }
 
   &::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: -$grid-gutter-width/2;
-    right: -$grid-gutter-width/2;
-    bottom: 0;
-    z-index: -1;
-    background-color: $gray;
+    @include absolute-background-color($gray);
+
+    @include min-media($screen-xl) {
+      display: none;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -18px;
+      bottom: 0;
+      width: 20px;
+      display: none;
+      background-color: $main-color;
+      box-shadow: 7px 7px 10px rgba(0, 67, 145, 0.3);
+    }
+
+    .roadmap-step > input:checked ~  & {
+      @include min-media($screen-xl) {
+        background-color: $main-color;
+        box-shadow: 7px 7px 10px rgba(0, 67, 145, 0.3);
+
+        &::after {
+          display: block;
+        }
+      }
+    }
   }
 
   &__header {
@@ -50,21 +53,27 @@
     padding-top: 35px;
     color: $main-color;
 
-    .roadmap-step > input:checked ~ & {
+    @include min-media($screen-xl) {
+      padding-left: 40px;
+    }
+
+    .roadmap-step > input:checked ~ .roadmap-step__content & {
       margin-top: 15px;
+
+      @include min-media($screen-xl) {
+        color: $white;
+      }
     }
 
     &::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: -$grid-gutter-width/2;
-      right: -$grid-gutter-width/2;
-      bottom: 0;
-      z-index: -1;
-      background-color: $white;
+      @include absolute-background-color($white);
 
-      .roadmap-step > input:checked ~ & {
+      .roadmap-step > input:checked ~ .roadmap-step__content & {
+        display: none;
+      }
+
+      @include min-media($screen-xl) {
         display: none;
       }
     }
@@ -75,6 +84,18 @@
     font-family: $secondary-font-family;
     font-size: 20px;
     line-height: 34px;
+
+    @include min-media($screen-xl) {
+      margin-left: 50px;
+      font-size: 24px;
+    }
+
+    .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include min-media($screen-xl) {
+        margin-top: -20px;
+        margin-left: 35px;
+      }
+    }
   }
 
   &__body {
@@ -85,8 +106,15 @@
     line-height: 20px;
     color: $main-color;
 
-    .roadmap-step > input:checked ~ & {
+    .roadmap-step > input:checked ~ .roadmap-step__content & {
       display: block;
+
+      @include min-media($screen-xl) {
+        padding-top: 8px;
+        padding-bottom: 43px;
+        padding-left: 145px;
+        color: $white;
+      }
     }
   }
 
@@ -104,10 +132,31 @@
     border: 1px solid $main-color;
     cursor: pointer;
 
+    @include min-media($screen-xl) {
+      position: relative;
+      top: 0;
+      right: 15px;
+      margin-left: auto;
+    }
+
+    .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include min-media($screen-xl) {
+        position: absolute;
+        top: 30px;
+        border-color: $white;
+      }
+    }
+
     &::before,
     &::after {
       content: '';
       background-color: $main-color;
+
+      .roadmap-step > input:checked ~ .roadmap-step__content & {
+        @include min-media($screen-xl) {
+          background-color: $white;
+        }
+      }
     }
 
     &::before {
@@ -117,7 +166,7 @@
       bottom: 3px;
       width: 1px;
 
-      .roadmap-step > input:checked ~ .roadmap-step__header & {
+      .roadmap-step > input:checked ~ .roadmap-step__content & {
         display: none;
       }
     }
@@ -131,17 +180,44 @@
     }
   }
 
-  svg {
+  &__svg {
     display: inline-block;
+    stroke: $main-color;
+    stroke-width: 2;
+    fill: none;
 
-    &:not(.icon-roadmap-consultancy) {
-      stroke: $main-color;
-      stroke-width: 2;
-      fill: none;
+    .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include min-media($screen-xl) {
+        stroke: $white;
+      }
     }
-  }
 
-  & > input {
-    display: none;
+    &--consultancy {
+      @include size(70px);
+      fill: $main-color;
+      stroke-width: 0;
+
+      .roadmap-step > input:checked ~ .roadmap-step__content & {
+        @include min-media($screen-xl) {
+          fill: $white;
+        }
+      }
+    }
+
+    &--payment {
+      @include size(59px);
+    }
+
+    &--selection {
+      @include size(42px, 50px);
+    }
+
+    &--docs {
+      @include size(50px, 53px);
+    }
+
+    &--supervision {
+      @include size(60px, 55px);
+    }
   }
 }

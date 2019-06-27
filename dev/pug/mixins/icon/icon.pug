@@ -15,5 +15,5 @@ mixin icon(options)
     }
   //- Если имя передано, тогда рендерим иконку
   if (options.name)
-    svg.svg-sprite-icon.icon(class='icon-' + options.name + allMods)
+    svg.svg-sprite-icon.icon(class='icon-' + options.name + allMods)&attributes(attributes)
       use(xlink:href='static/images/svg/symbol/sprite.svg#' + options.name)

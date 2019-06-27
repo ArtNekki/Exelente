@@ -15,11 +15,12 @@ mixin roadmap-step(options)
   //- блок
   article.roadmap-step(class='roadmap-step--' + options.id.toLowerCase() + allMods)&attributes(attributes)
     input(id='roadmapStep' + options.id type='radio' name='roadmap-step')
-    .roadmap-step__header
-      .roadmap-step__icon
-        +icon({ name: 'roadmap-' + options.id.toLowerCase() })
-      h1.roadmap-step__title= options.title
-      label.roadmap-step__toggle(for='roadmapStep' + options.id)
-    .roadmap-step__body
-      block
+    .roadmap-step__content
+      .roadmap-step__header
+        .roadmap-step__icon
+          +icon({ name: 'roadmap-' + options.id.toLowerCase() })(class='roadmap-step__svg roadmap-step__svg--' + options.id.toLowerCase())
+        h1.roadmap-step__title= options.title
+        label.roadmap-step__toggle(for='roadmapStep' + options.id)
+      .roadmap-step__body
+        block
     

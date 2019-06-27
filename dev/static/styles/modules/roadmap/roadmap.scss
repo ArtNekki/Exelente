@@ -39,6 +39,7 @@
     display: none;
 
     @include min-media($screen-md) {
+      padding-left: 0;
       display: block;
     }
 
@@ -48,6 +49,7 @@
   }
 
   &__image {
-    @include size(568px, 907px);
+    position: absolute;
+    @include size(100%);
   }
 }

@@ -142,18 +142,18 @@
     right: -$grid-gutter-width-sm/2;
   }
 
-  // @include min-media($screen-md) {
-  //   left: -$grid-gutter-width-md/2;
-  //   right: -$grid-gutter-width-md/2;
-  // }
+  @include min-media($screen-md) {
+    left: -$grid-gutter-width-md/2;
+    right: -$grid-gutter-width-md/2;
+  }
+
+  @include min-media($screen-lg) {
+    left: -$grid-gutter-width-lg/2;
+    right: -$grid-gutter-width-lg/2;
+  }
   //
-  // @include min-media($screen-lg) {
-  //   left: -$grid-gutter-width-lg/2;
-  //   right: -$grid-gutter-width-lg/2;
-  // }
-  //
-  // @include min-media($screen-xl) {
-  //   left: -$grid-gutter-width-xl/2;
-  //   right: -$grid-gutter-width-xl/2;
-  // }
+  @include min-media($screen-xl) {
+    left: -$grid-gutter-width-xl/2;
+    right: -$grid-gutter-width-xl/2;
+  }
 }

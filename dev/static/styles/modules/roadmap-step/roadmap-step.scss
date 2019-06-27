@@ -1,3 +1,6 @@
+$content-box-shadow: 7px 7px 10px rgba($main-color, 0.3);
+$content-left-offset: 20px;
+
 .roadmap-step {
   position: relative;
   z-index: 1;
@@ -10,17 +13,36 @@
     margin-bottom: 14px;
   }
 
-  &::before {
-    content: '';
-    @include absolute-background-color($gray);
-
-    @include min-media($screen-xl) {
-      display: none;
-    }
-  }
-
   &__content {
     position: relative;
+
+    .roadmap-step > input:checked ~  & {
+      @include min-media($screen-xl) {
+        background-color: $main-color;
+      }
+
+      @include min-media($screen-xl) {
+        box-shadow: $content-box-shadow;
+      }
+    }
+
+    &::before {
+      content: "";
+      @include absolute-background-color($gray);
+      display: none;
+
+      .roadmap-step > input:checked ~  & {
+        display: block;
+
+        @include min-media($screen-sm) {
+          background-color: $main-color;
+        }
+
+        @include min-media($screen-xl) {
+          display: none;
+        }
+      }
+    }
 
     &::after {
       content: '';
@@ -31,15 +53,10 @@
       width: 20px;
       display: none;
       background-color: $main-color;
-      box-shadow: 7px 7px 10px rgba(0, 67, 145, 0.3);
-    }
+      box-shadow: $content-box-shadow;
 
-    .roadmap-step > input:checked ~  & {
-      @include min-media($screen-xl) {
-        background-color: $main-color;
-        box-shadow: 7px 7px 10px rgba(0, 67, 145, 0.3);
-
-        &::after {
+      .roadmap-step > input:checked ~  & {
+        @include min-media($screen-xl) {
           display: block;
         }
       }
@@ -53,14 +70,22 @@
     padding-top: 35px;
     color: $main-color;
 
-    @include min-media($screen-xl) {
-      padding-left: 40px;
+    @include min-media($screen-sm) {
+      padding-left: $content-left-offset;
+    }
+
+    @include min-media($screen-md) {
+      padding-left: 0;
+    }
+
+    @include min-media($screen-lg) {
+      padding-left: $content-left-offset * 2;
     }
 
     .roadmap-step > input:checked ~ .roadmap-step__content & {
       margin-top: 15px;
 
-      @include min-media($screen-xl) {
+      @include min-media($screen-sm) {
         color: $white;
       }
     }
@@ -73,7 +98,7 @@
         display: none;
       }
 
-      @include min-media($screen-xl) {
+      @include min-media($screen-md) {
         display: none;
       }
     }
@@ -85,15 +110,28 @@
     font-size: 20px;
     line-height: 34px;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-sm) {
+      margin-left: 50px;
+      font-size: 24px;
+    }
+
+    @include min-media($screen-md) {
+      margin-left: 25px;
+      font-size: 22px;
+    }
+
+    @include min-media($screen-lg) {
       margin-left: 50px;
       font-size: 24px;
     }
 
     .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include min-media($screen-sm) {
+        margin-left: 35px;
+      }
+
       @include min-media($screen-xl) {
         margin-top: -20px;
-        margin-left: 35px;
       }
     }
   }
@@ -106,14 +144,29 @@
     line-height: 20px;
     color: $main-color;
 
+    @include min-media($screen-sm) {
+      padding-left: $content-left-offset;
+    }
+
+    @include min-media($screen-md) {
+      padding-left: 0;
+    }
+
+    @include min-media($screen-lg) {
+      padding-left: $content-left-offset * 2;
+    }
+
     .roadmap-step > input:checked ~ .roadmap-step__content & {
       display: block;
+
+      @include min-media($screen-sm) {
+        color: $white;
+      }
 
       @include min-media($screen-xl) {
         padding-top: 8px;
         padding-bottom: 43px;
         padding-left: 145px;
-        color: $white;
       }
     }
   }
@@ -132,18 +185,29 @@
     border: 1px solid $main-color;
     cursor: pointer;
 
-    @include min-media($screen-xl) {
+    @include min-media($screen-sm) {
       position: relative;
       top: 0;
-      right: 15px;
+      right: 20px;
       margin-left: auto;
     }
 
+    @include min-media($screen-md) {
+      right: 0;
+    }
+
+    @include min-media($screen-xl) {
+      right: 15px;
+    }
+
     .roadmap-step > input:checked ~ .roadmap-step__content & {
-      @include min-media($screen-xl) {
+      @include min-media($screen-sm) {
+        border-color: $white;
+      }
+
+      @include min-media($screen-sm) {
         position: absolute;
         top: 30px;
-        border-color: $white;
       }
     }
 
@@ -153,7 +217,7 @@
       background-color: $main-color;
 
       .roadmap-step > input:checked ~ .roadmap-step__content & {
-        @include min-media($screen-xl) {
+        @include min-media($screen-sm) {
           background-color: $white;
         }
       }
@@ -187,7 +251,7 @@
     fill: none;
 
     .roadmap-step > input:checked ~ .roadmap-step__content & {
-      @include min-media($screen-xl) {
+      @include min-media($screen-sm) {
         stroke: $white;
       }
     }
@@ -198,7 +262,7 @@
       stroke-width: 0;
 
       .roadmap-step > input:checked ~ .roadmap-step__content & {
-        @include min-media($screen-xl) {
+        @include min-media($screen-sm) {
           fill: $white;
         }
       }

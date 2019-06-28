@@ -44,12 +44,20 @@
     }
 
     @include min-media($screen-xl) {
+      padding-top: 10px;
       padding-left: 18px;
+      overflow: hidden;
     }
   }
 
   &__image {
     position: absolute;
     @include size(100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include min-media($screen-xl) {
+      background-size: inherit;
+    }
   }
 }

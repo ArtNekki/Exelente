@@ -1,0 +1,112 @@
+$tile-slide-height-md: 130px;
+$tile-slide-height-lg: 160px;
+$tile-slide-height-xl: 193px;
+$tile-scale: scale3d(0.95, 0.95, 0.95);
+$title-large-letter-spasing: 8px;
+
+.country-slide {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease-in;
+  flex-grow: 1;
+
+  @include min-media($screen-sm) {
+    height: 530px;
+  }
+
+  @include min-media($screen-md) {
+    width: 15.9% !important;
+    height: $tile-slide-height-md;
+
+    @include hover {
+      transform: $tile-scale;
+    }
+
+    @include active {
+      transform: $tile-scale;
+    }
+  }
+
+  @include min-media($screen-lg) {
+    height: $tile-slide-height-lg;
+  }
+
+  @include min-media($screen-xl) {
+    height: $tile-slide-height-xl;
+  }
+
+  &--large {
+    @include min-media($screen-md) {
+      width: 32.6% !important;
+      height: $tile-slide-height-md * 2;
+    }
+
+    @include min-media($screen-lg) {
+      height: $tile-slide-height-lg * 2;
+    }
+
+    @include min-media($screen-xl) {
+      height: $tile-slide-height-xl * 2;
+    }
+  }
+
+  &--top {
+    @include min-media($screen-md) {
+      margin-top: -$tile-slide-height-md;
+    }
+
+    @include min-media($screen-lg) {
+      margin-top: -$tile-slide-height-lg;
+    }
+
+    @include min-media($screen-xl) {
+      margin-top: -$tile-slide-height-xl;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($black, 0.2);
+
+    @include min-media($screen-md) {
+      opacity: 0;
+
+      .country-slide:hover &,
+      html.touch & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $secondary-font-family;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    letter-spacing: $title-large-letter-spasing;
+    color: $white;
+
+    @include min-media($screen-md) {
+      letter-spacing: 2px;
+    }
+
+    .country-slide--large & {
+      @include min-media($screen-md) {
+        letter-spacing: $title-large-letter-spasing;
+      }
+    }
+  }
+}

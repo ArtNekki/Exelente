@@ -1,0 +1,22 @@
+mixin country-slide(options)
+  //- Принимает:
+  //-   options.title   {string} - Название страны
+  //-   options.imageName {string} - Название картинки
+  //-   options.link {string} - ссылка на контент
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +country-slide({ title: 'Страна', imageName: 'имя', link: '#', mods: 'large, top' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' country-slide--' + modsList[i].trim();
+      }
+    }
+  //- 
+  a.country-slide(href=options.link class=allMods style="background-image:url(static/images/content/country-slider/" + options.imageName + ".jpg);")&attributes(attributes)
+    //- img(src="static/images/content/country-slider/" + options.imageName + ".jpg")
+    .country-slide__overlay
+      span.country-slide__title= options.title

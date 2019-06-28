@@ -4,7 +4,7 @@ function formatFraction(number) {
   return number < 10 ? '0 ' + number : number;
 }
 
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('#mainSlider', {
      slidesPerView: 'auto',
      navigation: {
        nextEl: '.swiper-button-next',

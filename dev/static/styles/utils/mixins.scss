@@ -74,6 +74,12 @@
   }
 }
 
+@mixin range-media($min-width, $max-width, $orientation: "landscape") {
+  @media screen and (min-width: $min-width) and (max-width: $max-width - 1px) {
+    @content;
+  }
+}
+
 @mixin hover {
   html:not(.touch) & {
 

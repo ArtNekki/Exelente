@@ -6,6 +6,7 @@ import mainSlider from './modules/main-slider/main-slider';
 import select from './modules/select/select';
 import programSelection from './modules/program-selection/program-selection';
 import baron from './modules/baron/baron';
+import slider from './modules/slider/slider';
 
 $(document).ready(function () {
     svg4everybody({});

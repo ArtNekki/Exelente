@@ -9,3 +9,16 @@ block content
 	include modules/main-page-promo/main-page-promo
 	include modules/program-selection/program-selection
 	include modules/roadmap/roadmap
+	+page-section({ title: 'Страны', mods: 'no-xs-gutters' })
+		+slider({ id: 'countrySlider', mods: 'countries', navPosition: 'out' })
+			+country-slide({ title: 'Австралия', imageName: 'australia', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'США', imageName: 'usa', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large' })(class='swiper-slide')
+			+country-slide({ title: 'Австралия', imageName: 'australia', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'США', imageName: 'usa', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large, top' })(class='swiper-slide')
+			+country-slide({ title: 'Австралия', imageName: 'australia', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'США', imageName: 'usa', link: '#' })(class='swiper-slide')
+			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large, top' })(class='swiper-slide')
+
+				

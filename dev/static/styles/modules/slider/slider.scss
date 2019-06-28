@@ -1,0 +1,73 @@
+$slider-button-size: 34px;
+
+.slider {
+
+  &__wrapper {
+    @include min-media($screen-md) {
+      flex-wrap: wrap;
+      transform: none !important;
+    }
+  }
+
+  &__nav {
+    position: relative;
+    margin-top: 50px;
+    font-size: 0;
+
+    .slider--countries & {
+      @include range-media($screen-xs, $screen-sm) {
+        margin-left: $grid-gutter-width / 2;
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: -$slider-button-size / 2;
+    @include size($slider-button-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+    background-color: $secondary-color;
+    border: 2px solid $secondary-color;
+
+    @include min-media($screen-md) {
+      display: none;
+    }
+
+    .slider--nav-out & {
+      position: static;
+      top: unset;
+      margin-top: 0;
+      z-index: 1;
+      background-color: $white;
+    }
+
+    &--prev {
+      left: 20px;
+
+      .slider--nav-out & {
+        left: unset;
+      }
+    }
+
+    &--next {
+      right: 20px;
+      transform: rotateZ(180deg);
+
+      .slider--nav-out & {
+        right: unset;
+        margin-left: 18px;
+      }
+    }
+
+    svg {
+      @include size(15px);
+      fill: $white;
+
+      .slider--nav-out & {
+        fill: $secondary-color;
+      }
+    }
+  }
+}

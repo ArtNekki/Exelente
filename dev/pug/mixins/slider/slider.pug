@@ -18,6 +18,8 @@ mixin slider(options)
     }
   //- 
   .slider(class=(options.navPosition && options.navPosition.toLowerCase() == 'out' ? 'slider--nav-out' : '') + allMods)&attributes(attributes)
+    if (options.extraBlock)
+      .slider__extra-block
     .slider__container.swiper-container(id=options.id)
       .slider__wrapper.swiper-wrapper
         block

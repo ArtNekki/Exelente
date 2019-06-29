@@ -107,6 +107,16 @@
   }
 }
 
+@mixin hover-pseudo-element {
+  html:not(.touch) & {
+
+    &:hover::before,
+    &:hover::after {
+      @content;
+    }
+  }
+}
+
 @mixin active {
   &:active,
   &:focus,
@@ -119,6 +129,17 @@
   &:active::before,
   &:focus::before,
   &--active::before {
+    @content;
+  }
+}
+
+@mixin active-pseudo-element {
+  &:active::before,
+  &:focus::before,
+  &:active::after,
+  &:focus::after,
+  &--active::before,
+  &--active::after {
     @content;
   }
 }

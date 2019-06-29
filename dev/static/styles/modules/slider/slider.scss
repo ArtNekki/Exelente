@@ -1,6 +1,24 @@
 $slider-button-size: 34px;
+$slider-button-size--reviews: 48px;
+$extra-block-width: 260px;
 
 .slider {
+  position: relative;
+
+  &--extra-block {
+    display: flex;
+    flex-direction: column;
+
+    @include min-media($screen-md) {
+      flex-direction: row;
+    }
+  }
+
+  &__container {
+    .slider--extra-block & {
+      width: 100%;
+    }
+  }
 
   &__wrapper {
 
@@ -20,6 +38,22 @@ $slider-button-size: 34px;
       @include range-media($screen-xs, $screen-sm) {
         margin-left: $grid-gutter-width / 2;
       }
+    }
+
+    .slider--reviews & {
+      margin-top: 47px;
+      order: 2;
+
+      @include min-media($screen-md) {
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        margin-top: 0;
+      }
+    }
+
+    .slider--reviews-opened & {
+      display: none;
     }
   }
 
@@ -47,6 +81,12 @@ $slider-button-size: 34px;
       background-color: $white;
     }
 
+    .slider--reviews & {
+      @include min-media($screen-md) {
+        @include size($slider-button-size--reviews);
+      }
+    }
+
     &--prev {
       left: 20px;
 
@@ -63,6 +103,12 @@ $slider-button-size: 34px;
         right: unset;
         margin-left: 18px;
       }
+
+      .slider--reviews & {
+        @include min-media($screen-md) {
+          margin-left: 23px;
+        }
+      }
     }
 
     svg {
@@ -71,6 +117,45 @@ $slider-button-size: 34px;
 
       .slider--nav-out & {
         fill: $secondary-color;
+      }
+    }
+  }
+
+  &__extra-block {
+    position: relative;
+    margin-top: -40px;
+    z-index: 10;
+    order: 1;
+    transition: transform 0.5s ease-in;
+
+    @include min-media($screen-md) {
+      margin-top: 0;
+      margin-right: 42px;
+      width: $extra-block-width;
+      z-index: 0;
+      flex-shrink: 0;
+      transition: flex-grow 0.5s ease-in;
+      order: -1;
+    }
+
+    .slider--reviews-opened & {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin-top: 0;
+      height: 100%;
+      transform: translate3d(0, -100%, 0);
+
+      @include min-media($screen-md) {
+        position: static;
+        margin-right: 0;
+        height: 600px;
+        padding-left: 20px;
+        flex-basis: calc(100% - 300px);
+        flex-grow: 1;
+        order: 1;
       }
     }
   }

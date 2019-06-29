@@ -16,7 +16,7 @@ mixin country-slide(options)
       }
     }
   //- 
-  a.country-slide(href=options.link class=allMods style="background-image:url(static/images/content/country-slider/" + options.imageName + ".jpg);")&attributes(attributes)
-    //- img(src="static/images/content/country-slider/" + options.imageName + ".jpg")
+  a.country-slide(href=options.link class=allMods)&attributes(attributes)
+    .country-slide__img(style="background-image:url(static/images/content/country-slider/" + options.imageName + ".jpg);")
     .country-slide__overlay
       span.country-slide__title= options.title

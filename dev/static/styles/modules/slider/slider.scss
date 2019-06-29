@@ -3,9 +3,11 @@ $slider-button-size: 34px;
 .slider {
 
   &__wrapper {
-    @include min-media($screen-md) {
-      flex-wrap: wrap;
-      transform: none !important;
+
+    .slider--countries & {
+      @include min-media($screen-md) {
+        flex-wrap: wrap;
+      }
     }
   }
 
@@ -31,8 +33,10 @@ $slider-button-size: 34px;
     background-color: $secondary-color;
     border: 2px solid $secondary-color;
 
-    @include min-media($screen-md) {
-      display: none;
+    .slider--countries & {
+      @include min-media($screen-md) {
+        display: none;
+      }
     }
 
     .slider--nav-out & {

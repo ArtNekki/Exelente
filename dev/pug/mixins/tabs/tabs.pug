@@ -18,22 +18,10 @@ mixin tabs(options={})
     }
   //-
   .tabs(id=options.id)&attributes(attributes)
-    input(type='radio' id='tab-1' name='tabs')
-    input(type='radio' id='tab-2' name='tabs')
-    input(type='radio' id='tab-3' name='tabs')
-    input(type='radio' id='tab-4' name='tabs')
-    //- label(for='#tab-1').tabs__nav-item Все
+    each item, index in options.tabs
+      input(type='radio' id=('tab-' + index) name=options.name checked=item.checked)
     .tabs__nav
-      label(for='tab-1').tabs__nav-item Все
-      label(for='tab-2').tabs__nav-item Акции
-      label(for='tab-3').tabs__nav-item Новости
-      label(for='tab-4').tabs__nav-item Мероприятия
+      each item, index in options.tabs
+        label(for='tab-' + index).tabs__nav-item= item.name
     .tabs__content
-      .tabs__pane
-        | tab-1
-      .tabs__pane
-        | tab-2
-      .tabs__pane
-        | tab-3
-      .tabs__pane
-        | tab-4
+      block

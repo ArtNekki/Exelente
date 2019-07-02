@@ -8,6 +8,7 @@ import programSelection from './modules/program-selection/program-selection';
 import baron from './modules/baron/baron';
 import slider from './modules/slider/slider';
 import reviewsSlider from './modules/slider/reviews-slider';
+import tabs from './modules/tabs/tabs';
 
 $(document).ready(function () {
     svg4everybody({});

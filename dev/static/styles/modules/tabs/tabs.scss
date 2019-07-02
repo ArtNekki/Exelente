@@ -3,9 +3,14 @@
     display: none;
   }
 
+  &__content {
+    margin-top: 12px;
+  }
+
   &__nav-item {
     position: relative;
-    margin-right: 20px;
+    margin-right: 45px;
+    margin-bottom: 30px;
     display: inline-block;
     font-family: $secondary-font-family;
     font-size: 24px;
@@ -31,10 +36,10 @@
       background-color: $secondary-color;
     }
 
-    input#tab-1:checked ~ .tabs__nav &:nth-child(1),
-    input#tab-2:checked ~ .tabs__nav &:nth-child(2),
-    input#tab-3:checked ~ .tabs__nav &:nth-child(3),
-    input#tab-4:checked ~ .tabs__nav &:nth-child(4) {
+    input#tab-0:checked ~ .tabs__nav &:nth-child(1),
+    input#tab-1:checked ~ .tabs__nav &:nth-child(2),
+    input#tab-2:checked ~ .tabs__nav &:nth-child(3),
+    input#tab-3:checked ~ .tabs__nav &:nth-child(4) {
       color: $secondary-color;
 
       &::before {
@@ -45,12 +50,15 @@
 
   &__pane {
     display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
 
-    input#tab-1:checked ~ .tabs__content &:nth-child(1),
-    input#tab-2:checked ~ .tabs__content &:nth-child(2),
-    input#tab-3:checked ~ .tabs__content &:nth-child(3),
-    input#tab-4:checked ~ .tabs__content &:nth-child(4) {
+    input#tab-0:checked ~ .tabs__content &:nth-child(1),
+    input#tab-1:checked ~ .tabs__content &:nth-child(2),
+    input#tab-2:checked ~ .tabs__content &:nth-child(3),
+    input#tab-3:checked ~ .tabs__content &:nth-child(4) {
       display: block;
+      opacity: 1;
     }
   }
 }

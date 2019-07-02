@@ -52,6 +52,12 @@ $extra-block-width: 260px;
       }
     }
 
+    .slider--posts & {
+      margin-top: -20px;
+      z-index: 0;
+      text-align: right;
+    }
+
     .slider--reviews-opened & {
       display: none;
     }

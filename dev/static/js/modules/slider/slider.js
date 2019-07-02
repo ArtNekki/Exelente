@@ -27,3 +27,16 @@ const enableSwiper = function () {
 
 breakpoint.addListener(breakpointChecker);
 breakpointChecker();
+
+
+// document.querySelectorAll('.slider--posts .slider__container').forEach(function (element, index) {
+//
+//   const postSlider = new Swiper(element, {
+//     navigation: {
+//       nextEl: element.parentNode.querySelector('.slider__btn--next'),
+//       prevEl: element.parentNode.querySelector('.slider__btn--prev'),
+//    }
+//  });
+//
+//  console.log('swiper', element.parentNode.querySelector('.slider__btn--next'));
+// })

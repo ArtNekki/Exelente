@@ -1,0 +1,39 @@
+mixin tabs(options={})
+  //- Принимает:
+  //-   options.id   {string} - ID слайдера
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +slider({ id: 'ID', mods: 'Mods' })
+          .slide-1.swiper-slide
+          .slide-2.swiper-slide
+          ......
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' tabs--' + modsList[i].trim();
+      }
+    }
+  //-
+  .tabs(id=options.id)&attributes(attributes)
+    input(type='radio' id='tab-1' name='tabs')
+    input(type='radio' id='tab-2' name='tabs')
+    input(type='radio' id='tab-3' name='tabs')
+    input(type='radio' id='tab-4' name='tabs')
+    //- label(for='#tab-1').tabs__nav-item Все
+    .tabs__nav
+      label(for='tab-1').tabs__nav-item Все
+      label(for='tab-2').tabs__nav-item Акции
+      label(for='tab-3').tabs__nav-item Новости
+      label(for='tab-4').tabs__nav-item Мероприятия
+    .tabs__content
+      .tabs__pane
+        | tab-1
+      .tabs__pane
+        | tab-2
+      .tabs__pane
+        | tab-3
+      .tabs__pane
+        | tab-4

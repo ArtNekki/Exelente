@@ -1,0 +1,56 @@
+.tabs {
+  & > input {
+    display: none;
+  }
+
+  &__nav-item {
+    position: relative;
+    margin-right: 20px;
+    display: inline-block;
+    font-family: $secondary-font-family;
+    font-size: 24px;
+    line-height: 28px;
+    color: $main-color;
+    cursor: pointer;
+
+    @include underline(0, transparent, 1px);
+
+    @include hover {
+      color: $secondary-color;
+    }
+
+    @include hover-before {
+      background-color: $secondary-color;
+    }
+
+    @include active {
+      color: $secondary-color;
+    }
+
+    @include active-before {
+      background-color: $secondary-color;
+    }
+
+    input#tab-1:checked ~ .tabs__nav &:nth-child(1),
+    input#tab-2:checked ~ .tabs__nav &:nth-child(2),
+    input#tab-3:checked ~ .tabs__nav &:nth-child(3),
+    input#tab-4:checked ~ .tabs__nav &:nth-child(4) {
+      color: $secondary-color;
+
+      &::before {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  &__pane {
+    display: none;
+
+    input#tab-1:checked ~ .tabs__content &:nth-child(1),
+    input#tab-2:checked ~ .tabs__content &:nth-child(2),
+    input#tab-3:checked ~ .tabs__content &:nth-child(3),
+    input#tab-4:checked ~ .tabs__content &:nth-child(4) {
+      display: block;
+    }
+  }
+}

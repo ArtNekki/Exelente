@@ -144,13 +144,13 @@
   }
 }
 
-@mixin underline($pos: 0, $color: $white, $height: 2px) {
+@mixin underline($pos: 0, $color: $white, $height: 2px, $letter-spacing-offset: 0px) {
   &::before {
     content: "";
     position: absolute;
     bottom: $pos;
     left: 0;
-    @include size(100%, $height);
+    @include size(calc(100% - #{$letter-spacing-offset}), $height);
     background-color: $color;
   }
 }

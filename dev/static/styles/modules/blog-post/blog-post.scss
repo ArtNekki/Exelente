@@ -1,0 +1,55 @@
+.blog-post {
+  color: $black;
+
+  &__image {
+    display: block;
+    @include size(100%, 193px);
+    object-fit: cover;
+    color: transparent;
+    background-color: $gray;
+  }
+
+  &__title {
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 700;
+  }
+
+  &__text {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__link {
+    $letter-spacing: 4px;
+
+    position: relative;
+    display: inline-block;
+    margin-top: 40px;
+    font-family: $secondary-font-family;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: $letter-spacing;
+    color: $main-color;
+
+    @include underline(-13px, $main-color, 2px, $letter-spacing);
+
+    @include hover {
+      color: $secondary-color;
+    }
+
+    @include hover-before {
+      background-color: $secondary-color;
+    }
+
+    @include active {
+      color: $secondary-color;
+    }
+
+    @include active-before {
+      background-color: $secondary-color;
+    }
+  }
+}

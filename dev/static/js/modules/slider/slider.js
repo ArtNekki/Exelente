@@ -5,7 +5,6 @@ const breakpoint = window.matchMedia('(min-width: 768px)');
 let swiper;
 
 const breakpointChecker = function() {
-      console.log(breakpoint.matches)
 
    if ( breakpoint.matches === true && swiper !== undefined ) {
       swiper.destroy( true, true );

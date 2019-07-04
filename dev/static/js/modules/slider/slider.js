@@ -1,41 +1,52 @@
 import Swiper from 'swiper';
 
-const breakpoint = window.matchMedia('(min-width: 768px)');
+export default class Slider {
+  constructor({ target, settings = {}, turnOffOnBreakPoint }) {
+    this._sliderId = this._getSliderId(target);
+    this._settings = settings;
 
-let swiper;
+    if (turnOffOnBreakPoint) {
+      this._breakpoint = window.matchMedia(`(min-width: ${turnOffOnBreakPoint})`);
+      this._breakpoint.addListener(this._checkBreakpoint.bind(this));
+    }
 
-const breakpointChecker = function() {
+    this._init(target);
+  }
 
-   if ( breakpoint.matches === true && swiper !== undefined ) {
-      swiper.destroy( true, true );
-      return;
+  _init(target) {
+    if (this._breakpoint && this._breakpoint.matches) return;
 
-   } else if ( breakpoint.matches === false ) {
-      return enableSwiper();
-   }
-};
+    if (typeof target === 'string') {
+      target = document.querySelector(target);
+    }
 
-const enableSwiper = function () {
-  swiper = new Swiper('#countrySlider', {
-    navigation: {
-      nextEl: '.slider--countries .slider__btn--next',
-      prevEl: '.slider--countries .slider__btn--prev',
-   }
- });
+    this._slider = new Swiper(target, Object.assign(this._settings, {
+      navigation: {
+        nextEl: target.parentNode.querySelector('.slider__btn--next'),
+        prevEl: target.parentNode.querySelector('.slider__btn--prev'),
+      }
+    }));
+  }
+
+  _getSliderId(target) {
+    let id;
+
+    if (target.tagName) {
+      id = `#${target.id}`;
+    } else if ((typeof target === 'string') && (target[0] === '#')) {
+      id = target;
+    } else if ((typeof target === 'string') && (target[0] === '.')) {
+      id = `#${document.querySelector(target).id}`
+    }
+
+    return id;
+  }
+
+  _checkBreakpoint() {
+     if (this._breakpoint && this._breakpoint.matches && this._slider) {
+        this._slider.destroy(true, true);
+     } else {
+        this._init(document.querySelector(this._sliderId));
+     }
+  }
 }
-
-breakpoint.addListener(breakpointChecker);
-breakpointChecker();
-
-
-// document.querySelectorAll('.slider--posts .slider__container').forEach(function (element, index) {
-//
-//   const postSlider = new Swiper(element, {
-//     navigation: {
-//       nextEl: element.parentNode.querySelector('.slider__btn--next'),
-//       prevEl: element.parentNode.querySelector('.slider__btn--prev'),
-//    }
-//  });
-//
-//  console.log('swiper', element.parentNode.querySelector('.slider__btn--next'));
-// })

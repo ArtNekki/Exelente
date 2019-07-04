@@ -1,3 +1,12 @@
+const MediaQuery = {
+  XS: '320px',
+  SM: '480px',
+  MD: '768px',
+  LG: '992px',
+  XL: '1280px',
+  XXL: '1800px'
+}
+
 const truncate = function (elem, limit, after) {
 
   if (!elem || !limit) return;
@@ -10,5 +19,6 @@ const truncate = function (elem, limit, after) {
 };
 
 export default {
+  MediaQuery,
   truncate
 }

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html class="page page--index" lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Главная страница</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.min.css"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      function cth(c){document.documentElement.classList.add(c)}
+      'ontouchstart' in window?cth('touch'):cth('no-touch');
+      if(typeof InstallTrigger!=='undefined')cth('firefox');
+      if(/constructor/i.test(window.HTMLElement)||(function(p){return p.toString()==="[object SafariRemoteNotification]"})(!window['safari']||(typeof safari!=='undefined'&&safari.pushNotification)))cth('safari');
+      if(/*@cc_on!@*/false||!!document.documentMode)cth('ie');
+      if(!(/*@cc_on!@*/false||!!document.documentMode)&&!!window.StyleMedia)cth('edge');
+      if(!!window.chrome&&(!!window.chrome.webstore||!!window.chrome.runtime))cth('chrome');
+      if(~navigator.appVersion.indexOf('Win'))cth('windows');
+      if(~navigator.appVersion.indexOf('Mac'))cth('osx');
+      if(~navigator.appVersion.indexOf('Linux'))cth('linux');
+    </script>
+  </head>
+  <body>
+    <noscript>У вас отключен JavaScript.</noscript>
+    <div class="page__inner">
+      <header class="page-header">
+        <div class="page-header__mobile-header">
+          <div class="page-header__main page-header__main--mobile-header">
+            <div class="page-header__logo page-header__logo--mobile"><a class="logo  logo--mobile">
+                <svg class="svg-sprite-icon icon icon-logo">
+                  <use xlink:href="static/images/svg/symbol/sprite.svg#logo"></use>
+                </svg></a>
+            </div>
+            <button class="page-header__menu-trigger" type="button" data-mobile-menu-trigger><span></span></button>
+          </div>
+        </div>
+        <div class="page-header__mobile-menu">
+          <div class="page-header__main">
+            <div class="page-header__content page-header__content--top">
+              <div class="page-header__container">
+                <div class="page-header__row page-header__row--top">
+                  <div class="page-header__col--top-left"><a class="page-header__label page-header__label--pick-place" href="#" data-pick-place-trigger>
+                      <svg class="svg-sprite-icon icon icon-mark">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#mark"></use>
+                      </svg><span class="page-header__label-text">Владивосток</span></a>
+                    <div class="page-header__logo page-header__logo--tablet"><a class="logo  logo--tablet logo--large">
+                        <svg class="svg-sprite-icon icon icon-logo">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#logo"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="page-header__col--top-right">
+                    <div class="page-header__search page-header__search--tablet">
+                      <form class="search  search--tablet" action="#" autocomplete="off">
+                        <div class="search__main">
+                          <input class="search__field" type="text" name="search" placeholder="Поиск..." id="searchTriggerTablet"/>
+                          <label class="search__open" for="searchTriggerTablet">
+                            <svg class="svg-sprite-icon icon icon-loop">
+                              <use xlink:href="static/images/svg/symbol/sprite.svg#loop"></use>
+                            </svg>
+                          </label>
+                        </div>
+                      </form>
+                    </div><a class="page-header__label page-header__label--contact" href="tel:+78007377705"><span>8 800 737-77-05</span></a><a class="page-header__label page-header__label--auth" href="#">
+                      <svg class="svg-sprite-icon icon icon-person">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#person"></use>
+                      </svg><span class="page-header__label-text">Вход/Регистрация</span></a><a class="page-header__label page-header__label--stars" href="#"><span class="page-header__label-text">10</span>
+                      <svg class="svg-sprite-icon icon icon-star">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#star"></use>
+                      </svg></a><a class="page-header__label page-header__label--cart" href="#"><span class="page-header__label-text">2500</span>
+                      <svg class="svg-sprite-icon icon icon-cart">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#cart"></use>
+                      </svg></a>
+                    <button class="page-header__menu-trigger page-header__menu-trigger--tablet" type="button" data-mobile-menu-trigger><span></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="page-header__content page-header__content--main">
+              <div class="page-header__container">
+                <div class="page-header__row">
+                  <div class="page-header__col--tools">
+                    <div class="page-header__logo page-header__logo--desktop"><a class="logo">
+                        <svg class="svg-sprite-icon icon icon-logo">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#logo"></use>
+                        </svg></a>
+                    </div>
+                    <div class="page-header__search page-header__search--desktop">
+                      <form class="search" action="#" autocomplete="off">
+                        <div class="search__main">
+                          <input class="search__field" type="text" name="search" placeholder="Поиск..." id="searchTriggerMain"/>
+                          <label class="search__open" for="searchTriggerMain">
+                            <svg class="svg-sprite-icon icon icon-loop">
+                              <use xlink:href="static/images/svg/symbol/sprite.svg#loop"></use>
+                            </svg>
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="page-header__pick-place">
+                      <form class="pick-place" action="#" autocomplete="off">
+                        <div class="pick-place__search">
+                          <input class="pick-place__field" type="text" name="pick-place-city" placeholder="Название города">
+                          <button class="pick-place__close" type="button" data-pick-place-trigger>
+                            <svg class="svg-sprite-icon icon icon-close">
+                              <use xlink:href="static/images/svg/symbol/sprite.svg#close"></use>
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="pick-place__dropdown">
+                          <div class="baron  baron--scrolling baron--dragging baron--scrollbar" id="baron-pick-place">
+                            <div class="baron__scroller">
+                              <ul class="pick-place__list">
+                                <li class="pick-place__item pick-place__item--active">Губкин</li>
+                                <li class="pick-place__item">Гудермес</li>
+                                <li class="pick-place__item">Гуково</li>
+                                <li class="pick-place__item">Гусь-Хрустальный</li>
+                                <li class="pick-place__item">Гудермес</li>
+                                <li class="pick-place__item">Гуково</li>
+                                <li class="pick-place__item">Гусь-Хрустальный</li>
+                              </ul>
+                            </div>
+                            <div class="baron__track">
+                              <div class="baron__control baron__control--up">▲</div>
+                              <div class="baron__free">
+                                <div class="baron__bar"></div>
+                              </div>
+                              <div class="baron__control baron__control--down">▼</div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="page-header__col--main-nav">
+                    <nav class="main-nav">
+                      <ul class="main-nav__list">
+                        <li class="main-nav__item"><a class="main-nav__link" href="#">О компании</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Лицензии и сертификаты</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Бонусная программа</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Сотрудничество</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Вакансии</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Политика конфиденциальности</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Наши партнеры</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item"><a class="main-nav__link" href="#">Программы</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Работа</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Стажировка</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Каникулярные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Языковые курсы</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Высшее образование</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Среднее образование</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Стипендии и гранты</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item main-nav__item--countries"><a class="main-nav__link" href="#">Страны</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">США</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Япония</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Корея</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Австралия</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Германия</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Англия</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item"><a class="main-nav__link" href="#">Услуги</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Поступление в зарубежный вуз</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Визовое сопровождение</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Поиск и бронирование жилья</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Волонтерство</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item main-nav__item--schools"><a class="main-nav__link" href="#">Школы</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Fanshawe College</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">St. John's University</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">University of Sheffield</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">University of New South</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Wales - UNSW</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">University of Tokyo</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item main-nav__item--blog"><a class="main-nav__link" href="#">Блог</a>
+                          <ul class="main-nav__list--dropdown">
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Акции</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Отзывы</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Новости</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="#">Мероприятия</a></li>
+                          </ul>
+                        </li>
+                        <li class="main-nav__item main-nav__item--contacts"><a class="main-nav__link" href="#">Контакты</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="page-header__col--contacts">
+                    <div class="header-contacts">
+                      <ul class="header-contacts__links">
+                        <li class="header-contacts__item"><span class="header-contacts__label">Бесплатная линия</span><a class="header-contacts__contact" href="#">8 800 737-77-05</a></li>
+                        <li class="header-contacts__item"><span class="header-contacts__label">WhatsApp</span><a class="header-contacts__contact" href="#">8 800 737-77-05</a><small class="header-contacts__details">
+                            Петропавловск-Камчатский,<br />ул. Садовая, 12, офис 32</small></li>
+                        <li class="header-contacts__item"><span class="header-contacts__label">WhatsApp</span><a class="header-contacts__contact" href="#">8 800 737-77-05</a><small class="header-contacts__details">
+                            Петропавловск-Камчатский,<br />ул. Водолазная, 70, офис 12</small></li>
+                      </ul>
+                      <div class="header-contacts__social">
+                        <div class="social-links"><span class="social-links__label">Подписаться</span>
+                          <ul class="social-links__list">
+                            <li class="social-links__item"><a class="social-links__link" href="#">
+                                <svg class="svg-sprite-icon icon icon-inst">
+                                  <use xlink:href="static/images/svg/symbol/sprite.svg#inst"></use>
+                                </svg></a></li>
+                            <li class="social-links__item"><a class="social-links__link" href="#">
+                                <svg class="svg-sprite-icon icon icon-fb">
+                                  <use xlink:href="static/images/svg/symbol/sprite.svg#fb"></use>
+                                </svg></a></li>
+                            <li class="social-links__item"><a class="social-links__link" href="#">
+                                <svg class="svg-sprite-icon icon icon-youtube">
+                                  <use xlink:href="static/images/svg/symbol/sprite.svg#youtube"></use>
+                                </svg></a></li>
+                            <li class="social-links__item"><a class="social-links__link" href="#">
+                                <svg class="svg-sprite-icon icon icon-vk">
+                                  <use xlink:href="static/images/svg/symbol/sprite.svg#vk"></use>
+                                </svg></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="main-slider swiper-container" id="mainSlider">
+        <div class="main-slider__wrapper swiper-wrapper">
+          <div class="swiper-slide" style="background-image:url(static/images/content/main-slider/slide-1.jpg)">
+            <div class="main-slider__container">
+              <div class="main-slider__container-inner">
+                <div class="main-slider__content main-slider__content--slide">
+                  <h2 class="main-slider__title">
+                    Поступи<br />в зарубежный ВУЗ</h2><a class="btn" href="#">Подробнее </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1000/1000/nightlife/2)">
+            <div class="main-slider__container">
+              <div class="main-slider__container-inner">
+                <div class="main-slider__content main-slider__content--slide">slider content 2</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1000/1000/nightlife/3)">
+            <div class="main-slider__container">
+              <div class="main-slider__container-inner">
+                <div class="main-slider__content main-slider__content--slide">slider content 3</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1000/1000/nightlife/4)">
+            <div class="main-slider__container">
+              <div class="main-slider__container-inner">
+                <div class="main-slider__content main-slider__content--slide">slider content 4</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1000/1000/nightlife/5)">
+            <div class="main-slider__container">
+              <div class="main-slider__container-inner">
+                <div class="main-slider__content main-slider__content--slide">slider content 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-slider__bottom">
+          <div class="main-slider__container">
+            <div class="main-slider__container-inner">
+              <div class="main-slider__content main-slider__content--actions">
+                <div class="main-slider__actions">
+                  <div class="main-slider__buttons">
+                    <div class="main-slider__button main-slider__button--prev swiper-button-prev">
+                      <svg class="svg-sprite-icon icon icon-arrow">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="main-slider__button main-slider__button--next swiper-button-next">
+                      <svg class="svg-sprite-icon icon icon-arrow">
+                        <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="main-slider__pagination swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="main-page-promo">
+        <div class="main-page-promo__container">
+          <div class="main-page-promo__inner">
+            <div class="main-page-promo__content">
+              <div class="main-page-promo__image"></div>
+              <div class="main-page-promo__main">
+                <h2 class="main-page-promo__title">Учись и путешествуй!</h2>
+                <p class="main-page-promo__text">Широкий выбор программ за рубежом</p><a class="main-page-promo__link" href="#">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="program-selection">
+        <div class="program-selection__container">
+          <div class="program-selection__inner">
+            <form class="program-selection__content" id="program-selection" action="#">
+              <h2 class="program-selection__title">Подобрать программу</h2>
+              <p class="program-selection__text">
+                В нашем каталоге  собраны программы, зарекомендовавшие себя исключительно 
+                с положительной стороны. Excelente ведет каждого клиента индивидуально,
+                оказывая поддержку круглосуточно
+                семь дней в неделю.
+              </p>
+              <div class="program-selection__main">
+                <div class="field-select">
+                  <div class="field-select__label">Страна</div>
+                  <div class="field-select__main">
+                    <div class="select" id="country" name="country" data-custom-select="country" data-custom-select-label="Страна" data-custom-select-placeholder="Выбирете">
+                      <select class="select__content select__content--native">
+                        <option value="">Не выбрано</option>
+                        <option value="сша">США</option>
+                        <option value="англия">Англия</option>
+                        <option value="франция">Франция</option>
+                        <option value="испания">Испания</option>
+                        <option value="китай">Китай</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-select">
+                  <div class="field-select__label">Язык</div>
+                  <div class="field-select__main">
+                    <div class="select" id="lang" name="lang" data-custom-select="lang" data-custom-select-label="Язык" data-custom-select-placeholder="Выбирете">
+                      <select class="select__content select__content--native">
+                        <option value="">Не выбрано</option>
+                        <option value="английский">Английский</option>
+                        <option value="французский">Французский</option>
+                        <option value="испанский">Испанский</option>
+                        <option value="китайский">Китайский</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-select">
+                  <div class="field-select__label">Тип программы</div>
+                  <div class="field-select__main">
+                    <div class="select" id="type" name="type" data-custom-select="type" data-custom-select-label="Тип программы" data-custom-select-placeholder="Выбирете">
+                      <select class="select__content select__content--native">
+                        <option value="">Не выбрано</option>
+                        <option value="английский">Английский</option>
+                        <option value="работа">Работа</option>
+                        <option value="учеба">Учеба</option>
+                        <option value="отдых">Отдых</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn program-selection__btn" type="submit">Подобрать
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="roadmap">
+        <div class="roadmap__content">
+          <div class="roadmap__main">
+            <h2 class="roadmap__title">Как мы работаем</h2>
+            <article class="roadmap-step roadmap-step--consultancy">
+              <input id="roadmapStepConsultancy" type="radio" name="roadmap-step"/>
+              <div class="roadmap-step__content">
+                <div class="roadmap-step__header">
+                  <div class="roadmap-step__icon">
+                    <svg class="svg-sprite-icon icon icon-roadmap-consultancy roadmap-step__svg roadmap-step__svg--consultancy">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#roadmap-consultancy"></use>
+                    </svg>
+                  </div>
+                  <h1 class="roadmap-step__title">Консультирование</h1>
+                  <label class="roadmap-step__toggle" for="roadmapStepConsultancy"></label>
+                </div>
+                <div class="roadmap-step__body">
+                  <p>
+                     Залог успешного получения образования за рубежом — верный выбор страны, учебного заведения и программы.</p>
+                  <p>
+                     Основа нашего подхода — индивидуальная, тщательная работа с каждым студентом и предоставление профессиональной экспертизы: мы предлагаем варианты обучения, исходя из целей студента, его способностей, 
+                    характера и перспектив на будущее.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="roadmap-step roadmap-step--payment">
+              <input id="roadmapStepPayment" type="radio" name="roadmap-step"/>
+              <div class="roadmap-step__content">
+                <div class="roadmap-step__header">
+                  <div class="roadmap-step__icon">
+                    <svg class="svg-sprite-icon icon icon-roadmap-payment roadmap-step__svg roadmap-step__svg--payment">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#roadmap-payment"></use>
+                    </svg>
+                  </div>
+                  <h1 class="roadmap-step__title">Оплата орг. сбора</h1>
+                  <label class="roadmap-step__toggle" for="roadmapStepPayment"></label>
+                </div>
+                <div class="roadmap-step__body">
+                  <p>
+                     Залог успешного получения образования за рубежом — верный выбор страны, учебного заведения и программы.</p>
+                  <p>
+                     Основа нашего подхода — индивидуальная, тщательная работа с каждым студентом и предоставление профессиональной экспертизы: мы предлагаем варианты обучения, исходя из целей студента, его способностей, 
+                    характера и перспектив на будущее.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="roadmap-step roadmap-step--selection">
+              <input id="roadmapStepSelection" type="radio" name="roadmap-step"/>
+              <div class="roadmap-step__content">
+                <div class="roadmap-step__header">
+                  <div class="roadmap-step__icon">
+                    <svg class="svg-sprite-icon icon icon-roadmap-selection roadmap-step__svg roadmap-step__svg--selection">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#roadmap-selection"></use>
+                    </svg>
+                  </div>
+                  <h1 class="roadmap-step__title">Подбор программы</h1>
+                  <label class="roadmap-step__toggle" for="roadmapStepSelection"></label>
+                </div>
+                <div class="roadmap-step__body">
+                  <p>
+                     Залог успешного получения образования за рубежом — верный выбор страны, учебного заведения и программы.</p>
+                  <p>
+                     Основа нашего подхода — индивидуальная, тщательная работа с каждым студентом и предоставление профессиональной экспертизы: мы предлагаем варианты обучения, исходя из целей студента, его способностей, 
+                    характера и перспектив на будущее.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="roadmap-step roadmap-step--docs">
+              <input id="roadmapStepDocs" type="radio" name="roadmap-step"/>
+              <div class="roadmap-step__content">
+                <div class="roadmap-step__header">
+                  <div class="roadmap-step__icon">
+                    <svg class="svg-sprite-icon icon icon-roadmap-docs roadmap-step__svg roadmap-step__svg--docs">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#roadmap-docs"></use>
+                    </svg>
+                  </div>
+                  <h1 class="roadmap-step__title">Оформление документов</h1>
+                  <label class="roadmap-step__toggle" for="roadmapStepDocs"></label>
+                </div>
+                <div class="roadmap-step__body">
+                  <p>
+                     Залог успешного получения образования за рубежом — верный выбор страны, учебного заведения и программы.</p>
+                  <p>
+                     Основа нашего подхода — индивидуальная, тщательная работа с каждым студентом и предоставление профессиональной экспертизы: мы предлагаем варианты обучения, исходя из целей студента, его способностей, 
+                    характера и перспектив на будущее.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="roadmap-step roadmap-step--supervision">
+              <input id="roadmapStepSupervision" type="radio" name="roadmap-step"/>
+              <div class="roadmap-step__content">
+                <div class="roadmap-step__header">
+                  <div class="roadmap-step__icon">
+                    <svg class="svg-sprite-icon icon icon-roadmap-supervision roadmap-step__svg roadmap-step__svg--supervision">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#roadmap-supervision"></use>
+                    </svg>
+                  </div>
+                  <h1 class="roadmap-step__title">Курирование</h1>
+                  <label class="roadmap-step__toggle" for="roadmapStepSupervision"></label>
+                </div>
+                <div class="roadmap-step__body">
+                  <p>
+                     Залог успешного получения образования за рубежом — верный выбор страны, учебного заведения и программы.</p>
+                  <p>
+                     Основа нашего подхода — индивидуальная, тщательная работа с каждым студентом и предоставление профессиональной экспертизы: мы предлагаем варианты обучения, исходя из целей студента, его способностей, 
+                    характера и перспектив на будущее.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="roadmap__images">
+            <div class="roadmap__image" style="background-image:url('static/images/content/roadmap/consultancy.jpg')"></div>
+          </div>
+        </div>
+      </section>
+      <section class="page-section  page-section--no-xs-gutters">
+        <div class="page-section__wrap">
+          <div class="page-section__content">
+            <h2 class="page-section__title">Страны</h2>
+            <div class="slider slider--nav-out slider--countries">
+              <div class="slider__container swiper-container" id="countrySlider">
+                <div class="slider__wrapper swiper-wrapper"><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/australia.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Австралия</span></div></a><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/usa.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">США</span></div></a><a class="country-slide  country-slide--large swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/japan.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Япония</span></div></a><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/australia.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Австралия</span></div></a><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/usa.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">США</span></div></a><a class="country-slide  country-slide--large country-slide--top swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/japan.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Япония</span></div></a><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/australia.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Австралия</span></div></a><a class="country-slide swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/usa.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">США</span></div></a><a class="country-slide  country-slide--large country-slide--top swiper-slide" href="#">
+                    <div class="country-slide__img" style="background-image:url(static/images/content/country-slider/japan.jpg);"></div>
+                    <div class="country-slide__overlay"><span class="country-slide__title">Япония</span></div></a>
+                </div>
+              </div>
+              <div class="slider__nav">
+                <div class="slider__btn slider__btn--prev swiper-button-prev">
+                  <svg class="svg-sprite-icon icon icon-arrow">
+                    <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                  </svg>
+                </div>
+                <div class="slider__btn slider__btn--next swiper-button-next">
+                  <svg class="svg-sprite-icon icon icon-arrow">
+                    <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page-section">
+        <div class="page-section__wrap">
+          <div class="page-section__content">
+            <h2 class="page-section__title">Отзывы</h2>
+            <div class="slider slider--nav-out slider--reviews slider--extra-block">
+              <div class="slider__extra-block"></div>
+              <div class="slider__container swiper-container" id="reviewsSlider">
+                <div class="slider__wrapper swiper-wrapper">
+                  <div class="review-slide swiper-slide" id="24151">
+                    <picture>
+                      <source media="(min-width: 768px)" srcset="static/images/content/reviews-slider/dasha-md.jpg 1x, static/images/content/reviews-slider/dasha-md@2x.jpg 2x, static/images/content/reviews-slider/dasha-md@3x.jpg 3x"/>
+                      <source media="(min-width: 480px)" srcset="static/images/content/reviews-slider/dasha-sm.jpg 1x, static/images/content/reviews-slider/dasha-sm@2x.jpg 2x, static/images/content/reviews-slider/dasha-sm@3x.jpg 3x"/><img class="review-slide__img" src="static/images/content/reviews-slider/dasha-xs.jpg" srcset="static/images/content/reviews-slider/dasha-xs@2x.jpg 2x, static/images/content/reviews-slider/dasha-xs@3x.jpg 3x"/>
+                    </picture>
+                    <div class="review-slide__name">Дарья</div>
+                    <div class="review-slide__overlay"></div>
+                  </div>
+                  <div class="review-slide swiper-slide" id="26729">
+                    <picture>
+                      <source media="(min-width: 768px)" srcset="static/images/content/reviews-slider/oleg-md.jpg 1x, static/images/content/reviews-slider/oleg-md@2x.jpg 2x, static/images/content/reviews-slider/oleg-md@3x.jpg 3x"/>
+                      <source media="(min-width: 480px)" srcset="static/images/content/reviews-slider/oleg-sm.jpg 1x, static/images/content/reviews-slider/oleg-sm@2x.jpg 2x, static/images/content/reviews-slider/oleg-sm@3x.jpg 3x"/><img class="review-slide__img" src="static/images/content/reviews-slider/oleg-xs.jpg" srcset="static/images/content/reviews-slider/oleg-xs@2x.jpg 2x, static/images/content/reviews-slider/oleg-xs@3x.jpg 3x"/>
+                    </picture>
+                    <div class="review-slide__name">Олег</div>
+                    <div class="review-slide__overlay"></div>
+                  </div>
+                  <div class="review-slide swiper-slide" id="12515">
+                    <picture>
+                      <source media="(min-width: 768px)" srcset="static/images/content/reviews-slider/masha-md.jpg 1x, static/images/content/reviews-slider/masha-md@2x.jpg 2x, static/images/content/reviews-slider/masha-md@3x.jpg 3x"/>
+                      <source media="(min-width: 480px)" srcset="static/images/content/reviews-slider/masha-sm.jpg 1x, static/images/content/reviews-slider/masha-sm@2x.jpg 2x, static/images/content/reviews-slider/masha-sm@3x.jpg 3x"/><img class="review-slide__img" src="static/images/content/reviews-slider/masha-xs.jpg" srcset="static/images/content/reviews-slider/masha-xs@2x.jpg 2x, static/images/content/reviews-slider/masha-xs@3x.jpg 3x"/>
+                    </picture>
+                    <div class="review-slide__name">Маша</div>
+                    <div class="review-slide__overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__nav">
+                <div class="slider__btn slider__btn--prev swiper-button-prev">
+                  <svg class="svg-sprite-icon icon icon-arrow">
+                    <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                  </svg>
+                </div>
+                <div class="slider__btn slider__btn--next swiper-button-next">
+                  <svg class="svg-sprite-icon icon icon-arrow">
+                    <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page-section">
+        <div class="page-section__wrap">
+          <div class="page-section__content">
+            <h2 class="page-section__title">Блог</h2>
+            <div class="tabs" id="blogPost">
+              <input type="radio" id="tab-0" name="blog-post"/>
+              <input type="radio" id="tab-1" name="blog-post" checked="checked"/>
+              <input type="radio" id="tab-2" name="blog-post"/>
+              <input type="radio" id="tab-3" name="blog-post"/>
+              <div class="tabs__nav">
+                <label class="tabs__nav-item" for="tab-0">Все</label>
+                <label class="tabs__nav-item" for="tab-1">Акции</label>
+                <label class="tabs__nav-item" for="tab-2">Новости</label>
+                <label class="tabs__nav-item" for="tab-3">Мероприятия</label>
+              </div>
+              <div class="tabs__content">
+                <div class="tabs__pane">
+                  <div class="slider slider--nav-out slider--posts">
+                    <div class="slider__container swiper-container" id="allPostSlider">
+                      <div class="slider__wrapper swiper-wrapper">
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-1"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-1.jpg" srcset="static/images/content/blog-post/blog-post-1@2x.jpg 2x, static/images/content/blog-post/blog-post-1@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-2"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-2.jpg" srcset="static/images/content/blog-post/blog-post-2@2x.jpg 2x, static/images/content/blog-post/blog-post-2@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-3"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-3.jpg" srcset="static/images/content/blog-post/blog-post-3@2x.jpg 2x, static/images/content/blog-post/blog-post-3@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider__nav">
+                      <div class="slider__btn slider__btn--prev swiper-button-prev">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="slider__btn slider__btn--next swiper-button-next">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs__pane">
+                  <div class="slider slider--nav-out slider--posts">
+                    <div class="slider__container swiper-container" id="actionsPostSlider">
+                      <div class="slider__wrapper swiper-wrapper">
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-31"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-1.jpg" srcset="static/images/content/blog-post/blog-post-1@2x.jpg 2x, static/images/content/blog-post/blog-post-1@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-4"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-2.jpg" srcset="static/images/content/blog-post/blog-post-2@2x.jpg 2x, static/images/content/blog-post/blog-post-2@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-5"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-3.jpg" srcset="static/images/content/blog-post/blog-post-3@2x.jpg 2x, static/images/content/blog-post/blog-post-3@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider__nav">
+                      <div class="slider__btn slider__btn--prev swiper-button-prev">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="slider__btn slider__btn--next swiper-button-next">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs__pane">
+                  <div class="slider slider--nav-out slider--posts">
+                    <div class="slider__container swiper-container" id="newsPostSlider">
+                      <div class="slider__wrapper swiper-wrapper">
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-6"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-1.jpg" srcset="static/images/content/blog-post/blog-post-1@2x.jpg 2x, static/images/content/blog-post/blog-post-1@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-7"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-2.jpg" srcset="static/images/content/blog-post/blog-post-2@2x.jpg 2x, static/images/content/blog-post/blog-post-2@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-8"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-3.jpg" srcset="static/images/content/blog-post/blog-post-3@2x.jpg 2x, static/images/content/blog-post/blog-post-3@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider__nav">
+                      <div class="slider__btn slider__btn--prev swiper-button-prev">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="slider__btn slider__btn--next swiper-button-next">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs__pane">
+                  <div class="slider slider--nav-out slider--posts">
+                    <div class="slider__container swiper-container" id="activitiesPostSlider">
+                      <div class="slider__wrapper swiper-wrapper">
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-9"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-1.jpg" srcset="static/images/content/blog-post/blog-post-1@2x.jpg 2x, static/images/content/blog-post/blog-post-1@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-10"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-2.jpg" srcset="static/images/content/blog-post/blog-post-2@2x.jpg 2x, static/images/content/blog-post/blog-post-2@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                        <div class="swiper-slide">
+                          <article class="blog-post" id="post-11"><img class="blog-post__image" src="static/images/content/blog-post/blog-post-3.jpg" srcset="static/images/content/blog-post/blog-post-3@2x.jpg 2x, static/images/content/blog-post/blog-post-3@3x.jpg 3x" alt="Акция от школы ЕС"/>
+                            <h1 class="blog-post__title">Акция от школы ЕС</h1>
+                            <p class="blog-post__text">
+                              Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
+                              английский язык и совмещать обучение с увлекательными развлечениями!
+                            </p><a class="blog-post__link" href="#">Подробнее</a>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider__nav">
+                      <div class="slider__btn slider__btn--prev swiper-button-prev">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="slider__btn slider__btn--next swiper-button-next">
+                        <svg class="svg-sprite-icon icon icon-arrow">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">
+        <div class="page-footer__main">
+          <div class="page-footer__container">
+            <div class="page-footer__row">
+              <div class="page-footer__col">
+                <div class="page-footer__logo"><a class="logo  logo--large">
+                    <svg class="svg-sprite-icon icon icon-logo">
+                      <use xlink:href="static/images/svg/symbol/sprite.svg#logo"></use>
+                    </svg></a>
+                </div><a class="page-footer__link page-footer__link--franchise" href="#">приобрести франшизу</a>
+              </div>
+              <div class="page-footer__col page-footer__col--menu">
+                <ul class="page-footer__menu">
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">О компании</a></li>
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">Программы</a></li>
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">Услуги</a></li>
+                </ul>
+                <ul class="page-footer__menu">
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">Страны</a></li>
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">Школы</a></li>
+                  <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="#">Контакты</a></li>
+                </ul>
+              </div>
+              <div class="page-footer__col page-footer__col--contacts"><a class="page-footer__contact" href="tel: 88007377705">8 800 737-77-05</a><a class="page-footer__link page-footer__link--free" href="#">бесплатная линия</a>
+                <div class="social-links  social-links--footer"><span class="social-links__label">Подписаться</span>
+                  <ul class="social-links__list">
+                    <li class="social-links__item"><a class="social-links__link" href="#">
+                        <svg class="svg-sprite-icon icon icon-inst">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#inst"></use>
+                        </svg></a></li>
+                    <li class="social-links__item"><a class="social-links__link" href="#">
+                        <svg class="svg-sprite-icon icon icon-fb">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#fb"></use>
+                        </svg></a></li>
+                    <li class="social-links__item"><a class="social-links__link" href="#">
+                        <svg class="svg-sprite-icon icon icon-youtube">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#youtube"></use>
+                        </svg></a></li>
+                    <li class="social-links__item"><a class="social-links__link" href="#">
+                        <svg class="svg-sprite-icon icon icon-vk">
+                          <use xlink:href="static/images/svg/symbol/sprite.svg#vk"></use>
+                        </svg></a></li>
+                  </ul>
+                </div><a class="page-footer__subscribe" href="#">подписаться на рассылку</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-footer__bottom">
+          <div class="page-footer__container">
+            <div class="page-footer__row">
+              <div class="page-footer__col"><b class="page-footer__copyright">OOO «Экселенте», 2018 г.</b></div>
+              <div class="page-footer__col"><small class="page-footer__license">Лицензия ФМС МВД РФ № 20110251124 от 13.08.2010 г. бессрочно</small></div>
+              <div class="page-footer__col">
+                <div class="page-footer__dev">Разработка сайта<a class="page-footer__dev-link" href="#">DVIGA</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="static/js/main.min.js"></script>
+  </body>
+</html>

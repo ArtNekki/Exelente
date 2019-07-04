@@ -1,8 +1,0 @@
-mixin modal(options)
-  input(type='checkbox' id=options.id)
-  label(for=options.id)
-    .modal__content
-      if modal.type == 'confirm'
-        h1.modal__title
-          block
-        .modal__actions

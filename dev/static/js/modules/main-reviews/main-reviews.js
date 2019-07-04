@@ -2,7 +2,6 @@ import Slider from '../slider/slider';
 import utils from '../../utils/utils';
 import ready from '../../utils/documentReady'
 import reviewsData from '../../utils/reviewData';
-import renderReview from '../review-content/review-content';
 
 const sliderSettings = {
   init: false,
@@ -29,8 +28,23 @@ class MainReviews {
     this._container.addEventListener('click', this._reviewContentToggle.bind(this));
 
     sliderAPI.on('slideChange', this._loadReviewContent.bind(sliderAPI, this));
-    sliderAPI.on('init', this._loadReviewContent.bind(sliderAPI, this));
     sliderAPI.init();
+  }
+
+  _getReviewContentTemplate(data) {
+    return `
+      <div class='main-reviews__content'>
+        <div class='main-reviews__header'>
+          <i class='main-reviews__lang main-reviews__lang--${data.lang}'></i>
+          <h3 class='main-reviews__content-name'>${data.name}</h3>
+          <span class='main-reviews__location'>${data.location}</span>
+          <span class="main-reviews__close" data-review-details-hide></span>
+        </div>
+        <div class="main-reviews__description">
+          ${data.text.join(' ')}
+        </div>
+      </div>
+    `
   }
 
   _reviewContentToggle(e) {
@@ -56,7 +70,7 @@ class MainReviews {
     })[0];
 
     if (currentReviewData) {
-      self._aside.innerHTML = renderReview(currentReviewData);
+      self._aside.innerHTML = self._getReviewContentTemplate(currentReviewData);
       self._truncateReviewDescription(self._aside.querySelector('.main-reviews__description'));
     }
   }

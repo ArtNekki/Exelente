@@ -1,22 +1,21 @@
 $slider-button-size: 34px;
 $slider-button-size--reviews: 48px;
-$extra-block-width: 260px;
 
 .slider {
   position: relative;
 
   &--extra-block {
-    display: flex;
-    flex-direction: column;
-
-    @include min-media($screen-md) {
-      flex-direction: row;
-    }
+    // display: flex;
+    // flex-direction: column;
+    //
+    // @include min-media($screen-md) {
+    //   flex-direction: row;
+    // }
   }
 
   &__container {
     .slider--extra-block & {
-      width: 100%;
+      // width: 100%;
     }
   }
 
@@ -33,6 +32,12 @@ $extra-block-width: 260px;
     position: relative;
     margin-top: 50px;
     font-size: 0;
+
+    .slider--nav-out + & {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
 
     .slider--countries & {
       @include range-media($screen-xs, $screen-sm) {
@@ -58,7 +63,7 @@ $extra-block-width: 260px;
       text-align: right;
     }
 
-    .slider--reviews-opened & {
+    .main-reviews--opened & {
       display: none;
     }
   }
@@ -128,41 +133,41 @@ $extra-block-width: 260px;
   }
 
   &__extra-block {
-    position: relative;
-    margin-top: -40px;
-    z-index: 10;
-    order: 1;
-    transition: transform 0.5s ease-in;
-
-    @include min-media($screen-md) {
-      margin-top: 0;
-      margin-right: 42px;
-      width: $extra-block-width;
-      z-index: 0;
-      flex-shrink: 0;
-      transition: flex-grow 0.5s ease-in;
-      order: -1;
-    }
-
-    .slider--reviews-opened & {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      margin-top: 0;
-      height: 100%;
-      transform: translate3d(0, -100%, 0);
-
-      @include min-media($screen-md) {
-        position: static;
-        margin-right: 0;
-        height: 600px;
-        padding-left: 20px;
-        flex-basis: calc(100% - 300px);
-        flex-grow: 1;
-        order: 1;
-      }
-    }
+    // position: relative;
+    // margin-top: -40px;
+    // z-index: 10;
+    // order: 1;
+    // transition: transform 0.5s ease-in;
+    //
+    // @include min-media($screen-md) {
+    //   margin-top: 0;
+    //   margin-right: 42px;
+    //   width: $extra-block-width;
+    //   z-index: 0;
+    //   flex-shrink: 0;
+    //   transition: flex-grow 0.5s ease-in;
+    //   order: -1;
+    // }
+    //
+    // .slider--reviews-opened & {
+    //   position: absolute;
+    //   top: 100%;
+    //   right: 0;
+    //   left: 0;
+    //   bottom: 0;
+    //   margin-top: 0;
+    //   height: 100%;
+    //   transform: translate3d(0, -100%, 0);
+    //
+    //   @include min-media($screen-md) {
+    //     position: static;
+    //     margin-right: 0;
+    //     height: 600px;
+    //     padding-left: 20px;
+    //     flex-basis: calc(100% - 300px);
+    //     flex-grow: 1;
+    //     order: 1;
+    //   }
+    // }
   }
 }

@@ -7,7 +7,7 @@ import select from './modules/select/select';
 import programSelection from './modules/program-selection/program-selection';
 import baron from './modules/baron/baron';
 import slider from './modules/slider/slider';
-import reviewsSlider from './modules/slider/reviews-slider';
+import mainReviews from './modules/main-reviews/main-reviews';
 import tabs from './modules/tabs/tabs';
 import countrySlide from './modules/country-slide/country-slide';
 import blogPost from './modules/blog-post/blog-post';

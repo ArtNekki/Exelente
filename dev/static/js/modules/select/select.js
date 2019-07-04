@@ -90,7 +90,6 @@ export default class Select {
             || this._customSelect.querySelector('.select__option:first-of-type .select__trigger--option');
 
       if (!this._customSelect.contains(target)) {
-        console.log('contains', this._customSelect.contains(target))
         activeOption.checked = true;
       }
     }

@@ -17,20 +17,17 @@ mixin slider(options)
       }
     }
   //- 
-  .slider(class=(options.navPosition && options.navPosition.toLowerCase() == 'out' ? 'slider--nav-out' : '') + allMods)&attributes(attributes)
-    if (options.extraBlock)
-      .slider__extra-block
-    .slider__container.swiper-container(id=options.id)
-      .slider__wrapper.swiper-wrapper
-        block
-    if (options.navPosition && options.navPosition.toLowerCase() == 'in' )
+  .slider.swiper-container(id=options.id class=(options.navPosition && options.navPosition.toLowerCase() == 'out' ? 'slider--nav-out' : '') + allMods)&attributes(attributes)
+    .slider__wrapper.swiper-wrapper
+      block
+  if (options.navPosition && options.navPosition.toLowerCase() == 'in' )
+    .slider__btn.slider__btn--prev.swiper-button-prev
+      +icon({ name: 'arrow' })
+    .slider__btn.slider__btn--next.swiper-button-next
+      +icon({ name: 'arrow' })
+  if (options.navPosition && options.navPosition.toLowerCase() == 'out')
+    .slider__nav
       .slider__btn.slider__btn--prev.swiper-button-prev
         +icon({ name: 'arrow' })
       .slider__btn.slider__btn--next.swiper-button-next
         +icon({ name: 'arrow' })
-    if (options.navPosition && options.navPosition.toLowerCase() == 'out')
-      .slider__nav
-        .slider__btn.slider__btn--prev.swiper-button-prev
-          +icon({ name: 'arrow' })
-        .slider__btn.slider__btn--next.swiper-button-next
-          +icon({ name: 'arrow' })

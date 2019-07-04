@@ -1,6 +1,6 @@
 $review-name-height: 50px;
 
-.review-slide {
+.main-reviews-slide {
   position: relative;
   @include size(100%, auto);
 
@@ -41,12 +41,12 @@ $review-name-height: 50px;
       display: block;
     }
 
-    .review-slide--active & {
+    .main-reviews-slide--active & {
       background-color: $white;
       color: $main-color;
     }
 
-    .slider--reviews-opened & {
+    .main-reviews--opened & {
       display: none;
     }
 
@@ -59,7 +59,7 @@ $review-name-height: 50px;
       @include size(30px, 4px);
       background-color: $white;
 
-      .review-slide--active & {
+      .main-reviews-slide--active & {
         background-color: $main-color;
       }
     }
@@ -73,7 +73,7 @@ $review-name-height: 50px;
     left: 0;
     background-color: rgba($main-color, 0.5);
 
-    .review-slide--active & {
+    .main-reviews-slide--active & {
       display: none;
     }
   }

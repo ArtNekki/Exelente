@@ -49,4 +49,8 @@ export default class Slider {
         this._init(document.querySelector(this._sliderId));
      }
   }
+
+  getAPI() {
+    return this._slider;
+  }
 }

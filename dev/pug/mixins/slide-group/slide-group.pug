@@ -1,0 +1,17 @@
+mixin partners-group(options={})
+  //- Принимает:
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +partners-group({ mods: 'Mods' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' slide-group--' + modsList[i].trim();
+      }
+    }
+  //-
+  .slide-group(class=allMods)&attributes(attributes)
+    block

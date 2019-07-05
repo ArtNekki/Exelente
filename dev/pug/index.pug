@@ -23,10 +23,36 @@ block content
 	+page-section({ title: 'Отзывы' })
 		+main-reviews()
 	+page-section({ title: 'Ассоцияции и Партнеры' })
-		//- +slider({ id: 'partnerSlider', mods: 'partners', navPosition: 'out' })
-			+partner()
-		+partner({ link: '#', mods: '1' })
-			| Ассоциация российских консультантов по образованию
+		+slider({ id: 'partnerSlider', mods: 'partners', navPosition: 'in' })
+			.swiper-slide
+				+partners-group({ mods: 'partners' })
+					+partner({ link: '#', mods: '1' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '2' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '3' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '4' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '5' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '6' })
+						| Ассоциация российских консультантов по образованию
+			.swiper-slide
+				+partners-group({ mods: 'partners' })
+					+partner({ link: '#', mods: '1' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '2' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '3' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '4' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '5' })
+						| Ассоциация российских консультантов по образованию
+					+partner({ link: '#', mods: '6' })
+						| Ассоциация российских консультантов по образованию
+
 	+page-section({ title: 'Блог' })
 		+tabs({ id: 'blogPost', name: 'blog-post', tabs: [{ name: 'Все' }, { name: 'Акции', checked: true }, { name: 'Новости' }, { name: 'Мероприятия' }] })
 			.tabs__pane

@@ -54,3 +54,8 @@ export default class Slider {
     return this._slider;
   }
 }
+
+const slider = new Slider({ target: '#partnerSlider', settings: {
+  slidesPerView: 1,
+  spaceBetween: 1
+ }})

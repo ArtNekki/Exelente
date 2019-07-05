@@ -1,8 +1,8 @@
 .partner {
-  $partners-count: 6;
+  $partners: (name: '1', width: 149px, height: 148px), (name: '2', width: 103px, height: 102px), (name: '3', width: 105px, height: 123px), (name: '4', width: 100px, height: 102px), (name: '5', width: 168px, height: 34px), (name: '6', width: 139px, height: 57px);
   $partner-shadow: 0px 10px 10px rgba($main-color, 0.1);
 
-  // width: 200px;
+  width: 200px;
   display: block;
   transition: box-shadow 0.2s ease;
 
@@ -29,9 +29,11 @@
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
 
-      @for $i from 1 through $partners-count {
-        .partner--#{$i} & {
-          @include png('partner-#{$i}', 149px, 149px);
+      @each $partner in $partners {
+        $name: map-get($partner, "name");
+
+        .partner--#{$name} & {
+          @include png('partner-#{$name}', map-get($partner, "width"), map-get($partner, "height"));
         }
       }
     }

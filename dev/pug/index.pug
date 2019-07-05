@@ -22,6 +22,11 @@ block content
 			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large, top' })(class='swiper-slide')
 	+page-section({ title: 'Отзывы' })
 		+main-reviews()
+	+page-section({ title: 'Ассоцияции и Партнеры' })
+		//- +slider({ id: 'partnerSlider', mods: 'partners', navPosition: 'out' })
+			+partner()
+		+partner({ link: '#', mods: '1' })
+			| Ассоциация российских консультантов по образованию
 	+page-section({ title: 'Блог' })
 		+tabs({ id: 'blogPost', name: 'blog-post', tabs: [{ name: 'Все' }, { name: 'Акции', checked: true }, { name: 'Новости' }, { name: 'Мероприятия' }] })
 			.tabs__pane

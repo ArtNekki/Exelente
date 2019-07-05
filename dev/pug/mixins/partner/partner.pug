@@ -1,0 +1,20 @@
+mixin partner(options)
+  //- Принимает:
+  //-   options.link   {string} - ссылка
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +partner({ link: '#', mods: 'Mods' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' partner--' + modsList[i].trim();
+      }
+    }
+  //-
+  a.partner(href=options.link class=allMods)&attributes(attributes)
+    .partner__logo
+    .partner__text
+      block

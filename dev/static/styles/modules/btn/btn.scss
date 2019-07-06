@@ -12,6 +12,10 @@
   background-color: $secondary-color;
   cursor: pointer;
 
+  &--main {
+    background-color: $main-color;
+  }
+
   &--full-width {
     display: block;
     width: 100%;

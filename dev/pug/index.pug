@@ -20,6 +20,20 @@ block content
 			+country-slide({ title: 'Австралия', imageName: 'australia', link: '#' })(class='swiper-slide')
 			+country-slide({ title: 'США', imageName: 'usa', link: '#' })(class='swiper-slide')
 			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large, top' })(class='swiper-slide')
+	+page-section({ title: 'Популярные программы' })
+		+slider({ id: 'programSlider', mods: 'programs', navPosition: 'out' })
+			+program({ title: ['Языковые курсы', 'для начинающих'], imageName: 'program-2', link: '#' })(class='swiper-slide')
+				| Япония, Корея, Австралия
+				<br />
+				| и еще 10 стран
+			+program({ title: ['Летние каникулы', 'в Европе'], imageName: 'program-2', link: '#' })(class='swiper-slide')
+				| Германия, Чехия, Испания
+				<br />
+				| и еще 4 страны
+			+program({ title: ['Высшее инженерное', 'образование'], imageName: 'program-2', link: '#' })(class='swiper-slide')
+				| США, Швейцария, Сингапур
+				<br />
+				| и еще 19 стран
 	+page-section({ title: 'Отзывы' })
 		+main-reviews()
 	+page-section({ title: 'Ассоцияции и Партнеры' })

@@ -80,11 +80,16 @@
   }
 }
 
-@mixin hover {
-  html:not(.touch) & {
-
-    &:hover {
+@mixin hover($parent: null) {
+  @if $parent {
+    html:not(.touch) #{$parent}:hover & {
       @content;
+    }
+  } @else {
+    html:not(.touch) & {
+      &:hover {
+        @content;
+      }
     }
   }
 }

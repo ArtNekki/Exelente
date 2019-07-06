@@ -55,7 +55,12 @@ export default class Slider {
   }
 }
 
-const slider = new Slider({ target: '#partnerSlider', settings: {
+const partnerSlider = new Slider({ target: '#partnerSlider', settings: {
   slidesPerView: 1,
   spaceBetween: 1
  }})
+
+ const programSlider = new Slider({ target: '#programSlider', turnOffOnBreakPoint: '1280px', settings: {
+   slidesPerView: 1,
+   spaceBetween: 20
+  }})

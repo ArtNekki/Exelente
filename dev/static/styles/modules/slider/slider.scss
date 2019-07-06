@@ -26,6 +26,13 @@ $slider-button-size--reviews: 48px;
         flex-wrap: wrap;
       }
     }
+
+    .slider--programs & {
+      @include min-media($screen-xl) {
+        padding-bottom: 6px;
+        justify-content: center;
+      }
+    }
   }
 
   &__nav {

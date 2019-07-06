@@ -1,0 +1,26 @@
+mixin program(options)
+  //- Принимает:
+  //-   options.link   {string} - ссылка
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +partner({ link: '#', mods: 'Mods' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' program--' + modsList[i].trim();
+      }
+    }
+  //-
+  a.program(href=options.link class=allMods)&attributes(attributes)
+    img.program__image(src='static/images/content/programs/' + options.imageName + '.jpg' srcset='static/images/content/programs/' + options.imageName + '@2x.jpg 2x, static/images/content/programs/' + options.imageName + '@3x.jpg 3x' alt=options.title)
+    .program__content
+      .program__title
+        =(options.title[0])
+        <br />
+        =(options.title[1])
+      .program__text
+        block
+      +btn({ text: 'Подробнее', mods: 'main' })(class='program__btn')

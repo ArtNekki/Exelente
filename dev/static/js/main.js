@@ -11,6 +11,7 @@ import mainReviews from './modules/main-reviews/main-reviews';
 import tabs from './modules/tabs/tabs';
 import countrySlide from './modules/country-slide/country-slide';
 import blogPost from './modules/blog-post/blog-post';
+import video from './modules/video/video';
 
 $(document).ready(function () {
     svg4everybody({});

@@ -1,0 +1,27 @@
+mixin video(options)
+  //- Принимает:
+  //-   options.text    {string} - текст кнопки
+  //-   options.mods    {string} - список модификаторов
+  //-   options.isInput {bool}   - флаг «это тег input»
+  //- Вызов:
+        +btn({ text: 'Кнопка-link' })(href='/')  - есть href, это точно ссылка
+        +btn({ text: 'Кнопка-инпут', isInput: true })   - есть флаг isInput, это input
+        +btn({ text: 'Кнопка-button', mods: 'success'}) - нет href, нет isInput — это button
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' video--' + modsList[i].trim();
+      }
+    }
+  //- передан href — это ссылка
+  .video(class=allMods)&attributes(attributes)
+    video.video__content(id=options.id, poster='static/images/content/videos/video-1.jpg')
+      source(src='https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4', type='video/mp4')
+      source(src='https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv', type='video/ogg')
+      source(src='https://archive.org/download/WebmVp8Vorbis/webmvp8.webm', type='video/webm')
+      |   Your browser doesn't support HTML5 video tag.
+    button(type='button').video__play
+      +icon({ name: 'video-play' })(class='video__play-icon')

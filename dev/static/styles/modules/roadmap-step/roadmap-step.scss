@@ -1,7 +1,10 @@
-$content-box-shadow: 7px 7px 10px rgba($main-color, 0.3);
-$content-left-offset: 20px;
-
 .roadmap-step {
+  $block:  &;
+  $block-trigger: ".roadmap-step > input:checked ~ ";
+  $block-trigger-mod: ".roadmap-step__content";
+  $content-box-shadow: 7px 7px 10px rgba($main-color, 0.3);
+  $content-left-offset: 20px;
+
   position: relative;
   z-index: 1;
 
@@ -16,7 +19,8 @@ $content-left-offset: 20px;
   &__content {
     position: relative;
 
-    .roadmap-step > input:checked ~  & {
+    @include isActiveBlock($block-trigger) {
+
       @include min-media($screen-xl) {
         background-color: $main-color;
       }
@@ -31,7 +35,7 @@ $content-left-offset: 20px;
       @include absolute-background-color($gray);
       display: none;
 
-      .roadmap-step > input:checked ~  & {
+      @include isActiveBlock($block-trigger) {
         display: block;
 
         @include min-media($screen-sm) {
@@ -45,7 +49,7 @@ $content-left-offset: 20px;
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: -18px;
@@ -55,7 +59,8 @@ $content-left-offset: 20px;
       background-color: $main-color;
       box-shadow: $content-box-shadow;
 
-      .roadmap-step > input:checked ~  & {
+      @include isActiveBlock($block-trigger) {
+
         @include min-media($screen-xl) {
           display: block;
         }
@@ -82,7 +87,7 @@ $content-left-offset: 20px;
       padding-left: $content-left-offset * 2;
     }
 
-    .roadmap-step > input:checked ~ .roadmap-step__content & {
+    @include isActiveBlock($block-trigger, $block-trigger-mod) {
       margin-top: 15px;
 
       @include min-media($screen-sm) {
@@ -91,10 +96,10 @@ $content-left-offset: 20px;
     }
 
     &::before {
-      content: '';
+      content: "";
       @include absolute-background-color($white);
 
-      .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include isActiveBlock($block-trigger, $block-trigger-mod) {
         display: none;
       }
 
@@ -125,7 +130,8 @@ $content-left-offset: 20px;
       font-size: 24px;
     }
 
-    .roadmap-step > input:checked ~ .roadmap-step__content & {
+    @include isActiveBlock($block-trigger, $block-trigger-mod) {
+
       @include min-media($screen-sm) {
         margin-left: 35px;
       }
@@ -156,7 +162,7 @@ $content-left-offset: 20px;
       padding-left: $content-left-offset * 2;
     }
 
-    .roadmap-step > input:checked ~ .roadmap-step__content & {
+    @include isActiveBlock($block-trigger, $block-trigger-mod) {
       display: block;
 
       @include min-media($screen-sm) {
@@ -200,7 +206,8 @@ $content-left-offset: 20px;
       right: 15px;
     }
 
-    .roadmap-step > input:checked ~ .roadmap-step__content & {
+    @include isActiveBlock($block-trigger, $block-trigger-mod) {
+
       @include min-media($screen-sm) {
         border-color: $white;
       }
@@ -213,10 +220,11 @@ $content-left-offset: 20px;
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       background-color: $main-color;
 
-      .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include isActiveBlock($block-trigger, $block-trigger-mod) {
+
         @include min-media($screen-sm) {
           background-color: $white;
         }
@@ -230,7 +238,7 @@ $content-left-offset: 20px;
       bottom: 3px;
       width: 1px;
 
-      .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include isActiveBlock($block-trigger, $block-trigger-mod) {
         display: none;
       }
     }
@@ -250,7 +258,8 @@ $content-left-offset: 20px;
     stroke-width: 2;
     fill: none;
 
-    .roadmap-step > input:checked ~ .roadmap-step__content & {
+    @include isActiveBlock($block-trigger, $block-trigger-mod) {
+
       @include min-media($screen-sm) {
         stroke: $white;
       }
@@ -261,7 +270,8 @@ $content-left-offset: 20px;
       fill: $main-color;
       stroke-width: 0;
 
-      .roadmap-step > input:checked ~ .roadmap-step__content & {
+      @include isActiveBlock($block-trigger, $block-trigger-mod) {
+
         @include min-media($screen-sm) {
           fill: $white;
         }

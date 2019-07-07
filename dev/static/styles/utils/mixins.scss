@@ -189,3 +189,11 @@
     right: -$grid-gutter-width-xl/2;
   }
 }
+
+@mixin isActiveBlock($trigger, $mod: '') {
+  $selector: str-insert($trigger, $mod, -1);
+
+  #{$selector} & {
+    @content;
+  }
+}

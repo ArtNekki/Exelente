@@ -192,8 +192,12 @@
     cursor: pointer;
 
     @include hover() {
-      border-color: $secondary-color;
+      border-color: pink;
     }
+
+    // @include active() {
+    //   border-color: $secondary-color;
+    // }
 
     @include min-media($screen-sm) {
       position: relative;
@@ -222,6 +226,18 @@
       }
     }
 
+    // @include hover(".roadmap-step") {
+    //   background-color: green;
+    // }
+
+
+
+
+
+    // @include active(".roadmap-step") {
+    //   background-color: red;
+    // }
+
     &::before,
     &::after {
       content: "";
@@ -234,9 +250,16 @@
         }
       }
 
-      @include hover() {
-        background-color: red;
+      // @include hover() {
+      //   background-color: red;
+      // }
+      //
+      //
+
+      @include focus() {
+        background-color: yellow;
       }
+
     }
 
     &::before {

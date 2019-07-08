@@ -1,25 +1,3 @@
-@function str-split($string, $separator) {
-    // empty array/list
-    $split-arr: ();
-    // first index of separator in string
-    $index : str-index($string, $separator);
-    // loop through string
-    @while $index != null {
-        // get the substring from the first character to the separator
-        $item: str-slice($string, 1, $index - 1);
-        // push item to array
-        $split-arr: append($split-arr, $item);
-        // remove item and separator from string
-        $string: str-slice($string, $index + 1);
-        // find new index of separator
-        $index : str-index($string, $separator);
-    }
-    // add the remaining string to list (the last item)
-    $split-arr: append($split-arr, $string);
-
-    @return $split-arr;
-}
-
 @mixin size($a,$b: $a) {
   width: $a;
   height: $b;
@@ -102,18 +80,23 @@
   }
 }
 
-@mixin hover($parent: null) {
+@mixin hover($parent: null, $touch: false) {
   $selectors: "#{&}";
   $isPseudo: str-index($selectors, "::before") or str-index($selectors, "::after");
+  $mods: ("original": "::before", "new": ":hover::before"), ("original": "::after", "new": ":hover::after");
+  $touchMod: null;
+
+  @if (not $touch) {
+    $touchMod: "html:not(.touch)";
+  }
 
   @if $parent {
-    html:not(.touch) #{$parent}:hover & {
+    #{$touchMod} #{$parent}:hover & {
       @content;
     }
   } @else if (not $parent and $isPseudo) {
-    $mods: ("original": "::before", "new": ":hover::before"), ("original": "::after", "new": ":hover::after");
 
-    html:not(.touch) &:hover {
+    #{$touchMod} &:hover {
       $selector: &;
 
       @each $mod in $mods {
@@ -125,7 +108,7 @@
       }
     }
   } @else { //not $parent and not $isPseudo
-    html:not(.touch) &:hover {
+    #{$touchMod} &:hover {
       @content;
     }
   }
@@ -159,11 +142,69 @@
   }
 }
 
-@mixin active {
-  &:active,
-  &:focus,
-  &--active {
-    @content;
+@mixin active($parent: null) {
+  $selectors: "#{&}";
+  $isPseudo: str-index($selectors, "::before") or str-index($selectors, "::after");
+
+  @if $parent {
+    #{$parent}:active &,
+    #{$parent}--active & {
+      @content;
+    }
+  } @else if (not $parent and $isPseudo) {
+
+    &:active {
+      $selector: &;
+      $mods: ("original": "::before", "new": ":active::before"), ("original": "::after", "new": ":active::after");
+
+      @each $mod in $mods {
+        $selector: selector-replace($selector, map-get($mod, "original"), map-get($mod, "new"));
+      }
+
+      @at-root #{$selector} {
+         @content;
+      }
+    }
+
+  } @else { //not $parent and not $isPseudo
+    &:active,
+    &--active
+    {
+      @content;
+    }
+  }
+}
+
+@mixin focus($parent: null, $onlyTouch: false) {
+  $selectors: "#{&}";
+  $isPseudo: str-index($selectors, "::before") or str-index($selectors, "::after");
+  $touchMod: null;
+
+  @if ($onlyTouch) {
+    $touchMod: "html.touch";
+  }
+
+  @if $parent {
+    #{$touchMod} #{$parent}:focus & {
+      @content;
+    }
+  } @else if (not $parent and $isPseudo) {
+    #{$touchMod} &:focus {
+      $selector: &;
+      $mods: ("original": "::before", "new": ":focus::before"), ("original": "::after", "new": ":focus::after");
+
+      @each $mod in $mods {
+        $selector: selector-replace($selector, map-get($mod, "original"), map-get($mod, "new"));
+      }
+
+      @at-root #{$selector} {
+         @content;
+      }
+    }
+  } @else { //not $parent and not $isPseudo
+    #{$touchMod} &:focus {
+      @content;
+    }
   }
 }
 

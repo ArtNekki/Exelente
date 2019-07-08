@@ -191,6 +191,10 @@
     border: 1px solid $main-color;
     cursor: pointer;
 
+    @include hover() {
+      border-color: $secondary-color;
+    }
+
     @include min-media($screen-sm) {
       position: relative;
       top: 0;
@@ -228,6 +232,10 @@
         @include min-media($screen-sm) {
           background-color: $white;
         }
+      }
+
+      @include hover() {
+        background-color: red;
       }
     }
 

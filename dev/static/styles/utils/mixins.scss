@@ -1,3 +1,25 @@
+@function str-split($string, $separator) {
+    // empty array/list
+    $split-arr: ();
+    // first index of separator in string
+    $index : str-index($string, $separator);
+    // loop through string
+    @while $index != null {
+        // get the substring from the first character to the separator
+        $item: str-slice($string, 1, $index - 1);
+        // push item to array
+        $split-arr: append($split-arr, $item);
+        // remove item and separator from string
+        $string: str-slice($string, $index + 1);
+        // find new index of separator
+        $index : str-index($string, $separator);
+    }
+    // add the remaining string to list (the last item)
+    $split-arr: append($split-arr, $string);
+
+    @return $split-arr;
+}
+
 @mixin size($a,$b: $a) {
   width: $a;
   height: $b;
@@ -81,15 +103,30 @@
 }
 
 @mixin hover($parent: null) {
+  $selectors: "#{&}";
+  $isPseudo: str-index($selectors, "::before") or str-index($selectors, "::after");
+
   @if $parent {
     html:not(.touch) #{$parent}:hover & {
       @content;
     }
-  } @else {
-    html:not(.touch) & {
-      &:hover {
-        @content;
+  } @else if (not $parent and $isPseudo) {
+    $mods: ("original": "::before", "new": ":hover::before"), ("original": "::after", "new": ":hover::after");
+
+    html:not(.touch) &:hover {
+      $selector: &;
+
+      @each $mod in $mods {
+        $selector: selector-replace($selector, map-get($mod, "original"), map-get($mod, "new"));
       }
+
+      @at-root #{$selector} {
+         @content;
+      }
+    }
+  } @else { //not $parent and not $isPseudo
+    html:not(.touch) &:hover {
+      @content;
     }
   }
 }

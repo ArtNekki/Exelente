@@ -1,0 +1,21 @@
+mixin page-header-action(options)
+  //- Принимает:
+  //-   options.icon   {string} - Имя иконки
+  //-   options.text  {string} - Имя
+  //-   options.mods    {string} - список модификаторов
+  //- Вызов:
+        +page-header-action({ icon: 'icon', text: 'text', mods: 'mods' })
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-header-action--' + modsList[i].trim();
+      }
+    }
+  //-
+  a.page-header-action(class=allMods)&attributes(attributes)
+    if (options.icon)
+      +icon({ name: options.icon })(class='page-header-action__icon')
+    span.page-header-action__text= options.text

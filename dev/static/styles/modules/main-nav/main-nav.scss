@@ -11,6 +11,7 @@
 
   @include min-media($screen-xl) {
     position: static;
+    flex-grow: 2;
   }
 
   .header--pick-place-opened & {
@@ -21,18 +22,14 @@
     }
   }
 
-  @include min-media($screen-xl) {
-    flex-grow: 2;
-  }
-
   &__list {
     display: flex;
     flex-direction: column;
 
     @include min-media($screen-sm) {
-      min-height: $desktop-header-height;
-      flex-direction: row;
       flex-wrap: wrap;
+      flex-direction: row;
+      min-height: $desktop-header-height;
     }
 
     @include min-media($screen-lg) {
@@ -51,14 +48,14 @@
 
       @include min-media($screen-xl) {
         position: absolute;
+        z-index: 100;
         top: 100%;
         left: -13px;
-        z-index: 100;
         padding: 22px 42px 23px 17px;
-        border: 1px solid $main-color;
-        border-top: none;
         display: none;
         background-color: $white;
+        border: 1px solid $main-color;
+        border-top: none;
       }
     }
   }
@@ -67,8 +64,12 @@
     order: 1;
 
     @include min-media($screen-sm) {
-      width: 47%;
       margin-right: 10px;
+      width: 47%;
+
+      .main-nav__list--dropdown & {
+        margin-right: 0;
+      }
 
       &--countries {
         order: 2;
@@ -81,17 +82,13 @@
       &--contacts {
         order: 4;
       }
-
-      .main-nav__list--dropdown & {
-        margin-right: 0;
-      }
     }
 
     @include min-media($screen-md) {
-      margin-bottom: 10px;
       margin-right: 0;
-      min-width: 198px;
+      margin-bottom: 10px;
       width: auto;
+      min-width: 198px;
 
       .main-nav__list--dropdown & {
         margin-right: 0;
@@ -101,10 +98,10 @@
     @include min-media($screen-xl) {
       position: relative;
       margin-bottom: 0;
-      min-width: auto;
-      min-height: 50px;
       display: flex;
       align-items: center;
+      min-width: auto;
+      min-height: 50px;
 
       &--schools {
         order: 1;
@@ -128,9 +125,9 @@
     .main-nav__list--dropdown & {
 
       @include min-media($screen-sm) {
+        margin-bottom: 0;
         display: inline-block;
         width: auto;
-        margin-bottom: 0;
 
         &::after {
           content: ",";
@@ -151,23 +148,25 @@
       }
 
       @include min-media($screen-xl) {
-        min-height: auto;
         padding-left: 0;
+        min-height: auto;
       }
     }
   }
 
   &__link {
+    @include underline(3px, $secondary-color, 1px);
+
     position: relative;
     margin-top: 69px;
     margin-bottom: 15px;
     display: inline-block;
     font-family: $secondary-font-family;
     font-size: 24px;
-    line-height: 31px;
     font-weight: 700;
-    color: $main-color;
+    line-height: 31px;
     text-transform: uppercase;
+    color: $main-color;
 
     &:not(:first-child) {
       margin-top: 50px;
@@ -177,17 +176,15 @@
       display: none;
     }
 
-    @include underline(3px, $secondary-color, 1px);
+    .main-nav__item--active > & {
+      color: $secondary-color;
+    }
 
     @include hover() {
       color: $secondary-color;
     }
 
     @include active() {
-      color: $secondary-color;
-    }
-
-    .main-nav__item--active > & {
       color: $secondary-color;
     }
 
@@ -201,8 +198,8 @@
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px;
-      color: $white;
       font-weight: 400;
+      color: $white;
     }
 
     .main-nav__list--dropdown & {
@@ -210,11 +207,11 @@
       margin-bottom: 0;
       font-family: $base-font-family;
       font-size: 14px;
-      line-height: 28px;
       font-weight: 400;
-      color: $black;
-      text-transform: none;
+      line-height: 28px;
       white-space: nowrap;
+      text-transform: none;
+      color: $black;
 
       @include hover-before() {
         display: block;

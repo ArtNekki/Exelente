@@ -18,4 +18,4 @@ mixin search(options)
     .search__main
       input.search__field(type='text' name='search' placeholder='Поиск...' id='searchTrigger' + options.id)
       label.search__open(for='searchTrigger' + options.id)
-        +icon({ name: 'loop' })
+        +icon({ name: 'loop' })(class='search__icon')

@@ -8,16 +8,16 @@
   }
 
   &__field {
-    width: 100%;
     padding: 0;
     padding-bottom: 2px;
-    border: none;
-    border-bottom: 2px solid $main-color;
-    border-radius: 0;
+    width: 100%;
     font-size: 14px;
     line-height: 24px;
     color: $secondary-color;
     background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $main-color;
+    border-radius: 0;
     transition: width 0.5s ease-in;
 
     @include placeholder {
@@ -27,8 +27,8 @@
     @include min-media($screen-md) {
       font-size: 10px;
       line-height: 10px;
-      border-width: 1px;
       color: $white;
+      border-width: 1px;
       border-color: $white;
 
       @include placeholder {
@@ -49,10 +49,10 @@
       width: 0;
       font-size: 10px;
       line-height: 11px;
-      border-color: $white;
       color: $white;
+      border-color: $white;
 
-      &:focus {
+      @include focus {
         width: 100%;
       }
 
@@ -70,22 +70,32 @@
     @include min-media($screen-md) {
       top: -3px;
     }
+  }
 
-    svg {
-      @include size(18px);
-      fill: $main-color;
+  &__icon {
+    width: 18px;
+    height: 18px;
+    fill: $main-color;
 
-      @include min-media($screen-md) {
-        @include size(14px);
-        fill: $white;
+    @include min-media($screen-md) {
+      width: 14px;
+      height: 14px;
+      fill: $white;
 
-        .page--mobile-menu-opened .search--tablet & {
-          fill: $main-color;
-        }
+      .page--mobile-menu-opened .search--tablet & {
+        fill: $main-color;
+      }
+    }
+
+    @include min-media($screen-xl) {
+      fill: $white;
+
+      @include hover {
+        opacity: 0.8;
       }
 
-      @include min-media($screen-xl) {
-        fill: $white;
+      @include active {
+        opacity: 0.8;
       }
     }
   }

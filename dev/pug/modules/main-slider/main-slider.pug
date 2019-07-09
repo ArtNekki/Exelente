@@ -1,6 +1,6 @@
 .main-slider.swiper-container(id='mainSlider')
   .main-slider__wrapper.swiper-wrapper
-    .swiper-slide(style="background-image:url(static/images/content/main-slider/slide-1.jpg)")
+    .main-slider__slide.swiper-slide(style="background-image:url(static/images/content/main-slider/slide-1.jpg)")
       .main-slider__container
         .main-slider__container-inner
           .main-slider__content.main-slider__content--slide
@@ -8,27 +8,43 @@
               | Поступи
               <br />
               | в зарубежный ВУЗ
-            +btn({ text: 'Подробнее' })(href='#') 
-    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/2)")
+            +btn({ text: 'Подробнее' })(href='#')
+    .main-slider__slide.swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/2)")
       .main-slider__container
         .main-slider__container-inner
           .main-slider__content.main-slider__content--slide
-            | slider content 2
-    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/3)")
+            h2.main-slider__title
+              | Поступи
+              <br />
+              | в зарубежный ВУЗ
+            +btn({ text: 'Подробнее' })(href='#')
+    .main-slider__slide.swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/3)")
       .main-slider__container
         .main-slider__container-inner
           .main-slider__content.main-slider__content--slide
-            | slider content 3
-    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/4)")
+            h2.main-slider__title
+              | Поступи
+              <br />
+              | в зарубежный ВУЗ
+            +btn({ text: 'Подробнее' })(href='#')
+    .main-slider__slide.swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/4)")
       .main-slider__container
         .main-slider__container-inner
           .main-slider__content.main-slider__content--slide
-            | slider content 4
-    .swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/5)")
+            h2.main-slider__title
+              | Поступи
+              <br />
+              | в зарубежный ВУЗ
+            +btn({ text: 'Подробнее' })(href='#')
+    .main-slider__slide.swiper-slide(style="background-image:url(http://lorempixel.com/1000/1000/nightlife/5)")
       .main-slider__container
         .main-slider__container-inner
           .main-slider__content.main-slider__content--slide
-            | slider content 5
+            h2.main-slider__title
+              | Поступи
+              <br />
+              | в зарубежный ВУЗ
+            +btn({ text: 'Подробнее' })(href='#')
   .main-slider__bottom
     .main-slider__container
       .main-slider__container-inner
@@ -36,8 +52,8 @@
           .main-slider__actions
             .main-slider__buttons
               .main-slider__button.main-slider__button--prev.swiper-button-prev
-                +icon({ name: 'arrow' })
+                +icon({ name: 'arrow' })(class='main-slider__arrow')
               .main-slider__button.main-slider__button--next.swiper-button-next
-                +icon({ name: 'arrow' })
+                +icon({ name: 'arrow' })(class='main-slider__arrow')
             .main-slider__pagination.swiper-pagination
   

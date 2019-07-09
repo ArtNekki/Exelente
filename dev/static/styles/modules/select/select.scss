@@ -1,8 +1,10 @@
 .select {
   position: relative;
-  @include size(100%, 48px);
-  /*overflow: hidden;*/
+  width: 100%;
   min-width: 160px;
+  height: 48px;
+
+  /* overflow: hidden; */
   font-size: 14px;
 
   &--hidden {
@@ -10,77 +12,77 @@
   }
 
   & > input {
-      position: absolute;
-      display: block;
-      left: 0px;
-      top: 0px;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      border: 0;
-      cursor: pointer;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 0;
+    opacity: 0;
   }
 
   & > input:not(:checked) {
-      z-index: 10;
+    z-index: 10;
   }
 
   &__list {
 
     .select > input:checked ~ & {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        box-sizing: border-box;
-        z-index: 100;
+      position: absolute;
+      z-index: 100;
+      top: 100%;
+      left: 0;
+      box-sizing: border-box;
+      width: 100%;
 
-        @include min-media($screen-md) {
-          top: calc(100% - 2px);
-          border: 2px solid $main-color;
-        }
+      @include min-media($screen-md) {
+        top: calc(100% - 2px);
+        border: 2px solid $main-color;
+      }
     }
   }
 
   &__content {
     position: relative;
-    display: block;
-    @include size(100%, 48px);
-    padding-left: 10px;
     padding-right: 48px;
-    border: 2px solid $secondary-color;
-    border-radius: 0;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+    height: 48px;
     font-size: 18px;
     line-height: 44px;
+    cursor: pointer;
     color: $black;
     background-color: $white;
-    cursor: pointer;
+    border: 2px solid $secondary-color;
+    border-radius: 0;
 
     .select > input:not(:checked) ~ .select__list & {
-        display: none;
+      display: none;
     }
 
     &--native {
       margin: 0;
-      background-image: url('select-native-arrow-down.svg');
-      background-position: 100% 0;
+      background-image: url("select-native-arrow-down.svg");
       background-repeat: no-repeat;
-      border-radius: 0;
       background-position: 100% -1px;
+      border-radius: 0;
       appearance: none;
 
       &:focus {
         color: $white;
-        border-color: $white;
         background-color: transparent;
-        background-image: url('select-native-arrow-up.svg');
+        background-image: url("select-native-arrow-up.svg");
+        border-color: $white;
 
         @include min-media($screen-md) {
           color: $main-color;
-          border-color: $main-color;
           background-color: $white;
-          background-image: url('select-native-arrow-up.svg' param(--color-arrow $white) param(--color-bg $main-color));
+          background-image: url("select-native-arrow-up.svg" param(--color-arrow $white) param(--color-bg $main-color));
+          border-color: $main-color;
         }
       }
 
@@ -90,62 +92,64 @@
     }
 
     &--title {
-        background-color: transparent;
-        border-color: $white;
-        color: $white;
+      color: $white;
+      background-color: transparent;
+      border-color: $white;
 
-        @include min-media($screen-md) {
+      @include min-media($screen-md) {
+        color: $main-color;
+        background-color: $white;
+        border-color: $main-color;
+        border-bottom-color: transparent;
+      }
+
+      &::after {
+        content: url("select-arrow-down.svg" param(--color $white));
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 48px;
+        height: 44px;
+        text-align: center;
+        background-color: $secondary-color;
+
+        .select > input:checked ~ & {
+          content: url("select-arrow-up.svg" param(--color $main-color));
           background-color: $white;
-          border-color: $main-color;
-          border-bottom-color: transparent;
-          color: $main-color;
-        }
 
-        &::after {
-          content: url('select-arrow-down.svg' param(--color $white));
-          position: absolute;
-          top: 0;
-          right: 0;
-          z-index: 1;
-          @include size(48px, 44px);
-          text-align: center;
-          background-color: $secondary-color;
-
-          .select > input:checked ~ & {
-            content: url('select-arrow-up.svg' param(--color $main-color));
-            background-color: $white;
-
-            @include min-media($screen-md) {
-              content: url('select-arrow-up.svg' param(--color $white));
-              background-color: $main-color;
-            }
-          }
-
-          html:not(.touch) .select > input:not(:checked):hover ~  & {
-            background-color: lighten($secondary-color, 5%);
+          @include min-media($screen-md) {
+            content: url("select-arrow-up.svg" param(--color $white));
+            background-color: $main-color;
           }
         }
+
+        html:not(.touch) .select > input:not(:checked):hover ~ & {
+          background-color: lighten($secondary-color, 5%);
+        }
+      }
     }
 
     &--option {
+
       .select__list .select__option input:checked ~ & {
-        display: flex;
         position: absolute;
         top: 0;
         left: 0;
-        background-color: $white;
-        color: $black;
+        display: flex;
         pointer-events: none;
+        color: $black;
+        background-color: $white;
       }
 
       .select__option input:not(:checked) ~ & {
-          border-color: transparent;
+        border-color: transparent;
       }
 
       .select__option--active &,
       &:focus {
-        background-color: $secondary-color;
         color: $white;
+        background-color: $secondary-color;
 
         @include min-media($screen-md) {
           background-color: $main-color;
@@ -153,8 +157,8 @@
       }
 
       @include hover {
-        background-color: $secondary-color;
         color: $white;
+        background-color: $secondary-color;
 
         @include min-media($screen-md) {
           background-color: $main-color;
@@ -168,8 +172,9 @@
   }
 
   &__option {
+
     input {
-        display: none;
+      display: none;
     }
   }
 
@@ -178,18 +183,18 @@
     margin-right: 5px;
 
     .select__option input:checked ~ .select__content--option &::before {
-        content: "";
-        margin-right: 0;
+      content: "";
+      margin-right: 0;
     }
   }
 
   &__icon {
-    display: none;
     margin-right: 5px;
+    display: none;
     font-size: 19px;
 
     .select__option input:checked ~ & {
-        display: inline-block;
+      display: inline-block;
     }
   }
 }

@@ -29,14 +29,15 @@
   &__image {
     position: relative;
     margin-right: 70px;
-    @include size(253px, 135px);
+    width: 253px;
+    height: 135px;
 
     &::before {
+      @include png("bus", 253px, 135px);
       content: "";
       position: absolute;
       top: 0;
       left: 14px;
-      @include png("bus", 253px, 135px);
     }
   }
 
@@ -55,30 +56,34 @@
   }
 
   &__link {
+    $letter-spacing: 4px;
+    @include underline(-4px, $main-color, 2px, $letter-spacing);
+
     position: relative;
     margin-top: 22px;
     display: inline-block;
     font-family: $secondary-font-family;
     font-size: 18px;
     line-height: 20px;
-    color: $main-color;
     letter-spacing: 4px;
-    @include underline(-4px, $main-color);
+    color: $main-color;
 
     @include hover {
       color: $secondary-color;
-    }
-
-    @include hover-before {
-      background-color: $secondary-color;
     }
 
     @include active {
       color: $secondary-color;
     }
 
-    @include active-before {
-      background-color: $secondary-color;
+    &::before {
+      @include hover {
+        background-color: $secondary-color;
+      }
+
+      @include active {
+        background-color: $secondary-color;
+      }
     }
   }
 }

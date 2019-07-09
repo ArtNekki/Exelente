@@ -270,7 +270,7 @@
   }
 }
 
-@mixin underline($pos: 0, $color: $white, $height: 2px, $letter-spacing-offset: 0px) {
+@mixin underline($pos: 0, $color: $white, $height: 2px, $letter-spacing-offset: 0) {
   &::before {
     content: "";
     position: absolute;

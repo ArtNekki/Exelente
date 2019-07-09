@@ -1,30 +1,27 @@
 .logo {
   display: inline-block;
+  cursor: pointer;
 
-  svg {
+  &__svg {
+    width: 122px;
+    height: 31px;
     fill: $white;
-    @include size(122px, 31px);
-  }
 
-  &--large {
-    svg {
-      @include size(200px, 50px);
+    @include hover(".logo") {
+      opacity: 0.8;
     }
-  }
 
-  &--mobile {
-    .page--mobile-menu-opened & {
-      svg {
-        fill: $main-color;
-      }
+    .logo--large & {
+      width: 200px;
+      height: 50px;
     }
-  }
 
-  &--tablet {
-    .page--mobile-menu-opened & {
-      svg {
-        fill: $main-color;
-      }
+    .page--mobile-menu-opened .logo--mobile & {
+      fill: $main-color;
+    }
+
+    .page--mobile-menu-opened .logo--tablet & {
+      fill: $main-color;
     }
   }
 }

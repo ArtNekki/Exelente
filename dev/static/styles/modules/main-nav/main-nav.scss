@@ -180,11 +180,11 @@
       color: $secondary-color;
     }
 
-    @include hover() {
+    @include hover {
       color: $secondary-color;
     }
 
-    @include active() {
+    @include active {
       color: $secondary-color;
     }
 

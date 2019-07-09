@@ -2,18 +2,38 @@
   margin: 0;
   padding: 14px 66px;
   display: inline-block;
-  border: none;
   font-family: $secondary-font-family;
   font-size: 18px;
   line-height: 20px;
-  letter-spacing: 4px;
-  color: $white;
   text-align: center;
-  background-color: $secondary-color;
+  letter-spacing: 4px;
   cursor: pointer;
+  color: $white;
+  background-color: $gray;
+  border: none;
 
   &--main {
     background-color: $main-color;
+
+    @include hover {
+      background-color: $secondary-color;
+    }
+
+    @include active {
+      background-color: $secondary-color;
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+
+    @include hover {
+      background-color: $main-color;
+    }
+
+    @include active {
+      background-color: $main-color;
+    }
   }
 
   &--full-width {

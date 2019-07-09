@@ -156,7 +156,7 @@
   }
 }
 
-@mixin active($parent: null) {
+@mixin active($parent: null, $class: false) {
   $selectors: "#{&}";
   $isPseudo: str-index($selectors, "::before") or str-index($selectors, "::after");
   $isChecked: str-index($selectors, "> input:checked");

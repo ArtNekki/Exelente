@@ -28,4 +28,4 @@ mixin social-links(options = {})
       each item in options.items
         li.social-links__item
           a.social-links__link(href=item.link)
-            +icon({ name: item.name })
+            +icon({ name: item.name })(class='social-links__icon')

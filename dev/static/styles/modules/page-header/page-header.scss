@@ -413,31 +413,30 @@
   &__search {
     width: 100%;
 
-    &--tablet {
-      display: none;
-    }
-
-    .page-header--pick-place-opened &:not(&--tablet) {
-      display: none;
-    }
-
     @include min-media($screen-md) {
       display: none;
+    }
 
-      &--tablet {
+    // .page-header--pick-place-opened &:not(&--tablet) {
+    //   display: none;
+    // }
+
+    &--tablet {
+      display: none;
+
+      @include min-media($screen-md) {
         margin-left: 25px;
         display: block;
         max-width: 300px;
       }
-    }
 
-    @include min-media($screen-xl) {
-
-      &--tablet {
+      @include min-media($screen-xl) {
         display: none;
       }
+    }
 
-      &--desktop {
+    &--desktop {
+      @include min-media($screen-xl) {
         margin-left: 40px;
         display: block;
       }

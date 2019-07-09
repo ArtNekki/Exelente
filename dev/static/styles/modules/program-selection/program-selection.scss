@@ -43,21 +43,21 @@
 
       &::before,
       &::after {
-        content: '';
+        content: "";
         position: absolute;
+        z-index: -1;
         top: 0;
         left: 0;
         bottom: 0;
-        z-index: -1;
         background-color: $gray;
         box-shadow: 8px 8px 10px rgba($black, 0.1);
       }
 
       &::after {
-        content: '';
-        width: 10000px;
-        left: -10000px;
+        content: "";
         z-index: -2;
+        left: -10000px;
+        width: 10000px;
       }
 
       &::before {
@@ -90,8 +90,8 @@
       margin-top: 55px;
       margin-bottom: 0;
       flex-basis: 100%;
-      max-width: 950px;
       order: 1;
+      max-width: 950px;
       font-weight: 700;
       color: $main-color;
     }
@@ -107,8 +107,8 @@
     @include min-media($screen-sm) {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-content: space-between;
+      justify-content: space-between;
       min-height: 175px;
     }
 
@@ -140,26 +140,42 @@
         flex-basis: calc(25% - 22px);
       }
     }
-
   }
 
   &__btn {
     width: 100%;
+    background-color: $secondary-color;
+
+    @include hover {
+      background-color: rgba($secondary-color, 0.8);
+    }
+
+    @include active {
+      background-color: rgba($secondary-color, 0.8);
+    }
 
     @include min-media($screen-sm) {
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
       flex-basis: calc(50% - 10px);
       align-self: flex-end;
     }
 
     @include min-media($screen-md) {
-      padding-left: 43px;
       padding-right: 43px;
+      padding-left: 43px;
       flex-basis: calc(33% - 20px);
       flex-grow: 0;
       color: $white;
       background-color: $main-color;
+
+      @include hover {
+        background-color: $secondary-color;
+      }
+
+      @include active {
+        background-color: $secondary-color;
+      }
     }
 
     @include min-media($screen-lg) {

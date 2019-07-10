@@ -14,7 +14,7 @@ mixin roadmap-step(options)
     }
   //- блок
   article.roadmap-step(class='roadmap-step--' + options.id.toLowerCase() + allMods)&attributes(attributes)
-    input(id='roadmapStep' + options.id type='radio' name='roadmap-step')
+    input(id='roadmapStep' + options.id type='radio' name='roadmap-step' checked=options.checked)
     .roadmap-step__content
       .roadmap-step__header
         .roadmap-step__icon

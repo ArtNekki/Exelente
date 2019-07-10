@@ -19,6 +19,10 @@
     }
   }
 
+  &--reviews {
+    margin-top: 0;
+  }
+
   &__wrap {
     @include row();
 
@@ -38,17 +42,28 @@
     @include col(lg, 12, $grid-columns, $grid-gutter-width-lg);
     @include col(xl, 12, $grid-columns, $grid-gutter-width-xl);
 
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+    .page-section--bg & {
+      padding-top: 45px;
+      padding-bottom: 50px;
+    }
+
+    .page-section--reviews & {
+      padding-bottom: 42px;
+    }
+
+    .page-section--blog-posts & {
+      padding-bottom: 70px;
+    }
+
     .page-section--no-xs-gutters & {
 
       @include range-media($screen-xs, $screen-sm) {
         padding-right: 0;
         padding-left: 0;
       }
-    }
-
-    .page-section--bg & {
-      padding-top: 45px;
-      padding-bottom: 50px;
     }
   }
 
@@ -64,6 +79,10 @@
       @include range-media($screen-xs, $screen-sm) {
         margin-left: $grid-gutter-width / 2;
       }
+    }
+
+    .page-section--reviews & {
+      margin-bottom: 20px;
     }
   }
 }

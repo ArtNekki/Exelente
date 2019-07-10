@@ -36,7 +36,7 @@ block content
 				| США, Швейцария, Сингапур
 				<br />
 				| и еще 19 стран
-	+page-section({ title: 'Отзывы' })
+	+page-section({ title: 'Отзывы', mods: 'reviews' })
 		+main-reviews()
 	+page-section({ title: 'Ассоцияции и Партнеры', mods: 'partners' })
 		+slider({ id: 'partnerSlider', mods: 'partners', navPosition: 'in' })
@@ -69,10 +69,10 @@ block content
 					+partner({ link: '#', mods: '6' })
 						| Ассоциация российских консультантов по образованию
 
-	+page-section({ title: 'Блог' })
+	+page-section({ title: 'Блог', mods: 'bg, blog-posts' })
 		+tabs({ id: 'blogPost', name: 'blog-post', tabs: [{ name: 'Все' }, { name: 'Акции', checked: true }, { name: 'Новости' }, { name: 'Мероприятия' }] })
 			.tabs__pane
-				+slider({ id: 'allPostSlider', mods: 'posts', navPosition: 'out' })
+				+slider({ id: 'allPostSlider', mods: 'blog-posts', navPosition: 'out' })
 					.swiper-slide
 						+blog-post({ id: 'post-1', title: 'Акция от школы ЕС', imageName: 'blog-post-1', link: '#' })
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
@@ -86,7 +86,7 @@ block content
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
 							| английский язык и совмещать обучение с увлекательными развлечениями!
 			.tabs__pane
-				+slider({ id: 'actionsPostSlider', mods: 'posts', navPosition: 'out' })
+				+slider({ id: 'actionsPostSlider', mods: 'blog-posts', navPosition: 'out' })
 					.swiper-slide
 						+blog-post({ id: 'post-31', title: 'Акция от школы ЕС', imageName: 'blog-post-1', link: '#' })
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
@@ -100,7 +100,7 @@ block content
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
 							| английский язык и совмещать обучение с увлекательными развлечениями!
 			.tabs__pane
-				+slider({ id: 'newsPostSlider', mods: 'posts', navPosition: 'out' })
+				+slider({ id: 'newsPostSlider', mods: 'blog-posts', navPosition: 'out' })
 					.swiper-slide
 						+blog-post({ id: 'post-6', title: 'Акция от школы ЕС', imageName: 'blog-post-1', link: '#' })
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
@@ -114,7 +114,7 @@ block content
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 
 							| английский язык и совмещать обучение с увлекательными развлечениями!
 			.tabs__pane
-				+slider({ id: 'activitiesPostSlider', mods: 'posts', navPosition: 'out' })
+				+slider({ id: 'activitiesPostSlider', mods: 'blog-posts', navPosition: 'out' })
 					.swiper-slide
 						+blog-post({ id: 'post-9', title: 'Акция от школы ЕС', imageName: 'blog-post-1', link: '#' })
 							| Международная сеть языковых школ ЕС объявила об акции для тех, кто хочет изучать 

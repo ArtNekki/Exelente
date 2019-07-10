@@ -1,23 +1,23 @@
-$tile-slide-height-md: 130px;
-$tile-slide-height-lg: 160px;
-$tile-slide-height-xl: 193px;
-$tile-scale: scale3d(0.95, 0.95, 0.95);
-$title-large-letter-spasing: 8px;
-
 .country-slide {
+  $tile-slide-height-md: 130px;
+  $tile-slide-height-lg: 160px;
+  $tile-slide-height-xl: 193px;
+  $tile-scale: scale3d(0.95, 0.95, 0.95);
+  $title-large-letter-spasing: 8px;
+
   position: relative;
+  flex-grow: 1;
   width: 100%;
   height: 320px;
   transform-origin: 50% 50%;
   transition: transform 0.3s ease-in;
-  flex-grow: 1;
 
   @include min-media($screen-sm) {
     height: 530px;
   }
 
   @include min-media($screen-md) {
-    width: 15.9% !important;
+    width: 15.9%;
     height: $tile-slide-height-md;
 
     @include hover {
@@ -39,7 +39,7 @@ $title-large-letter-spasing: 8px;
 
   &--large {
     @include min-media($screen-md) {
-      width: 32.6% !important;
+      width: 32.6%;
       height: $tile-slide-height-md * 2;
     }
 
@@ -69,18 +69,22 @@ $title-large-letter-spasing: 8px;
   &__overlay {
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
     bottom: 0;
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba($black, 0.2);
+
     @include min-media($screen-md) {
       opacity: 0;
 
-      .country-slide:hover &,
+      @include hover(".country-slide") {
+        opacity: 1;
+      }
+
       html.touch & {
         opacity: 1;
       }
@@ -88,7 +92,8 @@ $title-large-letter-spasing: 8px;
   }
 
   &__img {
-    @include size(100%, inherit);
+    width: 100%;
+    height: inherit;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
@@ -98,8 +103,8 @@ $title-large-letter-spasing: 8px;
     font-family: $secondary-font-family;
     font-size: 24px;
     line-height: 28px;
-    text-transform: uppercase;
     letter-spacing: $title-large-letter-spasing;
+    text-transform: uppercase;
     color: $white;
 
     @include min-media($screen-md) {

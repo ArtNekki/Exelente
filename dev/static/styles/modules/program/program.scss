@@ -1,6 +1,4 @@
 .program {
-  $block:  &;
-
   position: relative;
   display: block;
   width: 300px;
@@ -11,7 +9,7 @@
     margin-right: 62px;
   }
 
-  @include hover() {
+  @include hover {
     box-shadow: none;
   }
 
@@ -23,7 +21,7 @@
     background-color: $gray;
     opacity: 0;
 
-    @include hover($block) {
+    @include hover(".program") {
       opacity: 1;
     }
   }
@@ -39,7 +37,7 @@
     flex-direction: column;
     background-color: $gray;
 
-    @include hover($block) {
+    @include hover(".program") {
       background-color: transparent;
       background-image: linear-gradient(180deg, $main-color 0%, rgba($main-color, 0.1) 100%);
     }
@@ -50,10 +48,10 @@
     font-family: $secondary-font-family;
     font-size: 36px;
     line-height: 46px;
-    color: $secondary-color;
     text-align: center;
+    color: $secondary-color;
 
-    @include hover($block) {
+    @include hover(".program") {
       color: $white;
     }
   }
@@ -63,23 +61,23 @@
     margin-bottom: auto;
     font-size: 18px;
     line-height: 34px;
-    color: $main-color;
     text-align: center;
+    color: $main-color;
 
-    @include hover($block) {
+    @include hover(".program") {
       color: $white;
     }
   }
 
   &__btn {
     margin-top: auto;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
     width: 200px;
 
-    @include hover($block) {
+    @include hover(".program") {
       color: $main-color;
       background-color: $white;
     }

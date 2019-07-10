@@ -3,7 +3,8 @@
 
   &__image {
     display: block;
-    @include size(100%, 193px);
+    width: 100%;
+    height: 193px;
     object-fit: cover;
     color: transparent;
     background-color: $gray;
@@ -12,8 +13,8 @@
   &__title {
     margin-top: 40px;
     font-size: 18px;
-    line-height: 27px;
     font-weight: 700;
+    line-height: 27px;
   }
 
   &__text {
@@ -24,32 +25,33 @@
 
   &__link {
     $letter-spacing: 4px;
+    @include underline(-13px, $main-color, 2px, $letter-spacing);
 
     position: relative;
-    display: inline-block;
     margin-top: 40px;
+    display: inline-block;
     font-family: $secondary-font-family;
     font-size: 18px;
     line-height: 20px;
     letter-spacing: $letter-spacing;
     color: $main-color;
 
-    @include underline(-13px, $main-color, 2px, $letter-spacing);
-
     @include hover {
       color: $secondary-color;
-    }
-
-    @include hover-before {
-      background-color: $secondary-color;
     }
 
     @include active {
       color: $secondary-color;
     }
 
-    @include active-before {
-      background-color: $secondary-color;
+    &::before {
+      @include hover {
+        background-color: $secondary-color;
+      }
+
+      @include active {
+        background-color: $secondary-color;
+      }
     }
   }
 }

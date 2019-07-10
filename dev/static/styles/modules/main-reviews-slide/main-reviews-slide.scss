@@ -1,17 +1,19 @@
-$review-name-height: 50px;
-
 .main-reviews-slide {
+  $review-name-height: 50px;
+
   position: relative;
-  @include size(100%, auto);
+  width: 100%;
+  height: auto;
 
   @include min-media($screen-md) {
-    @include size(300px, 650px);
+    width: 300px;
+    height: 650px;
   }
-
 
   &__img {
     display: block;
-    @include size(100%, 290px);
+    width: 100%;
+    height: 290px;
     object-fit: cover;
 
     @include min-media($screen-sm) {
@@ -26,24 +28,24 @@ $review-name-height: 50px;
   &__name {
     position: absolute;
     left: 0;
-    height: $review-name-height;
-    line-height: $review-name-height;
-    padding-left: 75px;
     padding-right: 30px;
+    padding-left: 75px;
     display: none;
+    height: $review-name-height;
     font-family: $secondary-font-family;
     font-size: 24px;
+    line-height: $review-name-height;
+    color: $white;
     background-color: $main-color;
     border: 2px solid $main-color;
-    color: $white;
 
     @include min-media($screen-md) {
       display: block;
     }
 
     .main-reviews-slide--active & {
-      background-color: $white;
       color: $main-color;
+      background-color: $white;
     }
 
     .main-reviews--opened & {
@@ -51,13 +53,14 @@ $review-name-height: 50px;
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       left: 22px;
-      @include size(30px, 4px);
+      width: 30px;
+      height: 4px;
       background-color: $white;
+      transform: translateY(-50%);
 
       .main-reviews-slide--active & {
         background-color: $main-color;
@@ -69,9 +72,13 @@ $review-name-height: 50px;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: $review-name-height;
     left: 0;
+    bottom: 0;
     background-color: rgba($main-color, 0.5);
+
+    @include min-media($screen-md) {
+      bottom: $review-name-height;
+    }
 
     .main-reviews-slide--active & {
       display: none;

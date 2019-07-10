@@ -4,7 +4,6 @@ $extra-block-width: 260px;
   position: relative;
   display: flex;
   flex-direction: column;
-  display: none;
 
   @include min-media($screen-md) {
     flex-direction: row;
@@ -12,19 +11,19 @@ $extra-block-width: 260px;
 
   &__aside {
     position: relative;
-    margin-top: -40px;
     z-index: 10;
+    margin-top: -40px;
     order: 1;
     transition: transform 0.5s ease-in;
 
     @include min-media($screen-md) {
+      z-index: 0;
       margin-top: 0;
       margin-right: 42px;
-      width: $extra-block-width;
-      z-index: 0;
       flex-shrink: 0;
-      transition: flex-grow 0.5s ease-in;
       order: -1;
+      width: $extra-block-width;
+      transition: flex-grow 0.5s ease-in;
     }
 
     .main-reviews--opened & {
@@ -40,21 +39,21 @@ $extra-block-width: 260px;
       @include min-media($screen-md) {
         position: static;
         margin-right: 0;
-        height: 600px;
         padding-left: 20px;
         flex-basis: calc(100% - 300px);
-        transform: none;
         flex-grow: 1;
         order: 1;
+        height: 600px;
+        transform: none;
       }
     }
   }
 
   &__content {
     position: relative;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     .main-reviews--opened & {
       padding: 10px;
@@ -79,7 +78,8 @@ $extra-block-width: 260px;
 
   &__lang {
     display: block;
-    @include size(56px, 40px);
+    width: 56px;
+    height: 40px;
     background-repeat: no-repeat;
 
     .main-reviews--opened & {
@@ -91,15 +91,15 @@ $extra-block-width: 260px;
     }
 
     &--italy {
-      background-image: url('flag-italy.svg');
+      background-image: url("flag-italy.svg");
     }
   }
 
   &__content-name {
     margin-top: 35px;
     font-size: 24px;
-    line-height: 36px;
     font-weight: 700;
+    line-height: 36px;
 
     @include min-media($screen-md) {
       margin-top: 80px;
@@ -139,8 +139,8 @@ $extra-block-width: 260px;
     font-size: 14px;
     line-height: 24px;
 
-
     &--truncated {
+
       .main-reviews--opened & {
         display: none;
       }
@@ -151,8 +151,8 @@ $extra-block-width: 260px;
 
       .main-reviews--opened & {
         display: block;
-        height: 100%;
         overflow-y: scroll;
+        height: 100%;
       }
     }
   }
@@ -160,8 +160,8 @@ $extra-block-width: 260px;
 
   &__more {
     font-size: 12px;
-    color: $secondary-color;
     cursor: pointer;
+    color: $secondary-color;
 
     .main-reviews--opened & {
       display: none;
@@ -184,51 +184,55 @@ $extra-block-width: 260px;
     top: 0;
     right: 0;
     display: none;
-    @include size($close-size-small);
+    width: $close-size-small;
+    height: $close-size-small;
+    cursor: pointer;
     animation-name: rotateZ;
     animation-duration: 1s;
     animation-delay: 1.5s;
-    cursor: pointer;
 
     @include min-media($screen-md) {
-        @include size($close-size-large);
+      width: $close-size-large;
+      height: $close-size-large;
     }
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: calc(50% - 2px);
       left: 0;
-      @include size($close-size-small, 4px);
+      width: $close-size-small;
+      height: 4px;
       background-color: $secondary-color;
 
+      @include hover {
+        background-color: $white;
+      }
+
+      @include active {
+        background-color: $white;
+      }
+
       @include min-media($screen-md) {
-          width: $close-size-large;
+        width: $close-size-large;
+
+        @include hover {
+          background-color: $main-color;
+        }
+
+        @include active {
+          background-color: $main-color;
+        }
       }
     }
 
     &::before {
-      transform: rotate3d(0,0,1,45deg);
+      transform: rotate3d(0, 0, 1, 45deg);
     }
 
     &::after {
-      transform: rotate3d(0,0,1,-45deg);
-    }
-
-    @include active-pseudo-element() {
-      background-color: $white;
-    }
-
-    @include min-media($screen-md) {
-
-      @include active-pseudo-element() {
-        background-color: $main-color;
-      }
-
-      @include hover-pseudo-element() {
-        background-color: $main-color;
-      }
+      transform: rotate3d(0, 0, 1, -45deg);
     }
 
     .main-reviews--opened & {

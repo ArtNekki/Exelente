@@ -38,7 +38,10 @@ $slider-button-size--reviews: 48px;
       }
     }
 
-    .slider--reviews & {
+    .slider--reviews + & {
+      position: absolute;
+      left: 0;
+      bottom: 0;
       // margin-top: 47px;
       // order: 2;
       //

@@ -8,7 +8,7 @@ const sliderSettings = {
   slidesPerView: 'auto',
   slideToClickedSlide: true,
   loop: true,
-  spaceBetween: 28,
+  // spaceBetween: 28,
   slideActiveClass: 'main-reviews-slide--active',
   slideDuplicateActiveClass: 'main-reviews-slide--active',
 };

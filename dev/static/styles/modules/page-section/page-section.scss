@@ -3,14 +3,18 @@
   margin-top: 60px;
 
   &--main-video {
+    display: none;
+
     @include min-media($screen-xl) {
-      display: none;
+      display: block;
     }
   }
 
   &--partners {
+    display: none;
+
     @include min-media($screen-xl) {
-      display: none;
+      display: block;
     }
   }
 

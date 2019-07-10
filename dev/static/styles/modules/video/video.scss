@@ -1,14 +1,16 @@
 .video {
   position: relative;
-  @include size(840px, 470px);
+  width: 840px;
+  height: 470px;
 
   &--centered {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   &__content {
-    @include size(inherit);
+    width: inherit;
+    height: inherit;
     object-fit: cover;
   }
 
@@ -16,19 +18,19 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%, -50%, 0);
     margin: 0;
     padding: 0;
-    border: none;
-    background: none;
     cursor: pointer;
+    background: none;
+    border: none;
+    transform: translate3d(-50%, -50%, 0);
   }
 
   &__play-icon {
     fill: none;
     stroke: $white;
 
-    @include hover('.video__play') {
+    @include hover(".video__play") {
       stroke-width: 2px;
     }
   }

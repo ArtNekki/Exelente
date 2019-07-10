@@ -1,15 +1,15 @@
-$footer-bottom-height: 45px;
-$footer-nav-offset: -10px;
-
 .page-footer {
+  $footer-bottom-height: 45px;
+  $footer-nav-offset: -10px;
+
   margin-top: 80px;
   font-size: 12px;
   line-height: 16px;
 
   &__main {
-    min-height: 220px;
     padding-top: 48px;
     padding-bottom: 33px;
+    min-height: 220px;
     background-color: $main-color;
 
     @include min-media($screen-md) {
@@ -20,8 +20,8 @@ $footer-nav-offset: -10px;
   &__bottom {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: $secondary-color;
     overflow: hidden;
+    background-color: $secondary-color;
 
     @include min-media($screen-md) {
       padding-top: 0;
@@ -54,12 +54,11 @@ $footer-nav-offset: -10px;
     }
 
     &:last-child {
+      @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+      @include col(xl, 3, $grid-columns, $grid-gutter-width-xl);
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      @include col(md, 4, $grid-columns, $grid-gutter-width-md);
-      @include col(xl, 3, $grid-columns, $grid-gutter-width-xl);
 
       @include min-media($screen-md) {
         align-items: flex-end;
@@ -67,10 +66,9 @@ $footer-nav-offset: -10px;
     }
 
     &--menu {
-      margin-top: 70px;
-
       @include col(sm, 6, $grid-columns, $grid-gutter-width-sm);
       @include col(md, 4, $grid-columns, $grid-gutter-width-md);
+      margin-top: 70px;
 
       @include min-media($screen-md) {
         margin-top: 0;
@@ -78,8 +76,8 @@ $footer-nav-offset: -10px;
     }
 
     &--contacts {
-      margin-top: 80px;
       @include col(sm, 6, $grid-columns, $grid-gutter-width-sm);
+      margin-top: 80px;
 
       @include min-media($screen-sm) {
         margin-top: 70px;
@@ -106,10 +104,8 @@ $footer-nav-offset: -10px;
 
     &:first-child {
       margin-right: 65px;
-    }
 
-    @include min-media($screen-lg) {
-      &:first-child {
+      @include min-media($screen-lg) {
         margin-right: 95px;
         margin-left: $footer-nav-offset;
       }
@@ -117,12 +113,11 @@ $footer-nav-offset: -10px;
   }
 
   &__menu-item {
+
     &:not(:last-child) {
       margin-bottom: 38px;
-    }
 
-    @include min-media($screen-md) {
-      &:not(:last-child) {
+      @include min-media($screen-md) {
         margin-bottom: 31px;
       }
     }
@@ -154,12 +149,14 @@ $footer-nav-offset: -10px;
         color: $white;
       }
 
-      @include hover-before {
-        background-color: $secondary-color;
-      }
+      &::before {
+        @include hover {
+          background-color: $secondary-color;
+        }
 
-      @include active-before {
-        background-color: $secondary-color;
+        @include active {
+          background-color: $secondary-color;
+        }
       }
     }
   }
@@ -167,8 +164,8 @@ $footer-nav-offset: -10px;
   &__link {
     display: inline-block;
     font-weight: 700;
-    background-color: $secondary-color;
     color: $white;
+    background-color: $secondary-color;
 
     @include hover {
       background-color: lighten($secondary-color, 15%);
@@ -184,8 +181,8 @@ $footer-nav-offset: -10px;
 
       @include min-media($screen-md) {
         margin-bottom: 18px;
-        padding-left: 15px;
         padding-right: 15px;
+        padding-left: 15px;
       }
     }
 
@@ -198,7 +195,6 @@ $footer-nav-offset: -10px;
         display: inline-block;
       }
     }
-
   }
 
   &__contact {
@@ -227,15 +223,6 @@ $footer-nav-offset: -10px;
     text-align: center;
     color: $white;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: -10000px;
-      @include size(10000px, 100%);
-      background-color: $secondary-color;
-    }
-
     @include min-media($screen-md) {
       padding-right: 16px;
       padding-left: 40px;
@@ -247,24 +234,35 @@ $footer-nav-offset: -10px;
     @include min-media($screen-xl) {
       padding-left: 75px;
     }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -10000px;
+      width: 10000px;
+      height: 100%;
+      background-color: $secondary-color;
+    }
   }
 
   &__dev-link {
+    @include underline();
     position: relative;
-    display: inline-block;
     margin-left: 5px;
+    display: inline-block;
     font-weight: 700;
     line-height: 16px;
     color: $white;
 
-    @include underline();
+    &::before {
+      @include hover {
+        background-color: $main-color;
+      }
 
-    @include hover-before {
-      background-color: $main-color;
-    }
-
-    @include active-before {
-      background-color: $main-color;
+      @include active {
+        background-color: $main-color;
+      }
     }
   }
 
@@ -275,9 +273,9 @@ $footer-nav-offset: -10px;
 
     @include min-media($screen-md) {
       margin-left: 11px;
-      height: $footer-bottom-height;
       display: flex;
       align-items: center;
+      height: $footer-bottom-height;
       text-align: left;
       color: $black;
     }
@@ -287,12 +285,12 @@ $footer-nav-offset: -10px;
     display: none;
 
     @include min-media($screen-md) {
-      height: $footer-bottom-height;
       display: flex;
       align-items: center;
+      height: $footer-bottom-height;
       font-size: 10px;
       line-height: 14px;
-      color: #888888;
+      color: darken($gray, 35%);
     }
 
     @include min-media($screen-lg) {
@@ -304,6 +302,7 @@ $footer-nav-offset: -10px;
     display: none;
 
     @include min-media($screen-md) {
+      @include underline(-5px, $secondary-color);
       position: relative;
       margin-top: 22px;
       display: block;
@@ -311,14 +310,14 @@ $footer-nav-offset: -10px;
       line-height: 19px;
       color: $white;
 
-      @include underline(-5px, $secondary-color);
+      &::before {
+        @include hover {
+          background-color: $white;
+        }
 
-      @include hover-before {
-        background-color: $white;
-      }
-
-      @include active-before {
-        background-color: $white;
+        @include active {
+          background-color: $white;
+        }
       }
     }
   }

@@ -1,5 +1,6 @@
 .page-section {
   @include container();
+  position: relative;
   margin-top: 60px;
 
   &--main-video {
@@ -20,6 +21,14 @@
 
   &__wrap {
     @include row();
+
+    .page-section--bg & {
+      background-color: $gray;
+
+      @include min-media($screen-md) {
+        background-color: transparent;
+      }
+    }
   }
 
   &__content {
@@ -36,13 +45,18 @@
         padding-left: 0;
       }
     }
+
+    .page-section--bg & {
+      padding-top: 45px;
+      padding-bottom: 50px;
+    }
   }
 
   &__title {
-    margin-bottom: 34px;
+    margin-bottom: 37px;
     font-family: $secondary-font-family;
     font-size: 48px;
-    line-height: 62px;
+    line-height: 55px;
     color: $secondary-color;
 
     .page-section--no-xs-gutters & {

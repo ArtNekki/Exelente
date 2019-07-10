@@ -4,21 +4,6 @@ $slider-button-size--reviews: 48px;
 .slider {
   position: relative;
 
-  &--extra-block {
-    // display: flex;
-    // flex-direction: column;
-    //
-    // @include min-media($screen-md) {
-    //   flex-direction: row;
-    // }
-  }
-
-  &__container {
-    .slider--extra-block & {
-      // width: 100%;
-    }
-  }
-
   &__wrapper {
 
     .slider--countries & {
@@ -28,8 +13,10 @@ $slider-button-size--reviews: 48px;
     }
 
     .slider--programs & {
+      $space-for-shadow: 6px;
+
       @include min-media($screen-xl) {
-        padding-bottom: 6px;
+        padding-bottom: $space-for-shadow;
         justify-content: center;
       }
     }
@@ -41,9 +28,8 @@ $slider-button-size--reviews: 48px;
     font-size: 0;
 
     .slider--nav-out + & {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      // display: none;
+      // position: relative;
     }
 
     .slider--countries & {
@@ -53,21 +39,21 @@ $slider-button-size--reviews: 48px;
     }
 
     .slider--reviews & {
-      margin-top: 47px;
-      order: 2;
-
-      @include min-media($screen-md) {
-        position: absolute;
-        left: 0;
-        bottom: 50px;
-        margin-top: 0;
-      }
+      // margin-top: 47px;
+      // order: 2;
+      //
+      // @include min-media($screen-md) {
+      //   position: absolute;
+      //   left: 0;
+      //   bottom: 50px;
+      //   margin-top: 0;
+      // }
     }
 
     .slider--posts & {
-      margin-top: -20px;
-      z-index: 0;
-      text-align: right;
+      // margin-top: -20px;
+      // z-index: 0;
+      // text-align: right;
     }
 
     .main-reviews--opened & {
@@ -77,26 +63,31 @@ $slider-button-size--reviews: 48px;
 
   &__btn {
     margin-top: -$slider-button-size / 2;
-    @include size($slider-button-size);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-image: none;
+    width: $slider-button-size;
+    height: $slider-button-size;
     background-color: $secondary-color;
+    background-image: none;
     border: 2px solid $secondary-color;
+
+    & + & {
+      margin-left: 18px;
+    }
+
+    .slider--nav-out + .slider__nav & {
+      position: static;
+      z-index: 1;
+      top: unset;
+      margin-top: 0;
+      background-color: $white;
+    }
 
     .slider--countries & {
       @include min-media($screen-md) {
         display: none;
       }
-    }
-
-    .slider--nav-out & {
-      position: static;
-      top: unset;
-      margin-top: 0;
-      z-index: 1;
-      background-color: $white;
     }
 
     .slider--reviews & {
@@ -117,12 +108,13 @@ $slider-button-size--reviews: 48px;
       right: 20px;
       transform: rotateZ(180deg);
 
-      .slider--nav-out & {
+      .slider--nav-out + .slider__nav & {
         right: unset;
-        margin-left: 18px;
+        // margin-left: 18px;
       }
 
       .slider--reviews & {
+
         @include min-media($screen-md) {
           margin-left: 23px;
         }
@@ -130,51 +122,13 @@ $slider-button-size--reviews: 48px;
     }
 
     svg {
-      @include size(15px);
+      width: 15px;
+      height: 15px;
       fill: $white;
 
-      .slider--nav-out & {
+      .slider--nav-out + .slider__nav & {
         fill: $secondary-color;
       }
     }
-  }
-
-  &__extra-block {
-    // position: relative;
-    // margin-top: -40px;
-    // z-index: 10;
-    // order: 1;
-    // transition: transform 0.5s ease-in;
-    //
-    // @include min-media($screen-md) {
-    //   margin-top: 0;
-    //   margin-right: 42px;
-    //   width: $extra-block-width;
-    //   z-index: 0;
-    //   flex-shrink: 0;
-    //   transition: flex-grow 0.5s ease-in;
-    //   order: -1;
-    // }
-    //
-    // .slider--reviews-opened & {
-    //   position: absolute;
-    //   top: 100%;
-    //   right: 0;
-    //   left: 0;
-    //   bottom: 0;
-    //   margin-top: 0;
-    //   height: 100%;
-    //   transform: translate3d(0, -100%, 0);
-    //
-    //   @include min-media($screen-md) {
-    //     position: static;
-    //     margin-right: 0;
-    //     height: 600px;
-    //     padding-left: 20px;
-    //     flex-basis: calc(100% - 300px);
-    //     flex-grow: 1;
-    //     order: 1;
-    //   }
-    // }
   }
 }

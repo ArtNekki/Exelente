@@ -4,6 +4,7 @@ $extra-block-width: 260px;
   position: relative;
   display: flex;
   flex-direction: column;
+  display: none;
 
   @include min-media($screen-md) {
     flex-direction: row;

@@ -20,7 +20,7 @@ block content
 			+country-slide({ title: 'Австралия', imageName: 'australia', link: '#' })(class='swiper-slide')
 			+country-slide({ title: 'США', imageName: 'usa', link: '#' })(class='swiper-slide')
 			+country-slide({ title: 'Япония', imageName: 'japan', link: '#', mods: 'large, top' })(class='swiper-slide')
-	+page-section({ title: 'Как поступить без IELTS в лучший вуз США' })
+	+page-section({ title: 'Как поступить без IELTS в лучший вуз США', mods: 'main-video'})
 		+video({ id: 'main-video', mods: 'centered' })
 	+page-section({ title: 'Популярные программы' })
 		+slider({ id: 'programSlider', mods: 'programs', navPosition: 'out' })
@@ -38,7 +38,7 @@ block content
 				| и еще 19 стран
 	+page-section({ title: 'Отзывы' })
 		+main-reviews()
-	+page-section({ title: 'Ассоцияции и Партнеры' })
+	+page-section({ title: 'Ассоцияции и Партнеры', mods: 'partners' })
 		+slider({ id: 'partnerSlider', mods: 'partners', navPosition: 'in' })
 			.swiper-slide
 				+partners-group({ mods: 'partners' })

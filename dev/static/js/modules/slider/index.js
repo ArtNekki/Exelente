@@ -1,5 +1,5 @@
+import { ready } from '../../utils/utils';
 import Slider from './slider.js';
-import ready from '../../utils/documentReady';
 
 ready(function() {
   new Slider({ target: '#countrySlider', turnOffOnBreakPoint: '768px' });

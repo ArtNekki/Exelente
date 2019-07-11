@@ -1,4 +1,4 @@
-const MediaQuery = {
+export const MediaQuery = {
   XS: '320px',
   SM: '480px',
   MD: '768px',
@@ -7,7 +7,15 @@ const MediaQuery = {
   XXL: '1800px'
 }
 
-const truncate = function (elem, limit, after) {
+export const ready = function (fn) {
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+export const truncate = function (elem, limit, after) {
 
   if (!elem || !limit) return;
 
@@ -17,8 +25,3 @@ const truncate = function (elem, limit, after) {
   content = content.join('') + (after ? after : '');
   elem.textContent = content;
 };
-
-export default {
-  MediaQuery,
-  truncate
-}

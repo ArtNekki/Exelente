@@ -1,10 +1,7 @@
+import { ready } from '../../utils/utils';
 import Swiper from 'swiper';
 
-function formatFraction(number) {
-  return number < 10 ? '0 ' + number : number;
-}
-
-new Swiper('#mainSlider', {
+const settings = {
   slidesPerView: 1,
   navigation: {
     nextEl: '.swiper-button-next',
@@ -20,4 +17,12 @@ new Swiper('#mainSlider', {
     formatFractionCurrent: formatFraction,
     formatFractionTotal: formatFraction
   }
+};
+
+function formatFraction(number) {
+  return number < 10 ? '0 ' + number : number;
+}
+
+ready(function() {
+  new Swiper('#mainSlider', settings);
 });

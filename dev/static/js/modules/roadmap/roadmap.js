@@ -1,3 +1,5 @@
+import { MediaQuery } from '../../utils/utils';
+
 export default class Roadmap {
   constructor({ target }) {
     this._container = document.querySelector(target);
@@ -51,7 +53,7 @@ export default class Roadmap {
   }
 
   _scrollTo() {
-    const breakpoint = window.matchMedia(`(min-width: 768px`);
+    const breakpoint = window.matchMedia(`(min-width: ${MediaQuery.MD}`);
 
     if (breakpoint.matches) {
       return false;

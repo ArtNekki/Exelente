@@ -1,4 +1,4 @@
-import ready from '../../utils/documentReady';
+import { ready } from '../../utils/utils';
 import baron from 'baron';
 
 ready(function(){

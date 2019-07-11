@@ -1,4 +1,4 @@
-import ready from '../../utils/documentReady.js';
+import { ready } from '../../utils/utils';
 import Select from '../select/select';
 
 ready(function() {

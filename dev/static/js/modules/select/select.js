@@ -1,5 +1,3 @@
-import ready from '../../utils/documentReady'
-
 export default class Select {
     constructor(select) {
         this._select = select;

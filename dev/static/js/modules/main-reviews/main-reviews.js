@@ -1,6 +1,5 @@
+import { truncate } from '../../utils/utils';
 import Slider from '../slider/slider';
-import utils from '../../utils/utils';
-import ready from '../../utils/documentReady'
 import reviewsData from '../../utils/reviewData';
 
 const sliderSettings = {
@@ -13,7 +12,7 @@ const sliderSettings = {
   slideDuplicateActiveClass: 'main-reviews-slide--active',
 };
 
-class MainReviews {
+export default class MainReviews {
   constructor({ target }) {
     this._container = document.querySelector(target);
     this._init();
@@ -83,7 +82,7 @@ class MainReviews {
 
       description.classList.add('main-reviews__description--full');
       descriptionPreview.classList.add('main-reviews__description--truncated');
-      utils.truncate(descriptionPreview, textLimit, '...');
+      truncate(descriptionPreview, textLimit, '...');
 
       const showMoreTrigger = this._createShowMoreTrigger()
 
@@ -102,7 +101,3 @@ class MainReviews {
     return trigger;
   }
 }
-
-ready(function() {
-  const mainReviews = new MainReviews({ target: '#mainReviews' });
-});

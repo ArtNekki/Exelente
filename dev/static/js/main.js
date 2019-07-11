@@ -6,10 +6,9 @@ import mainSlider from './modules/main-slider/main-slider';
 import select from './modules/select/select';
 import programSelection from './modules/program-selection/program-selection';
 import baron from './modules/baron/baron';
-import slider from './modules/slider/slider';
+import sliders from './modules/slider/sliders';
 import mainReviews from './modules/main-reviews/main-reviews';
 import tabs from './modules/tabs/tabs';
-import countrySlide from './modules/country-slide/country-slide';
 import blogPost from './modules/blog-post/blog-post';
 import video from './modules/video/video';
 

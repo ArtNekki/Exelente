@@ -1,36 +1,48 @@
 const rename = require('gulp-rename');
 const plumber = require('gulp-plumber');
-const babel = require('rollup-plugin-babel');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
 const sourcemaps = require('gulp-sourcemaps');
-const rollup = require('gulp-better-rollup');
-const replace = require('rollup-plugin-replace');
-const terser =  require('rollup-plugin-terser').terser;
+const yargs =  require('yargs');
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
+const named = require('vinyl-named');
+const uglify = require('gulp-uglify');
+
+// Check for --production flag
+const PRODUCTION = !!(yargs.argv.production);
+
 const scriptsPATH = {
     "input": "./dev/static/js/main.js",
     "ouput": "./build/static/js/"
 };
 
+let webpackConfig = {
+  mode: (PRODUCTION ? 'production' : 'development'),
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ "@babel/preset-env" ],
+            compact: false
+          }
+        }
+      }
+    ]
+  },
+  devtool: !PRODUCTION && 'source-map'
+}
+
 module.exports = function () {
 
 $.gulp.task('scripts', function () {
   return $.gulp.src(scriptsPATH.input)
-    .pipe(plumber())
+    .pipe(named())
     .pipe(sourcemaps.init())
-    .pipe(rollup({
-      plugins: [
-        resolve({browser: true}),
-        commonjs(),
-        babel(),
-        terser(),
-        replace({
-          'process.env.NODE_ENV': JSON.stringify( 'production' )
-        })
-      ]
-    }, 'iife'))
-    .pipe(sourcemaps.write(''))
-    .pipe(rename('main.min.js'))
+    .pipe(webpackStream(webpackConfig, webpack))
+    // .pipe(uglify())
+    .pipe(sourcemaps.write())
     .pipe($.gulp.dest(scriptsPATH.ouput));
   });
 };

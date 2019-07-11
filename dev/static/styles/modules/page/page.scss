@@ -1,16 +1,14 @@
 .page {
 
+  &__inner {
+    height: 100%;
+  }
+
   &--mobile-menu-opened {
     overflow: hidden;
 
     body {
       position: fixed;
     }
-  }
-
-  &__inner {
-    // display: flex;
-    // flex-direction: column;
-    height: 100%;
   }
 }

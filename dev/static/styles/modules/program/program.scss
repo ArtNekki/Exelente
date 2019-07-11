@@ -5,6 +5,10 @@
   min-height: 483px;
   box-shadow: 4px 4px 4px rgba($main-color, 0.3);
 
+  @include min-media($screen-md) {
+    min-height: 500px;
+  }
+
   &:not(:last-child) {
     margin-right: 62px;
   }
@@ -26,6 +30,7 @@
     opacity: 1;
 
     @include min-media($screen-md) {
+      height: 500px;
 
       html:not(.touch) & {
         opacity: 0;
@@ -49,6 +54,7 @@
     background-image: linear-gradient(180deg, $main-color 0%, rgba($main-color, 0.1) 100%);
 
     @include min-media($screen-md) {
+      padding-bottom: 37px;
 
       html:not(.touch) & {
         background-color: $gray;
@@ -92,6 +98,7 @@
     color: $white;
 
     @include min-media($screen-md) {
+      padding-top: 0;
 
       html:not(.touch) & {
         color: $main-color;

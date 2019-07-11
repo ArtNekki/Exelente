@@ -1,7 +1,7 @@
 .video {
   position: relative;
   width: 840px;
-  height: 470px;
+  height: 480px;
 
   &--centered {
     margin-right: auto;
@@ -27,11 +27,14 @@
   }
 
   &__play-icon {
+    width: 160px;
+    height: 160px;
     fill: none;
     stroke: $white;
+    stroke-width: 3px;
 
     @include hover(".video__play") {
-      stroke-width: 2px;
+      stroke-width: 4px;
     }
   }
 }

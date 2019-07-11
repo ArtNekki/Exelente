@@ -1,6 +1,6 @@
 .slider {
   $slider-button-size: 34px;
-  $slider-button-size--reviews: 48px;
+  $slider-button-size--large: 48px;
 
   position: relative;
 
@@ -35,21 +35,26 @@
       @include range-media($screen-xs, $screen-sm) {
         margin-left: $grid-gutter-width / 2;
       }
+
+      @include min-media($screen-md) {
+        display: none;
+      }
+    }
+
+    .slider--programs + & {
+      @include min-media($screen-lg) {
+        display: none;
+      }
     }
 
     .slider--reviews + & {
       position: absolute;
       left: 0;
       bottom: -45px;
-      // margin-top: 47px;
-      // order: 2;
-      //
-      // @include min-media($screen-md) {
-      //   position: absolute;
-      //   left: 0;
-      //   bottom: 50px;
-      //   margin-top: 0;
-      // }
+
+      @include min-media($screen-md) {
+        bottom: 50px;
+      }
     }
 
     .slider--blog-posts + & {
@@ -57,9 +62,10 @@
       z-index: 10;
       right: 0;
       bottom: 0;
-      // margin-top: -20px;
-      // z-index: 0;
-      // text-align: right;
+
+      @include min-media($screen-lg) {
+        display: none;
+      }
     }
 
     .main-reviews--opened & {
@@ -74,20 +80,15 @@
     justify-content: center;
     width: $slider-button-size;
     height: $slider-button-size;
-    background-color: $secondary-color;
     background-image: none;
     border: 2px solid $secondary-color;
 
     @include hover {
-      opacity: 0.8;
+      background-color: $secondary-color;
     }
 
     @include active {
-      opacity: 0.8;
-    }
-
-    & + & {
-      margin-left: 18px;
+      background-color: $secondary-color;
     }
 
     .slider--nav-out + .slider__nav & {
@@ -98,20 +99,22 @@
       background-color: transparent;
     }
 
-    .slider--countries & {
+    .slider--large-btn + .slider__nav & {
       @include min-media($screen-md) {
-        display: none;
+        width: $slider-button-size--large;
+        height: $slider-button-size--large;
       }
     }
 
-    .slider--reviews & {
+    .slider--large-btn & {
       @include min-media($screen-md) {
-        @include size($slider-button-size--reviews);
+        width: $slider-button-size--large;
+        height: $slider-button-size--large;
       }
     }
 
     &--prev {
-      left: 20px;
+      left: 0;
 
       .slider--nav-out & {
         left: unset;
@@ -119,30 +122,34 @@
     }
 
     &--next {
-      right: 20px;
+      right: 0;
       transform: rotateZ(180deg);
 
       .slider--nav-out + .slider__nav & {
         right: unset;
-        // margin-left: 18px;
+        margin-left: 18px;
       }
 
-      .slider--reviews & {
+      .slider--reviews + .slider__nav & {
 
         @include min-media($screen-md) {
           margin-left: 23px;
         }
       }
     }
+  }
 
-    svg {
-      width: 15px;
-      height: 15px;
+  &__btn-arrow {
+    width: 15px;
+    height: 15px;
+    fill: $secondary-color;
+
+    @include hover(".slider__btn") {
       fill: $white;
+    }
 
-      .slider--nav-out + .slider__nav & {
-        fill: $secondary-color;
-      }
+    @include active(".slider__btn") {
+      fill: $white;
     }
   }
 }

@@ -1,7 +1,7 @@
 mixin main-reviews()
   .main-reviews#mainReviews
     .main-reviews__aside
-    +slider({ id: 'reviewsSlider', mods: 'reviews', navPosition: 'out' })
+    +slider({ id: 'reviewsSlider', mods: 'reviews, large-btn', navPosition: 'out' })
       +main-reviews-slide({ id: '24151', name: 'Дарья', imageNameXs: 'dasha-xs', imageNameSm: 'dasha-sm', imageNameMd: 'dasha-md', mods: 'mods' })(class='swiper-slide')
       +main-reviews-slide({ id: '26729', name: 'Олег', imageNameXs: 'oleg-xs', imageNameSm: 'oleg-sm', imageNameMd: 'oleg-md',  mods: 'mods' })(class='swiper-slide')
       +main-reviews-slide({ id: '12515', name: 'Маша', imageNameXs: 'masha-xs', imageNameSm: 'masha-sm', imageNameMd: 'masha-md',  mods: 'mods' })(class='swiper-slide')

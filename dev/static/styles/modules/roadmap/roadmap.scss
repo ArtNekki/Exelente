@@ -60,13 +60,56 @@
 
   &__image {
     position: absolute;
+    z-index: -1;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 
     @include min-media($screen-xl) {
       background-size: inherit;
+    }
+
+    &--consultancy {
+      background-image: url("../images/content/roadmap/consultancy.jpg");
+
+      .roadmap--step-consultancy & {
+        opacity: 1;
+      }
+    }
+
+    &--payment {
+      background-image: url("../images/content/roadmap/consultancy.jpg");
+
+      .roadmap--step-payment & {
+        opacity: 1;
+      }
+    }
+
+    &--selection {
+      background-image: url("../images/content/roadmap/consultancy.jpg");
+
+      .roadmap--step-selection & {
+        opacity: 1;
+      }
+    }
+
+    &--docs {
+      background-image: url("../images/content/roadmap/consultancy.jpg");
+
+      .roadmap--step-docs & {
+        opacity: 1;
+      }
+    }
+
+    &--supervision {
+      background-image: url("../images/content/roadmap/consultancy.jpg");
+
+      .roadmap--step-supervision & {
+        opacity: 1;
+      }
     }
   }
 }

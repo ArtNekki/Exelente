@@ -115,10 +115,8 @@
         margin-right: 0;
       }
 
-      &:hover {
-        .main-nav__list--dropdown {
-          display: block;
-        }
+      &:hover .main-nav__list--dropdown {
+        display: block;
       }
     }
 
@@ -156,7 +154,6 @@
 
   &__link {
     @include underline(3px, $secondary-color, 1px);
-
     position: relative;
     margin-top: 69px;
     margin-bottom: 15px;
@@ -213,12 +210,14 @@
       text-transform: none;
       color: $black;
 
-      @include hover-before() {
-        display: block;
-      }
+      &::before {
+        @include hover {
+          display: block;
+        }
 
-      @include active-before() {
-        display: block;
+        @include active {
+          display: block;
+        }
       }
 
       @include min-media($screen-sm) {

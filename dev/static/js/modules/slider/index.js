@@ -2,9 +2,9 @@ import { ready, MediaQuery } from '../../utils/utils';
 import Slider from './slider.js';
 
 ready(function() {
-  new Slider({ target: '#countrySlider', turnOffOnBreakPoint: '768px' });
+  new Slider({ target: '#countrySlider', turnOffOnBreakPoint: MediaQuery.MD });
 
-  new Slider({ target: '#programSlider', turnOffOnBreakPoint: '1280px', settings: {
+  new Slider({ target: '#programSlider', turnOffOnBreakPoint: MediaQuery.XL, settings: {
     slidesPerView: 1,
     spaceBetween: 20,
     breakpointsInverse: true,

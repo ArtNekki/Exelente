@@ -6,7 +6,7 @@ export default class Slider {
     this._settings = settings;
 
     if (turnOffOnBreakPoint) {
-      this._breakpoint = window.matchMedia(`(min-width: ${turnOffOnBreakPoint})`);
+      this._breakpoint = window.matchMedia(`(min-width: ${turnOffOnBreakPoint}px)`);
       this._breakpoint.addListener(this._checkBreakpoint.bind(this));
     }
 

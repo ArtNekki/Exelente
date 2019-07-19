@@ -1,6 +1,18 @@
 .blog-post {
   color: $black;
 
+  @include min-media($screen-lg) {
+    margin-right: 42px;
+    flex-grow: 1;
+    width: 300px;
+  }
+
+  &:last-child {
+    @include min-media($screen-lg) {
+      margin-right: 0;
+    }
+  }
+
   &__image {
     display: block;
     width: 100%;

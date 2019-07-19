@@ -1,15 +1,26 @@
-import { truncate } from '../../utils/utils';
+import { truncate, MediaQuery } from '../../utils/utils';
 import Slider from '../slider/slider';
 import reviewsData from '../../utils/reviewData';
 
 const sliderSettings = {
   init: false,
   slidesPerView: 'auto',
+  spaceBetween: 0,
   slideToClickedSlide: true,
+  breakpointsInverse: true,
   loop: true,
-  // spaceBetween: 28,
   slideActiveClass: 'main-reviews-slide--active',
   slideDuplicateActiveClass: 'main-reviews-slide--active',
+  breakpoints: {
+    [MediaQuery.MD]: {
+      slidesPerView: 'auto',
+      spaceBetween: 14
+    },
+    [MediaQuery.XL]: {
+      slidesPerView: 'auto',
+      spaceBetween: 28
+    }
+  }
 };
 
 export default class MainReviews {

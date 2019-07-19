@@ -1,10 +1,10 @@
 export const MediaQuery = {
-  XS: '320px',
-  SM: '480px',
-  MD: '768px',
-  LG: '992px',
-  XL: '1280px',
-  XXL: '1800px'
+  XS: 320,
+  SM: 480,
+  MD: 768,
+  LG: 992,
+  XL: 1280,
+  XXL: 1800
 }
 
 export const ready = function (fn) {

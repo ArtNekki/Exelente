@@ -1,4 +1,5 @@
 import { MediaQuery } from '../../utils/utils';
+import SmoothScroll from 'smooth-scroll';
 
 export default class Roadmap {
   constructor({ target }) {
@@ -59,7 +60,6 @@ export default class Roadmap {
       return false;
     }
 
-    console.log('scroll');
   }
 
   onChange() {

@@ -16,10 +16,6 @@
     @include col(lg, 6, $grid-columns, $grid-gutter-width-lg);
     @include col(xl, 6, $grid-columns, $grid-gutter-width-xl);
 
-    @include min-media($screen-md) {
-      padding-bottom: 25px;
-    }
-
     @include min-media($screen-xl) {
       padding-right: 0;
     }

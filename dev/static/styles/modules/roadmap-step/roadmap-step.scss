@@ -12,6 +12,10 @@
     display: none;
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include min-media($screen-xl) {
     margin-bottom: 14px;
   }

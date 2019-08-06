@@ -41,6 +41,7 @@
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^6.0.0",
     "postcss-svg": "^3.0.0",
+    "smooth-scroll": "^16.1.0",
     "stylelint-order": "^3.0.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "swiper": "^4.5.0",

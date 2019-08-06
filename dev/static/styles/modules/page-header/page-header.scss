@@ -202,6 +202,14 @@
       display: flex;
       justify-content: flex-end;
     }
+
+    .page-header--pick-place-opened & {
+      display: none;
+
+      @include min-media($screen-md) {
+        display: block;
+      }
+    }
   }
 
   &__col--contacts {
